@@ -1,2 +1,2 @@
 # sparcq
-Projeto de TCC da ETEC de registro
+Course Conclusion Work for the Systems Analysis & Development course at the State Technical School of Registro
