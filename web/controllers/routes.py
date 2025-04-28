@@ -7,4 +7,9 @@ def init_app(app):
     def home():
 
         return render_template('index.html',)
+    
+    @app.route('/loginPage')
+    def loginPage():
+
+        return render_template('login.html',)
        

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<style>
+    body{
+        display: flex;
+        flex-direction: row;
+    }
+    form{
+        width: 50vw;
+    }
+</style>
+<body>
+    <form class="container-form" action="" method="post">
+        <h2 style="text-align: center;">FAZER LOGIN</h2>
+        <div class="input-email" style="text-align: center;">
+            <label for="email">E-mail:</label>
+            <input id="email" name="email" type="email" required placeholder="Digite seu e-mail">
+        </div>
+        <br>
+        <br>
+        <div class="input-senha" style="text-align: center;">
+            <label for="senha">Senha:</label>
+            <input id="senha" name="senha" type="password" required placeholder="Digite sua senha">
+            <br>
+            <a href="#">Esqueceu sua senha?</a>
+        </div>
+        <br>
+        <div style="text-align: center;">
+            <button type="submit" name="action" value="login">Login</button>
+            <button type="submit" name="action" value="register">Cadastrar</button>
+        </div>
+    </form>
+    <div class="container-questions">
+        <ul>
+            <li>Lorem ipsum dolor sit amet.</li>
+            <li>Lorem ipsum dolor sit amet consectetur adipisicing.</li>
+        </ul>
+    </div>
+</body>
+</html>
