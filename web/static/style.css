@@ -1,0 +1,95 @@
+/* project fonts import */
+/* Todas as fonts do projeto estão importadas aqui */
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=REM:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root{
+    /* project colors */
+    --gray-brackground: #14151B;
+    /* --green-background-gradient: #1E2C28;
+    --gray-background-gradient: #14151B; */
+    --blue-widget-background: #1E2530;
+    --black-nav-background: #000;
+    --white-text-hover: #cdd4da;
+    /* project fonts */
+    --menu-font: "Plus Jakarta Sans", sans-serif;
+    --nav-and-login-font: "REM", sans-serif;
+    --widgets-font: "Instrument Sans", sans-serif;
+    --secondary-font: "Montserrat", sans-serif;
+}
+
+/* Global style */
+*{
+    margin: 0;
+    padding: 0;
+    color: #fff;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--gray-brackground);
+}
+
+/* Todas as telas criadas devem ter um comentario em cima escrito o nome da tela e um style após */
+/* BASE HTML STYLE */
+nav{
+    display: flex;
+    background-color: var(--black-nav-background);
+    height: 6vh;
+    align-items: center;
+    padding: 0 0 0 1.25vw;
+}
+.tittle-nav{
+    font-family: var(--nav-and-login-font);
+    font-weight: 300;
+    text-decoration: underline;
+    font-size: 2rem;
+}
+.button-navbar{
+    all: unset;
+    cursor: pointer;
+    font-family: var(--nav-and-login-font);
+    font-weight: 200;
+    font-size: 1.3rem;
+    padding: 0 0 0 2vw;
+    transition: color 200ms , transform 200ms, text-decoration ;
+}
+.button-navbar:hover{
+    color: var(--white-text-hover);
+    transform: scale(1.05);
+}
+
+/* MENU STYLE */
+.background-menu{
+    flex: 1;
+    min-height: calc(100vh - 6vh); 
+    overflow: auto;
+    /* background-image: linear-gradient(
+        to top right,         
+        #1E2C28,
+        #1C2725,
+        #192021,
+        #161A1E,
+        #14151B
+    ); */
+}
+.container-tittle{
+    align-items: center;
+    text-align: center;
+    padding: 7vh 0 7vh 0;
+}
+.tittle-menu{
+    font-size: 2.25rem;
+    font-family: var(--menu-font);
+    font-weight: 500;
+}
+.container-buttons{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem; 
+    justify-content: center; 
+}
+.button-menu{
+    width: 35vw;
+    height: 12vh;
+    background-color: #ffffff21;
+}
