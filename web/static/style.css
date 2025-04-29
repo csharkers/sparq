@@ -26,7 +26,9 @@
 body{
     display: flex;
     flex-direction: column;
-    background-color: var(--gray-brackground);
+    /* background-color: var(--gray-brackground); */
+    margin: 0;
+  
 }
 
 /* Todas as telas criadas devem ter um comentario em cima escrito o nome da tela e um style após */
@@ -63,14 +65,16 @@ nav{
     flex: 1;
     min-height: calc(100vh - 6vh); 
     overflow: auto;
-    /* background-image: linear-gradient(
+    /* background: #14151B url("data:image/svg+xml,%3Csvg width='1280' height='832' viewBox='0 0 1280 832' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1280' height='832' fill='%2314151B'/%3E%3Crect width='1280' height='832' fill='url(%23paint0_linear_257_320)'/%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear_257_320' x1='640' y1='1.74229e-05' x2='260' y2='742.5' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%2314151B'/%3E%3Cstop offset='0.233984' stop-color='%23161A1E'/%3E%3Cstop offset='0.480586' stop-color='%23192021'/%3E%3Cstop offset='0.762467' stop-color='%231C2725'/%3E%3Cstop offset='0.995929' stop-color='%231E2C28'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E") no-repeat center center fixed;
+    background-size: cover; */
+    background-image: linear-gradient(
         to top right,         
         #1E2C28,
         #1C2725,
         #192021,
         #161A1E,
         #14151B
-    ); */
+    );
 }
 .container-tittle{
     align-items: center;
@@ -87,9 +91,32 @@ nav{
     flex-wrap: wrap;
     gap: 1rem; 
     justify-content: center; 
+    padding: 0 20vw 0 20vw;
 }
 .button-menu{
-    width: 35vw;
-    height: 12vh;
+    display: flex;
+    flex-direction: column;
+    width: 17vw;
+    height: 23vh;
     background-color: #ffffff21;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 0.5px solid #ffffff7c;
+    border-radius: 1vw;
+    margin: 0.2vw;
+    transition: 250ms;
+}
+.button-menu:hover{
+    background-color: #ffffff4b;
+    transform: scale(0.98);
+}
+.text-button-menu{
+    font-family: var(--menu-font);
+    font-weight: 400;
+}
+.icon-menu-button{
+    font-size: 2vw;
+    margin-bottom: 1.5vh;
 }
