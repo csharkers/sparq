@@ -1,11 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPARCQ</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <!-- Import dos icones -->
+    <script src="https://kit.fontawesome.com/6d56094b7a.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
- 
+    <nav>
+        <h1 class="tittle-nav">SPARCQ</h1>
+        <a href="/loginPage" class="button-navbar">Login</a>
+        <a href="/" class="button-navbar">About</a>
+        <a href="/" class="button-navbar">Services</a>
+    </nav>
+    
+    {% block content %}
+    <!-- Aqui irá o conteúdo das outras páginas -->
+    {% endblock content%}
+
+    <footer>
+
+    </footer>
 </body>
+
 </html>
