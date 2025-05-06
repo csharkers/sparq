@@ -1,15 +1,12 @@
 /* project fonts import */
-/* Todas as fonts do projeto estão importadas aqui */
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=REM:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-    /* project colors */
-    --gray-brackground: #14151B;
+    --gray-background: #14151B;
     --green-background: #49895C;
     --blue-widget-background: #1E2530;
     --black-nav-background: #000;
     --white-text-hover: #cdd4da;
-    /* project fonts */
     --menu-font: "Plus Jakarta Sans", sans-serif;
     --nav-and-login-font: "REM", sans-serif;
     --widgets-font: "Instrument Sans", sans-serif;
@@ -24,10 +21,9 @@
 }
 
 body {
-    background-color: var(--gray-brackground);
+    background-color: var(--gray-background);
 }
 
-/* Todas as telas criadas devem ter um comentario em cima escrito o nome da tela e um style após */
 /* BASE HTML STYLE */
 nav {
     display: flex;
@@ -37,6 +33,7 @@ nav {
     padding: 0 0 0 1.25vw;
 }
 
+/* MANTIDAS FIXAS */
 .tittle-nav {
     font-family: var(--nav-and-login-font);
     font-weight: 300;
@@ -61,23 +58,37 @@ nav {
 
 /* Elementos Tela Login */
 .background-login {
+    font-family: var(--nav-and-login-font);
     display: flex;
-    margin: 1.25vw;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 6vh);
+    padding: 2vw;
+    box-sizing: border-box;
+    background-image: linear-gradient(
+        to top right,
+        #1E2C28,
+        #1C2725,
+        #192021,
+        #161A1E,
+        #141518
+    );
+    overflow: auto;
 }
 
-.background-login>div {
+.background-login > div {
     padding: 5vw;
 }
 
 .white-button,
 .black-button {
+    width: fit-content;
     font-family: "Plus Jakarta Sans";
+    font-size: clamp(14px, 1.5vw, 18px);
     display: inline-block;
-    padding: 1vw;
-    border-radius: 4px;
-    font-size: 14px;
+    padding: 0.4vw;
+    border-radius: 10px;
     font-weight: 600;
-    text-align: center;
     text-decoration: none;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -85,21 +96,18 @@ nav {
     box-sizing: border-box;
 }
 
-/* Estilo do botão branco */
 .white-button {
     background-color: #ffffff;
     color: #000000;
     border-color: #000000;
 }
 
-/* Estilo do botão preto */
 .black-button {
     background-color: #000000;
     color: #ffffff;
     border-color: #ffffff;
 }
 
-/* Efeito hover invertido */
 .white-button:hover {
     background-color: #000000;
     color: #ffffff;
@@ -111,21 +119,66 @@ nav {
 }
 
 .form-input {
-    width: 25vw; /* Largura do input */
-    padding: 1vw; /* Espaçamento interno */
-    border: 1px solid #ccc; /* Borda */
-    border-radius: 8px; /* Cantos arredondados */
-    background-color: #333; /* Fundo do input */
-    color: #999; /* Cor do texto */
-    font-size: 16px; /* Tamanho da fonte */
-    outline: none; /* Remove o contorno padrão do foco */
-    transition: border 0.3s; /* Transição suave para a borda */
+    width: 100%;
+    padding: 0.6vw 1.5vw;
+    margin-bottom: 0.6vw;
+    border: 1px solid #fff;
+    border-left: 10px solid #fff;
+    border-radius: 8px;
+    background-color: #333;
+    color: #999;
+    font-size: clamp(14px, 1.6vw, 18px);
+    box-sizing: border-box;
 }
 
 .form-input::placeholder {
-    color: #999; /* Cor do placeholder */
+    color: #999;
 }
 
 .form-input:focus {
-    border: 1px solid #fff; /* Borda branca no foco */
+    border: 1px solid #fff;
+}
+
+.container-form {
+    width: 30vw;
+    max-width: 550px;
+    background-color: var(--gray-background);
+    border: 1px solid #ffffff;
+    border-radius: 20px;
+    padding: 2.5vw;
+    box-sizing: border-box;
+}
+
+.container-form h1 {
+    padding: 0.5vw 0vw 5vw 0vw;
+    font-size: clamp(22px, 3.5vw, 36px);
+}
+
+.button-group {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+}
+
+
+.button-group .white-button,
+.button-group .black-button {
+    flex: 1;
+    max-width: 150px;
+}
+
+.forgot-password {
+    display: block;
+    font-style: italic;
+    font-size: clamp(12px, 1.3vw, 14px);
+    text-decoration: none;
+    text-align: right;
+    margin-left: auto;
+}
+
+.container-questions li {
+    list-style: none;
+    padding: 1vw;
+    font-size: clamp(14px, 1.8vw, 16px);
+    font-weight: lighter;
 }
