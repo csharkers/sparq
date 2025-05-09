@@ -94,6 +94,7 @@ nav {
     transition: all 0.3s ease;
     border: 1px solid;
     box-sizing: border-box;
+    margin-top: 1vw;
 }
 
 .white-button {
@@ -121,7 +122,7 @@ nav {
 .form-input {
     width: 100%;
     padding: 0.6vw 1.5vw;
-    margin-bottom: 0.6vw;
+    margin-bottom: 1vw;
     border: 1px solid #fff;
     border-left: 10px solid #fff;
     border-radius: 8px;
@@ -150,7 +151,7 @@ nav {
 }
 
 .container-form h1 {
-    padding: 0.5vw 0vw 5vw 0vw;
+    padding: 0.5vw 0vw 3vw 0vw;
     font-size: clamp(22px, 3.5vw, 36px);
 }
 
@@ -178,7 +179,7 @@ nav {
 
 .container-questions li {
     list-style: none;
-    padding: 1vw;
+    padding: 2vw;
     font-size: clamp(14px, 1.8vw, 16px);
     font-weight: lighter;
 }
