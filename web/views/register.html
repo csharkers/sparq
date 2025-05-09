@@ -1,0 +1,78 @@
+{% extends 'base.html' %} {% block content %}
+<main class="background-login">
+  <form class="container-form" action="" method="post">
+    <h1>REGISTRAR-SE</h1>
+
+    <div class="input-name">
+      <label for="name">Nome:</label>
+      <input
+        class="form-input"
+        id="name"
+        name="name"
+        type="text"
+        required
+        placeholder="Lorem da Silva Sitamet"
+      />
+    </div>
+    <div class="input-email">
+      <label for="email">E-mail:</label>
+      <input
+        class="form-input"
+        id="email"
+        name="email"
+        type="email"
+        required
+        placeholder="Exemplo@email.com"
+      />
+    </div>
+    <div class="input-cpf">
+        <label for="cpf">CPF:</label>
+        <input
+        class="form-input"
+        id="cpf"
+        name="cpf"
+        type="text"
+        required
+        placeholder="000.000.000-00"
+        maxlength="11"
+        />
+    </div>
+    
+    <div class="input-parque">
+        <label for="parque">Parque:</label>
+        <select class="form-input" id="parque" name="parque" required>
+            <option value="" disabled selected hidden>Selecione seu Parque</option>
+            <!-- Trocar Pelas Informações da Tabela Parque -->
+            <option value="1">Parque 1</option>
+            <option value="2">Parque 2</option>
+        </select>
+    </div>
+    <div class="input-password">
+      <label for="password">Senha:</label>
+      <input
+        class="form-input"
+        id="password"
+        name="password"
+        type="password"
+        required
+        placeholder="••••••••••••••"
+      />
+    </div>
+    
+    <div class="button-group" style="text-align: center; margin-top: 1.5rem">
+        <button class="white-button" type="submit">Register</button>
+        <a class="black-button" href="/loginPage">Login</a>
+    </div>
+</form>
+
+  <div class="container-questions">
+    <h2>Dúvidas Frequentes:</h2>
+    <ul>
+      <li>Lorem ipsum dolor sit amet?</li>
+      <li>Lorem ipsum dolor sit amet consectetur adipisicing?</li>
+      <li>Lorem ipsum dolor sit amet consectetur adipisicing?</li>
+      <li>Lorem ipsum dolor sit amet consectetur adipisicing?</li>
+    </ul>
+  </div>
+</main>
+{% endblock content %}
