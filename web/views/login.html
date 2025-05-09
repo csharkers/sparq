@@ -1,0 +1,45 @@
+{% extends 'base.html' %} {% block content %}
+<main class="background-login">
+  <form class="container-form" action="" method="post">
+    <h1>FAZER LOGIN</h1>
+    <div class="input-email" style="text-align: center">
+      <input
+        class="form-input"
+        id="email"
+        name="email"
+        type="email"
+        required
+        placeholder="Exemplo@email.com"
+      />
+    </div>
+    <br />
+    <br />
+    <div class="input-senha" style="text-align: center">
+      <input
+        class="form-input"
+        id="senha"
+        name="senha"
+        type="password"
+        required
+        placeholder="••••••••••••••"
+      />
+      <br />
+      <a class="forgot-password" href="#">Esqueceu sua senha?</a>
+    </div>
+    <br />
+    <div class="button-group" style="text-align: center">
+      <button class="white-button" type="submit">Login</button>
+      <a class="black-button" href="#">Register</a>
+    </div>
+  </form>
+  <div class="container-questions">
+    <h2>Dúvidas Frequentes:</h4>
+    <ul>
+      <li>Lorem ipsum dolor sit amet?</li>
+      <li>Lorem ipsum dolor sit amet consectetur adipisicing?</li>
+      <li>Lorem ipsum dolor sit amet consectetur adipisicing?</li>
+      <li>Lorem ipsum dolor sit amet consectetur adipisicing?</li>
+    </ul>
+  </div>
+</main>
+{% endblock content %}

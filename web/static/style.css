@@ -1,16 +1,12 @@
 /* project fonts import */
-/* Todas as fonts do projeto estão importadas aqui */
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=REM:ital,wght@0,100..900;1,100..900&display=swap');
 
-:root{
-    /* project colors */
-    --gray-brackground: #14151B;
-    /* --green-background-gradient: #1E2C28;
-    --gray-background-gradient: #14151B; */
+:root {
+    --gray-background: #14151B;
+    --green-background: #49895C;
     --blue-widget-background: #1E2530;
     --black-nav-background: #000;
     --white-text-hover: #cdd4da;
-    /* project fonts */
     --menu-font: "Plus Jakarta Sans", sans-serif;
     --nav-and-login-font: "REM", sans-serif;
     --widgets-font: "Instrument Sans", sans-serif;
@@ -18,44 +14,48 @@
 }
 
 /* Global style */
-*{
+* {
     margin: 0;
     padding: 0;
     color: #fff;
 }
-body{
+
+body {
     display: flex;
     flex-direction: column;
-    background-color: var(--gray-brackground);
+    background-color: var(--gray-background);
     margin: 0;
   
 }
 
-/* Todas as telas criadas devem ter um comentario em cima escrito o nome da tela e um style após */
 /* BASE HTML STYLE */
-nav{
+nav {
     display: flex;
     background-color: var(--black-nav-background);
     height: 6vh;
     align-items: center;
     padding: 0 0 0 1.25vw;
 }
-.tittle-nav{
+
+/* MANTIDAS FIXAS */
+.tittle-nav {
     font-family: var(--nav-and-login-font);
     font-weight: 300;
     text-decoration: underline;
     font-size: 2rem;
 }
-.button-navbar{
+
+.button-navbar {
     all: unset;
     cursor: pointer;
     font-family: var(--nav-and-login-font);
     font-weight: 200;
     font-size: 1.3rem;
     padding: 0 0 0 2vw;
-    transition: color 200ms , transform 200ms, text-decoration ;
+    transition: color 200ms, transform 200ms, text-decoration;
 }
-.button-navbar:hover{
+
+.button-navbar:hover {
     color: var(--white-text-hover);
 }
 
@@ -118,4 +118,132 @@ nav{
 .icon-menu-button{
     font-size: 2vw;
     margin-bottom: 1.5vh;
+}
+
+/* Elementos Tela Login */
+.background-login {
+    font-family: var(--nav-and-login-font);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 6vh);
+    padding: 2vw;
+    box-sizing: border-box;
+    background-image: linear-gradient(
+        to top right,
+        #1E2C28,
+        #1C2725,
+        #192021,
+        #161A1E,
+        #141518
+    );
+    overflow: auto;
+}
+
+.background-login > div {
+    padding: 5vw;
+}
+
+.white-button,
+.black-button {
+    width: fit-content;
+    font-family: "Plus Jakarta Sans";
+    font-size: clamp(14px, 1.5vw, 18px);
+    display: inline-block;
+    padding: 0.4vw;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid;
+    box-sizing: border-box;
+    margin-top: 1vw;
+}
+
+.white-button {
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #000000;
+}
+
+.black-button {
+    background-color: #000000;
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+.white-button:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.black-button:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.6vw 1.5vw;
+    margin-bottom: 1vw;
+    border: 1px solid #fff;
+    border-left: 10px solid #fff;
+    border-radius: 8px;
+    background-color: #333;
+    color: #999;
+    font-size: clamp(14px, 1.6vw, 18px);
+    box-sizing: border-box;
+}
+
+.form-input::placeholder {
+    color: #999;
+}
+
+.form-input:focus {
+    border: 1px solid #fff;
+}
+
+.container-form {
+    width: 30vw;
+    max-width: 550px;
+    background-color: var(--gray-background);
+    border: 1px solid #ffffff;
+    border-radius: 20px;
+    padding: 2.5vw;
+    box-sizing: border-box;
+}
+
+.container-form h1 {
+    padding: 0.5vw 0vw 3vw 0vw;
+    font-size: clamp(22px, 3.5vw, 36px);
+}
+
+.button-group {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+}
+
+
+.button-group .white-button,
+.button-group .black-button {
+    flex: 1;
+    max-width: 150px;
+}
+
+.forgot-password {
+    display: block;
+    font-style: italic;
+    font-size: clamp(12px, 1.3vw, 14px);
+    text-decoration: none;
+    text-align: right;
+    margin-left: auto;
+}
+
+.container-questions li {
+    list-style: none;
+    padding: 2vw;
+    font-size: clamp(14px, 1.8vw, 16px);
+    font-weight: lighter;
 }
