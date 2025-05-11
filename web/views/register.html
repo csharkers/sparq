@@ -1,69 +1,58 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %}
+{% block content %}
 <main class="background-login">
-  <form class="container-form" action="" method="post">
+  <form id="registerForm" class="container-form" action="" method="post">
     <h1>REGISTRAR-SE</h1>
 
     <div class="input-name">
       <label for="name">Nome:</label>
-      <input
-        class="form-input"
-        id="name"
-        name="name"
-        type="text"
-        required
-        placeholder="Lorem da Silva Sitamet"
-      />
+      <input class="form-input" id="name" name="name" type="text" placeholder="Lorem da Silva Sitamet" />
     </div>
     <div class="input-email">
       <label for="email">E-mail:</label>
-      <input
-        class="form-input"
-        id="email"
-        name="email"
-        type="email"
-        required
-        placeholder="Exemplo@email.com"
-      />
+      <input class="form-input" id="email" name="email" type="email" placeholder="Exemplo@email.com" />
     </div>
     <div class="input-cpf">
-        <label for="cpf">CPF:</label>
-        <input
-        class="form-input"
-        id="cpf"
-        name="cpf"
-        type="text"
-        required
-        placeholder="000.000.000-00"
-        maxlength="11"
-        />
+      <label for="cpf">CPF:</label>
+      <input class="form-input" id="cpf" name="cpf" type="text" placeholder="000.000.000-00" maxlength="11" />
     </div>
-    
+
     <div class="input-parque">
-        <label for="parque">Parque:</label>
-        <select class="form-input" id="parque" name="parque" required>
-            <option value="" disabled selected hidden>Selecione seu Parque</option>
-            <!-- Trocar Pelas Informações da Tabela Parque -->
-            <option value="1">Parque 1</option>
-            <option value="2">Parque 2</option>
-        </select>
+      <label for="parque">Parque:</label>
+      <select class="form-input" id="parque" name="parque">
+        <option value="" disabled selected hidden>Selecione seu Parque</option>
+        <option value="1">Parque 1</option>
+        <option value="2">Parque 2</option>
+      </select>
     </div>
     <div class="input-password">
       <label for="password">Senha:</label>
-      <input
-        class="form-input"
-        id="password"
-        name="password"
-        type="password"
-        required
-        placeholder="••••••••••••••"
-      />
+      <input class="form-input" id="password" name="password" type="password" placeholder="••••••••••••••" />
     </div>
-    
+
     <div class="button-group" style="text-align: center; margin-top: 1.5rem">
-        <button class="white-button" type="submit">Register</button>
-        <a class="black-button" href="/loginPage">Login</a>
+      <button id="btn-register" class="white-button" type="submit">Register</button>
+      <a id="btn-login" class="black-button" href="/loginPage">Login</a>
     </div>
-</form>
+  </form>
+
+  <!-- Popup de upload estilizado -->
+  <div id="popupOverlay" class="popup-overlay">
+    <div class="popup-box">
+      <h2>Selecione uma Imagem de Perfil</h2>
+      <div class="avatar-container">
+        <img src="{{ url_for('static', filename='assets/avatar.png') }}" alt="Preview de avatar" id="avatarPreview" />
+        <button id="btn-choose-file" class="camera-button" type="button">
+          <i id="icon-camera" class="fa-solid fa-camera"></i>
+        </button>
+        <input type="file" id="input-avatar" name="avatar" accept="image/*" hidden />
+      </div>
+      <div class="popup-actions">
+        <button id="btn-confirm" class="white-button" type="button">Confirmar</button>
+        <button id="btn-back" class="black-button" type="button">Voltar</button>
+      </div>
+    </div>
+  </div>
 
   <div class="container-questions">
     <h2>Dúvidas Frequentes:</h2>
@@ -75,4 +64,6 @@
     </ul>
   </div>
 </main>
+
+<script src="{{ url_for('static', filename='script/register/photoPopUp.js') }}"></script>
 {% endblock content %}
