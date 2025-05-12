@@ -30,3 +30,7 @@ def init_app(app):
             return render_template('register.html', show_modal=True)
 
         return render_template('register.html')
+    @app.route('/newPasswordPage')
+    def newPasswordPage():
+
+        return render_template('newPassword.html',)
