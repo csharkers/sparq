@@ -237,13 +237,24 @@ nav {
 }
 
 .forgot-password {
-    display: block;
-    font-style: italic;
-    font-size: clamp(12px, 1.3vw, 14px);
-    text-decoration: none;
-    text-align: right;
-    margin-left: auto;
+  display: block;
+  font-style: italic;
+  font-size: clamp(12px, 1.3vw, 14px);
+  text-decoration: none;
+  text-align: right;
+  margin-left: auto;
+
+  /* Transição suave para todas as mudanças */
+  transition: color 0.3s ease, transform 0.3s ease;
 }
+
+/* Estado hover */
+.forgot-password:hover {
+  color: var(--white-text-hover);
+  text-decoration: underline;
+  transform: translateX(4px);
+}
+
 
 .container-questions li {
     list-style: none;
