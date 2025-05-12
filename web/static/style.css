@@ -317,14 +317,18 @@ nav {
 }
 
 .popup-actions {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
 }
 
-#btn-confirm,
-#btn-back {
-    width: min(90%, 7.865vw);
-    padding: 0.75rem 1rem;
-    font-size: 1rem;
+.popup-actions button {
+  /* flex-grow | flex-shrink | flex-basis */
+  flex: 1 1 auto;      
+  max-width: 200px;    /* limite máximo de largura */
+  white-space: nowrap;
+  box-sizing: border-box;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
 }
+

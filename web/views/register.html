@@ -6,20 +6,20 @@
 
     <div class="input-name">
       <label for="name">Nome:</label>
-      <input class="form-input" id="name" name="name" type="text" placeholder="Lorem da Silva Sitamet" />
+      <input class="form-input" id="name" name="name" type="text" placeholder="Lorem da Silva Sitamet" required/>
     </div>
     <div class="input-email">
       <label for="email">E-mail:</label>
-      <input class="form-input" id="email" name="email" type="email" placeholder="Exemplo@email.com" />
+      <input class="form-input" id="email" name="email" type="email" placeholder="Exemplo@email.com" required/>
     </div>
     <div class="input-cpf">
       <label for="cpf">CPF:</label>
-      <input class="form-input" id="cpf" name="cpf" type="text" placeholder="000.000.000-00" maxlength="11" />
+      <input class="form-input" id="cpf" name="cpf" type="text" placeholder="000.000.000-00" minlength="11" maxlength="11" required/>
     </div>
 
     <div class="input-parque">
       <label for="parque">Parque:</label>
-      <select class="form-input" id="parque" name="parque">
+      <select class="form-input" id="parque" name="parque" required>
         <option value="" disabled selected hidden>Selecione seu Parque</option>
         <option value="1">Parque 1</option>
         <option value="2">Parque 2</option>
@@ -27,7 +27,7 @@
     </div>
     <div class="input-password">
       <label for="password">Senha:</label>
-      <input class="form-input" id="password" name="password" type="password" placeholder="••••••••••••••" />
+      <input class="form-input" id="password" name="password" type="password" placeholder="••••••••••••••" required/>
     </div>
 
     <div class="button-group" style="text-align: center; margin-top: 1.5rem">
