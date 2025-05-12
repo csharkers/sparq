@@ -1,10 +1,10 @@
 from flask import Flask
-
+import secrets
 from controllers import routes
 
 app = Flask(__name__, template_folder="views")
 
-app.secret_key = 'sua_chave_secreta' # Mudar o mais cedo possível
+app.secret_key = secrets.token_urlsafe(16)  # gera ~22 caracteres seguros para URLs
 
 routes.init_app(app)
 
