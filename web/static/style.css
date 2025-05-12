@@ -188,7 +188,7 @@ nav {
 
 .form-input {
     width: 100%;
-    padding: 0.6vw 1.5vw;
+    padding: 0.6vw 0.8vw;
     margin-bottom: 2vh;
     border: 1px solid #fff;
     border-left: 10px solid #fff;
@@ -209,7 +209,8 @@ nav {
 
 .container-form {
     width: 30vw;
-    max-width: 550px;
+    min-width: 20rem;      /* ~320px se 1rem = 16px */
+    max-width: 550px;;
     background-color: var(--gray-background);
     border: 1px solid #ffffff;
     border-radius: 20px;

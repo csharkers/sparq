@@ -1,20 +1,42 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 <main class="background-login">
   <form id="registerForm" class="container-form" action="" method="post">
     <h1>REGISTRAR-SE</h1>
 
     <div class="input-name">
       <label for="name">Nome:</label>
-      <input class="form-input" id="name" name="name" type="text" placeholder="Lorem da Silva Sitamet" required/>
+      <input
+        class="form-input"
+        id="name"
+        name="name"
+        type="text"
+        placeholder="Lorem da Silva Sitamet"
+        required
+      />
     </div>
     <div class="input-email">
       <label for="email">E-mail:</label>
-      <input class="form-input" id="email" name="email" type="email" placeholder="Exemplo@email.com" required/>
+      <input
+        class="form-input"
+        id="email"
+        name="email"
+        type="email"
+        placeholder="Exemplo@email.com"
+        required
+      />
     </div>
     <div class="input-cpf">
       <label for="cpf">CPF:</label>
-      <input class="form-input" id="cpf" name="cpf" type="text" placeholder="000.000.000-00" minlength="11" maxlength="11" required/>
+      <input
+        class="form-input"
+        id="cpf"
+        name="cpf"
+        type="text"
+        placeholder="000.000.000-00"
+        minlength="14"
+        maxlength="14"
+        pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
+        required />
     </div>
 
     <div class="input-parque">
@@ -27,11 +49,20 @@
     </div>
     <div class="input-password">
       <label for="password">Senha:</label>
-      <input class="form-input" id="password" name="password" type="password" placeholder="••••••••••••••" required/>
+      <input
+        class="form-input"
+        id="password"
+        name="password"
+        type="password"
+        placeholder="••••••••••••••"
+        required
+      />
     </div>
 
     <div class="button-group" style="text-align: center; margin-top: 1.5rem">
-      <button id="btn-register" class="white-button" type="submit">Register</button>
+      <button id="btn-register" class="white-button" type="submit">
+        Register
+      </button>
       <a id="btn-login" class="black-button" href="/loginPage">Login</a>
     </div>
   </form>
@@ -41,14 +72,26 @@
     <div class="popup-box">
       <h2>Selecione uma Imagem de Perfil</h2>
       <div class="avatar-container">
-        <img src="{{ url_for('static', filename='assets/avatar.png') }}" alt="Preview de avatar" id="avatarPreview" />
+        <img
+          src="{{ url_for('static', filename='assets/avatar.png') }}"
+          alt="Preview de avatar"
+          id="avatarPreview"
+        />
         <button id="btn-choose-file" class="camera-button" type="button">
           <i id="icon-camera" class="fa-solid fa-camera"></i>
         </button>
-        <input type="file" id="input-avatar" name="avatar" accept="image/*" hidden />
+        <input
+          type="file"
+          id="input-avatar"
+          name="avatar"
+          accept="image/*"
+          hidden
+        />
       </div>
       <div class="popup-actions">
-        <button id="btn-confirm" class="white-button" type="button">Confirmar</button>
+        <button id="btn-confirm" class="white-button" type="button">
+          Confirmar
+        </button>
         <button id="btn-back" class="black-button" type="button">Voltar</button>
       </div>
     </div>
@@ -66,4 +109,5 @@
 </main>
 
 <script src="{{ url_for('static', filename='script/register/photoPopUp.js') }}"></script>
+<script src="{{ url_for('static', filename='script/register/inputCpf.js') }}"></script>
 {% endblock content %}
