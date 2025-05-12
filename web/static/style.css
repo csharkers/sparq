@@ -252,7 +252,6 @@ nav {
 .forgot-password:hover {
   color: var(--white-text-hover);
   text-decoration: underline;
-  transform: translateX(4px);
 }
 
 
