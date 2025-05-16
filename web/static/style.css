@@ -125,8 +125,11 @@ nav {
     margin-bottom: 1.5vh;
 }
 
-/* Elementos Tela Login */
-.background-login {
+/* Elemento para Telas*/
+.background-login,
+.background-password,
+.background-register,
+.background-request {
     font-family: var(--nav-and-login-font);
     display: flex;
     justify-content: center;
@@ -209,8 +212,10 @@ nav {
 
 .container-form {
     width: 30vw;
-    min-width: 20rem;      /* ~320px se 1rem = 16px */
-    max-width: 550px;;
+    min-width: 20rem;
+    /* ~320px se 1rem = 16px */
+    max-width: 550px;
+    ;
     background-color: var(--gray-background);
     border: 1px solid #ffffff;
     border-radius: 20px;
@@ -237,21 +242,21 @@ nav {
 }
 
 .forgot-password {
-  display: block;
-  font-style: italic;
-  font-size: clamp(12px, 1.3vw, 14px);
-  text-decoration: none;
-  text-align: right;
-  margin-left: auto;
+    display: block;
+    font-style: italic;
+    font-size: clamp(12px, 1.3vw, 14px);
+    text-decoration: none;
+    text-align: right;
+    margin-left: auto;
 
-  /* Transição suave para todas as mudanças */
-  transition: color 0.3s ease, transform 0.3s ease;
+    /* Transição suave para todas as mudanças */
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
 /* Estado hover */
 .forgot-password:hover {
-  color: var(--white-text-hover);
-  text-decoration: underline;
+    color: var(--white-text-hover);
+    text-decoration: underline;
 }
 
 
@@ -328,18 +333,122 @@ nav {
 }
 
 .popup-actions {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
 }
 
 .popup-actions button {
-  /* flex-grow | flex-shrink | flex-basis */
-  flex: 1 1 auto;      
-  max-width: 200px;    /* limite máximo de largura */
-  white-space: nowrap;
-  box-sizing: border-box;
-  padding: 0.75rem 1rem;
-  font-size: 1rem;
+    /* flex-grow | flex-shrink | flex-basis */
+    flex: 1 1 auto;
+    max-width: 200px;
+    /* limite máximo de largura */
+    white-space: nowrap;
+    box-sizing: border-box;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
 }
 
+.container-request {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--blue-widget-background);
+    border-radius: 10px;
+    padding: 1.5vw 2vw;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    font-family: var(--nav-and-login-font);
+    width: 100%;
+    box-sizing: border-box;
+    gap: 1.5vw;
+}
+
+.top-section {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 1.5vw;
+}
+
+.avatar-request img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff;
+}
+
+.details-request {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.detail-item {
+    flex: 1;
+    text-align: center;
+    font-size: clamp(14px, 1.2vw, 16px);
+    color: #fff;
+    font-weight: 400;
+    font-family: var(--nav-and-login-font);
+    position: relative;
+    padding: 0 0.5vw;
+    white-space: nowrap;
+}
+
+.detail-item:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 25%;
+    height: 50%;
+    width: 1px;
+    background-color: #888;
+}
+
+.details-request h3 {
+    font-size: clamp(16px, 1.4vw, 18px);
+    font-weight: 600;
+}
+
+.buttons-group {
+    margin-left: 3vw;
+    display: flex;
+    gap: 1vw;
+    width: 100%;
+}
+
+.green-button,
+.red-button {
+    font-family: var(--nav-and-login-font);
+    font-weight: 600;
+    font-size: clamp(14px, 1.2vw, 16px);
+    border: none;
+    border-radius: 8px;
+    padding: 0.6em 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 120px;
+}
+
+.green-button {
+    background-color: #2ECC71;
+    color: #fff;
+}
+
+.red-button {
+    background-color: #E74C3C;
+    color: #fff;
+}
+
+.green-button:hover {
+    background-color: #27AE60;
+    transform: scale(0.98);
+}
+
+.red-button:hover {
+    background-color: #C0392B;
+    transform: scale(0.98);
+}

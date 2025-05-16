@@ -34,3 +34,6 @@ def init_app(app):
     def newPasswordPage():
 
         return render_template('newPassword.html',)
+    @app.route('/request')
+    def request():
+        return render_template('request.html',)
