@@ -247,3 +247,9 @@ nav {
     font-size: clamp(14px, 1.8vw, 16px);
     font-weight: lighter;
 }
+
+/* STYLE BASE ASIDE */
+
+.nav-base-aside{
+    background-color: #00000000;
+}
