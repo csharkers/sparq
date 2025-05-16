@@ -12,21 +12,50 @@
 
 <body>
     <nav class="nav-base-aside">
-       <h1 class="tittle-nav">
-        SPARCQ
-       </h1>
-       <div>
-        <input type="text" name="" id="">
-       </div>
+        <h1 class="tittle-nav">
+            SPARCQ
+        </h1>
+        <div class="search-box-container">
+            <input class="search-box-input" type="text" name="" id="">
+            <button class="search-box-button"></button>
+        </div>
+        <div class="clock-date-container">
+            <div class="clock-container">
+                <h1 class="clock-text">00:00</h1>
+            </div>
+            <div class="date-container">
+                <div>
+                    <p class="date-text">
+                        carregando...
+                    </p>
+                </div>
+                <div class="fuso-container">
+                    <p class="fuso-text">
+                        Horario de brasilia
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <img src="" alt="perfil img">
+        </div>
     </nav>
-    
+    <aside class="aside-container">
+        <a href="/">
+            <i class="fa-solid fa-gear icon-aside"></i>
+        </a>
+        <a href="/">
+            <i class="fa-solid fa-database icon-aide"></i>
+        </a>
+        <a href="/">
+            <i class="fa-solid fa-map icon-aside"></i>
+        </a>
+    </aside>
+
     {% block content %}
     <!-- Aqui irá o conteúdo das outras páginas -->
     {% endblock content%}
 
-    <footer>
-
-    </footer>
 </body>
 
 </html>

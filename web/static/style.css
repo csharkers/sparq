@@ -249,7 +249,9 @@ nav {
 }
 
 /* STYLE BASE ASIDE */
-
 .nav-base-aside{
     background-color: #00000000;
+}
+.search-box-input{
+    all: unset;
 }
