@@ -149,6 +149,9 @@ nav {
 .background-login>div {
     padding: 5vw;
 }
+.background-request{
+    flex-direction: column;
+}
 
 .white-button,
 .black-button {
@@ -188,6 +191,27 @@ nav {
     background-color: #ffffff;
     color: #000000;
 }
+
+.green-button {
+    background-color: #2ECC71;
+    color: #fff;
+}
+
+.red-button {
+    background-color: #E74C3C;
+    color: #fff;
+}
+
+.green-button:hover {
+    background-color: #27AE60;
+    transform: scale(0.98);
+}
+
+.red-button:hover {
+    background-color: #C0392B;
+    transform: scale(0.98);
+}
+
 
 .form-input {
     width: 100%;
@@ -354,12 +378,13 @@ nav {
     flex-direction: column;
     background-color: var(--blue-widget-background);
     border-radius: 10px;
-    padding: 1.5vw 2vw;
+    padding: 1vw;
+    margin-top: 3vh;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     font-family: var(--nav-and-login-font);
     width: 100%;
     box-sizing: border-box;
-    gap: 1.5vw;
+    gap: 0.2vw;
 }
 
 .top-section {
@@ -413,11 +438,10 @@ nav {
     font-weight: 600;
 }
 
-.buttons-group {
-    margin-left: 3vw;
+.request-group-buttons {
     display: flex;
+    padding-left: 4vw;
     gap: 1vw;
-    width: 100%;
 }
 
 .green-button,
@@ -431,24 +455,4 @@ nav {
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
     width: 120px;
-}
-
-.green-button {
-    background-color: #2ECC71;
-    color: #fff;
-}
-
-.red-button {
-    background-color: #E74C3C;
-    color: #fff;
-}
-
-.green-button:hover {
-    background-color: #27AE60;
-    transform: scale(0.98);
-}
-
-.red-button:hover {
-    background-color: #C0392B;
-    transform: scale(0.98);
 }
