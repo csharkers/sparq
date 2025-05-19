@@ -96,7 +96,7 @@ main {
     overflow: auto;
 }
 
-.background-login>div {
+.background-login>div, .background-register>div {
     padding: 5vw;
 }
 .background-request{
