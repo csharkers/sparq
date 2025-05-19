@@ -36,6 +36,9 @@ nav {
     align-items: center;
     padding: 0 0 0 1.25vw;
 }
+main {
+    min-height: calc(100vh - 6vh);
+}
 
 /* MANTIDAS FIXAS */
 .tittle-nav {
@@ -62,7 +65,6 @@ nav {
 /* MENU STYLE */
 .background-menu {
     flex: 1;
-    min-height: calc(100vh - 6vh);
     overflow: auto;
     /* background: #14151B url("data:image/svg+xml,%3Csvg width='1280' height='832' viewBox='0 0 1280 832' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1280' height='832' fill='%2314151B'/%3E%3Crect width='1280' height='832' fill='url(%23paint0_linear_257_320)'/%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear_257_320' x1='640' y1='1.74229e-05' x2='260' y2='742.5' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%2314151B'/%3E%3Cstop offset='0.233984' stop-color='%23161A1E'/%3E%3Cstop offset='0.480586' stop-color='%23192021'/%3E%3Cstop offset='0.762467' stop-color='%231C2725'/%3E%3Cstop offset='0.995929' stop-color='%231E2C28'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E") no-repeat center center fixed;
     background-size: cover; */
@@ -72,6 +74,33 @@ nav {
             #192021,
             #161A1E,
             #14151B);
+}
+
+/* Elemento para Telas*/
+.background-login,
+.background-password,
+.background-register,
+.background-request {
+    font-family: var(--nav-and-login-font);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2vw;
+    box-sizing: border-box;
+    background-image: linear-gradient(to top right,
+            #1E2C28,
+            #1C2725,
+            #192021,
+            #161A1E,
+            #141518);
+    overflow: auto;
+}
+
+.background-login>div {
+    padding: 5vw;
+}
+.background-request{
+    flex-direction: column;
 }
 
 .container-tittle {
@@ -123,34 +152,6 @@ nav {
 .icon-menu-button {
     font-size: 2vw;
     margin-bottom: 1.5vh;
-}
-
-/* Elemento para Telas*/
-.background-login,
-.background-password,
-.background-register,
-.background-request {
-    font-family: var(--nav-and-login-font);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: calc(100vh - 6vh);
-    padding: 2vw;
-    box-sizing: border-box;
-    background-image: linear-gradient(to top right,
-            #1E2C28,
-            #1C2725,
-            #192021,
-            #161A1E,
-            #141518);
-    overflow: auto;
-}
-
-.background-login>div {
-    padding: 5vw;
-}
-.background-request{
-    flex-direction: column;
 }
 
 .white-button,
