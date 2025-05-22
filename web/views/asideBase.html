@@ -12,14 +12,44 @@
 
 <body>
     <nav class="nav-base-aside">
-       <h1 class="tittle-nav">
-        SPARCQ
-       </h1>
-       <div>
-        <input type="text" name="" id="">
-       </div>
+        <h1 class="tittle-nav">
+            SPARCQ
+        </h1>
+        <div class="container-search">
+            <div class="container-input">
+                <input class="input-search" type="text" name="" id="">
+            </div>
+            <div class="button-search">
+                <i class="seach-icon fa-solid fa-magnifying-glass"></i>
+            </div>
+        </div>
+        <div class="container-clock-date">
+            <div class="container-clock">
+                <h2 class="clock-time">carregando...</h2>
+            </div>
+            <div class="container-date">
+                <p class="date-day">carregando...</p>
+                <p class="format-time">carregando...</p>
+            </div>
+        </div>
+        <div>
+            <img src="" alt="foto de perfil">
+        </div>
     </nav>
-    
+    <aside>
+        <div>
+            <div>
+                <i class="fa-solid fa-gear"></i>
+            </div>
+            <div>
+                <i class="fa-solid fa-database"></i>
+            </div>
+            <div>
+                <i class="fa-solid fa-map"></i>
+            </div>
+        </div>
+    </aside>
+
     {% block content %}
     <!-- Aqui irá o conteúdo das outras páginas -->
     {% endblock content%}
