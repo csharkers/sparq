@@ -1,5 +1,4 @@
-from flask import render_template, request, redirect, url_for, session
-
+from flask import render_template, request
 
 def init_app(app):
 
