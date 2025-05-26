@@ -96,12 +96,12 @@ main {
     align-items: center;
     padding: 2vw;
     box-sizing: border-box;
-    /* background-image: linear-gradient(to top right,
+    background-image: linear-gradient(to top right,
             #1E2C28,
             #1C2725,
             #192021,
             #161A1E,
-            #141518); */
+            #141518); 
     overflow: auto;
 }
 
