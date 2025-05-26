@@ -518,7 +518,7 @@ main {
     width: 100%;
 }
 
-.detail-item {
+.detail-item-request {
     flex: 1;
     text-align: center;
     font-size: clamp(14px, 1.2vw, 16px);
@@ -530,7 +530,8 @@ main {
     white-space: nowrap;
 }
 
-.detail-item:not(:last-child)::after {
+
+.detail-item-request:not(:last-child)::after {
     content: "";
     position: absolute;
     right: 0;
@@ -636,9 +637,6 @@ main {
 }
 
 /* Remove as barras entre as detail-item apenas dentro de sensor-content */
-.sensor-content .detail-item:not(:last-child)::after {
-    content: none;
-}
 
 .column {
     flex: 1;
@@ -654,7 +652,7 @@ main {
 }
 
 /* Cada detalhe */
-.detail-item {
+.detail-item-sensor {
     flex: 1 1 30%;
     text-align: center;
     padding: 1rem 0;
@@ -663,7 +661,7 @@ main {
     font-weight: lighter;
 }
 
-.detail-item.map {
+.detail-item-sensor.map {
     flex: 1 1 40%;
 }
 
