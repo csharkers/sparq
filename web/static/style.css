@@ -88,26 +88,26 @@ main {
 .background-login,
 .background-password,
 .background-register,
-.background-request {
+.background-main-request{
     font-family: var(--nav-and-login-font);
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 2vw;
     box-sizing: border-box;
-    background-image: linear-gradient(to top right,
+    /* background-image: linear-gradient(to top right,
             #1E2C28,
             #1C2725,
             #192021,
             #161A1E,
-            #141518);
+            #141518); */
     overflow: auto;
 }
 
 .background-login>div, .background-register>div {
     padding: 5vw;
 }
-.background-request{
+.background-main-request{
     flex-direction: column;
 }
 
@@ -301,13 +301,23 @@ main {
 }
 
 /* Overlay com fundo escuro semi-transparente */
-/* Overlay com fundo escuro semi-transparente */
 .popup-overlay {
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.8);
     display: none;
+}
 /* STYLE BASE ASIDE*/
+.background-aside-base{
+    display: flex;
+    background-image: linear-gradient(to top right,
+            #1E2C28,
+            #1C2725,
+            #192021,
+            #161A1E,
+            #141518);
+    overflow: auto;
+}
 
 .search-box-input {
     all: unset;
@@ -336,8 +346,65 @@ main {
     height: 100%;
     align-items: center;
     justify-content: center;
-    z-index: 10000;
+    font-size: 1.2rem;
 }
+
+.nav-base-aside {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0vw 0.8vw 0vw 1vw;
+}
+
+.logo-and-clock-container {
+    display: flex;
+}
+
+.container-clock-date {
+    display: flex;
+    margin-left: 2vw;
+}
+
+.main-container {
+    display: flex;
+}
+
+.aside-container {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5vw;
+}
+
+.button-aside {
+    display: flex;
+    padding: 0.5vw 1vw 1vw 0vw;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.imgPerfil {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+}
+
+.clock-time {
+    font-family: var(--widgets-font);
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.container-date {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--widgets-font);
+    font-size: 0.7rem;
+    font-weight: 300;
+    justify-content: center;
+    margin-left: 0.2vw;
+}
+
 
 /* Caixa centralizada arredondada */
 .popup-box {

@@ -10,8 +10,6 @@ function updateTime(){
  let H = today.getHours();
  let M = today.getMinutes();
 
- console.log( H, M );
-
  hours = H < 10 ? '0' + H : H;
  minutes = M < 10 ? '0' + M : M;
 
