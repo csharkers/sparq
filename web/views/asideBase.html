@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SPARCQ</title>
-    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="../static/style.css" />
     <!-- Import icons -->
-    <script src="https://kit.fontawesome.com/6d56094b7a.js" crossorigin="anonymous"></script>
-</head>
+    <script
+      src="https://kit.fontawesome.com/6d56094b7a.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-<body class="background-aside-base">
+  <body class="background-aside-base">
     <nav class="nav-base-aside">
-        <div class="logo-and-clock-container">
-            <h1 class="tittle-nav">
-                SPARCQ
-            </h1>
-            <!-- <div class="container-search">
+      <div class="logo-and-clock-container">
+        <a href="/menu">
+          <h1 class="tittle-nav">SPARCQ</h1>
+        </a>
+        <!-- <div class="container-search">
             <div class="container-input">
                 <input class="input-search" type="text" name="" id="">
             </div>
@@ -24,41 +26,41 @@
                 <i class="seach-icon fa-solid fa-magnifying-glass"></i>
             </div>
         </div> -->
-            <div class="container-clock-date">
-                <div class="container-clock">
-                    <h2 id="clock-time" class="clock-time">carregando...</h2>
-                </div>
-                <div class="container-date">
-                    <p id="date-day" class="date-day">carregando...</p>
-                    <p>Horario de brasilia</p>
-                </div>
-            </div>
+        <div class="container-clock-date">
+          <div class="container-clock">
+            <h2 id="clock-time" class="clock-time">carregando...</h2>
+          </div>
+          <div class="container-date">
+            <p id="date-day" class="date-day">carregando...</p>
+            <p>Horario de brasilia</p>
+          </div>
         </div>
-        <div>
-            <img class="imgPerfil" src="../static/img/avatarDefault.jpg" alt="foto de perfil">
-        </div>
+      </div>
+      <div>
+        <img
+          class="imgPerfil"
+          src="../static/assets/img/avatarDefault.jpg"
+          alt="foto de perfil"
+        />
+      </div>
     </nav>
 
     <div class="main-container">
-        {% block content %}
-        <!-- Aqui irá o conteúdo das outras páginas -->
-        {% endblock content%}
-        <aside class="aside-container">
-
-            <a class="button-aside">
-                <i class="fa-solid fa-gear"></i>
-            </a>
-            <a class="button-aside">
-                <i class="fa-solid fa-database"></i>
-            </a>
-            <a class="button-aside">
-                <i class="fa-solid fa-map"></i>
-            </a>
-
-        </aside>
+      {% block content %}
+      <!-- Aqui irá o conteúdo das outras páginas -->
+      {% endblock content%}
+      <aside class="aside-container">
+        <a class="button-aside">
+          <i class="fa-solid fa-gear"></i>
+        </a>
+        <a class="button-aside">
+          <i class="fa-solid fa-database"></i>
+        </a>
+        <a class="button-aside">
+          <i class="fa-solid fa-map"></i>
+        </a>
+      </aside>
     </div>
-
-</body>
-<script src="../static/script/asideBase/clockNav.js"></script>
-
+  </body>
+  <script src="../static/script/asideBase/clockNav.js"></script>
 </html>

@@ -1,131 +1,132 @@
 {% extends 'asideBase.html' %} {% block content %}
-<main class="background-main-request">
+<main class="container-sensors">
+    <!-- Norte 1 -->
+    <div class="sensor-panel">
+      <button class="sensor-header">
+        <span class="status status-orange"></span>
+        <span class="sensor-title">Norte – Sensor 1</span>
+        <span class="arrow-icon">▾</span>
+      </button>
+      <div class="sensor-content">
+        <div class="detail-item">
+          <h3>Qualidade do ar</h3>
+          <p>CO₂ <strong>400 ppm</strong></p>
+        </div>
+        <div class="detail-item">
+          <h3>Temperatura do solo</h3>
+          <p><strong>32 °C</strong></p>
+        </div>
+        <div class="detail-item map">
+          <h3>Localização</h3>
+          <img src="/static/maps/norte1.png" alt="Mapa Norte 1" />
+          <button class="white-button">Abrir Map</button>
+        </div>
+        <div class="detail-item">
+          <h3>Umidade</h3>
+          <p><strong>67 %</strong></p>
+        </div>
+        <div class="detail-item">
+          <h3>Temperatura do ar</h3>
+          <p><strong>28 °C</strong></p>
+        </div>
+      </div>
+    </div>
 
-  <div class="container-request">
-    <div class="top-section">
-      <div class="avatar-request">
-        <img src="{{ url_for('static', filename='assets/avatar.png') }}" alt="Preview de avatar" id="avatarPreview" />
-      </div>
-      <div class="details-request">
-        <div class="detail-item"><h3>Lorinet Sit Amet</h3></div>
-        <div class="detail-item">123.456.789-00</div>
-        <div class="detail-item">lorinet@ipsumlorem.com</div>
-        <div class="detail-item">Feminino</div>
+    <!-- Leste 1 -->
+    <div class="sensor-panel">
+      <button class="sensor-header">
+        <span class="status status-green"></span>
+        <span class="sensor-title">Leste – Sensor 1</span>
+        <span class="arrow-icon">▾</span>
+      </button>
+      <div class="sensor-content">
+        <div class="detail-item">
+          <h3>Qualidade do ar</h3>
+          <p>CO₂ <strong>380 ppm</strong></p>
+        </div>
+        <div class="detail-item">
+          <h3>Temperatura do solo</h3>
+          <p><strong>30 °C</strong></p>
+        </div>
+        <div class="detail-item map">
+          <h3>Localização</h3>
+          <img src="/static/maps/leste1.png" alt="Mapa Leste 1" />
+          <button class="white-button">Abrir Map</button>
+        </div>
+        <div class="detail-item">
+          <h3>Umidade</h3>
+          <p><strong>55 %</strong></p>
+        </div>
+        <div class="detail-item">
+          <h3>Temperatura do ar</h3>
+          <p><strong>26 °C</strong></p>
+        </div>
       </div>
     </div>
-    <div class="request-group-buttons">
-      <button class="green-button">Aceitar</button>
-      <button class="red-button">Recusar</button>
-    </div>
-  </div>
 
-  <div class="container-request">
-    <div class="top-section">
-      <div class="avatar-request">
-        <img src="{{ url_for('static', filename='assets/avatar.png') }}" alt="Preview de avatar" id="avatarPreview" />
-      </div>
-      <div class="details-request">
-        <div class="detail-item"><h3>Dolor Ipsum Vectis</h3></div>
-        <div class="detail-item">987.654.321-11</div>
-        <div class="detail-item">dolor.ipsum@latinmail.com</div>
-        <div class="detail-item">Masculino</div>
+    <!-- Oeste 1 -->
+    <div class="sensor-panel">
+      <button class="sensor-header">
+        <span class="status status-green"></span>
+        <span class="sensor-title">Oeste – Sensor 1</span>
+        <span class="arrow-icon">▾</span>
+      </button>
+      <div class="sensor-content">
+        <div class="detail-item">
+          <h3>Qualidade do ar</h3>
+          <p>CO₂ <strong>450 ppm</strong></p>
+        </div>
+        <div class="detail-item">
+          <h3>Temperatura do solo</h3>
+          <p><strong>29 °C</strong></p>
+        </div>
+        <div class="detail-item map">
+          <h3>Localização</h3>
+          <img src="/static/maps/oeste1.png" alt="Mapa Oeste 1" />
+          <button class="white-button">Abrir Map</button>
+        </div>
+        <div class="detail-item">
+          <h3>Umidade</h3>
+          <p><strong>72 %</strong></p>
+        </div>
+        <div class="detail-item">
+          <h3>Temperatura do ar</h3>
+          <p><strong>27 °C</strong></p>
+        </div>
       </div>
     </div>
-    <div class="request-group-buttons">
-      <button class="green-button">Aceitar</button>
-      <button class="red-button">Recusar</button>
-    </div>
-  </div>
 
-  <div class="container-request">
-    <div class="top-section">
-      <div class="avatar-request">
-        <img src="{{ url_for('static', filename='assets/avatar.png') }}" alt="Preview de avatar" id="avatarPreview" />
-      </div>
-      <div class="details-request">
-        <div class="detail-item"><h3>Consectetur Elit Magna</h3></div>
-        <div class="detail-item">741.852.963-22</div>
-        <div class="detail-item">elit.consectetur@dolor.org</div>
-        <div class="detail-item">Feminino</div>
+    <!-- Sul 1 -->
+    <div class="sensor-panel">
+      <button class="sensor-header">
+        <span class="status status-yellow"></span>
+        <span class="sensor-title">Sul – Sensor 1</span>
+        <span class="arrow-icon">▾</span>
+      </button>
+      <div class="sensor-content">
+        <div class="detail-item">
+          <h3>Qualidade do ar</h3>
+          <p>CO₂ <strong>410 ppm</strong></p>
+        </div>
+        <div class="detail-item">
+          <h3>Temperatura do solo</h3>
+          <p><strong>31 °C</strong></p>
+        </div>
+        <div class="detail-item map">
+          <h3>Localização</h3>
+          <img src="/static/maps/sul1.png" alt="Mapa Sul 1" />
+          <button class="white-button">Abrir Map</button>
+        </div>
+        <div class="detail-item">
+          <h3>Umidade</h3>
+          <p><strong>60 %</strong></p>
+        </div>
+        <div class="detail-item">
+          <h3>Temperatura do ar</h3>
+          <p><strong>29 °C</strong></p>
+        </div>
       </div>
     </div>
-    <div class="request-group-buttons">
-      <button class="green-button">Aceitar</button>
-      <button class="red-button">Recusar</button>
-    </div>
-  </div>
+  </main>
 
-  <div class="container-request">
-    <div class="top-section">
-      <div class="avatar-request">
-        <img src="{{ url_for('static', filename='assets/avatar.png') }}" alt="Preview de avatar" id="avatarPreview" />
-      </div>
-      <div class="details-request">
-        <div class="detail-item"><h3>Adipiscing Tempor Nunc</h3></div>
-        <div class="detail-item">369.258.147-33</div>
-        <div class="detail-item">tempor.adipiscing@nuncmail.com</div>
-        <div class="detail-item">Masculino</div>
-      </div>
-    </div>
-    <div class="request-group-buttons">
-      <button class="green-button">Aceitar</button>
-      <button class="red-button">Recusar</button>
-    </div>
-  </div>
-
-  <div class="container-request">
-    <div class="top-section">
-      <div class="avatar-request">
-        <img src="{{ url_for('static', filename='assets/avatar.png') }}" alt="Preview de avatar" id="avatarPreview" />
-      </div>
-      <div class="details-request">
-        <div class="detail-item"><h3>Velit Auctor Porta</h3></div>
-        <div class="detail-item">112.334.556-77</div>
-        <div class="detail-item">auctor.velit@porta.net</div>
-        <div class="detail-item">Masculino</div>
-      </div>
-    </div>
-    <div class="request-group-buttons">
-      <button class="green-button">Aceitar</button>
-      <button class="red-button">Recusar</button>
-    </div>
-  </div>
-
-  <div class="container-request">
-    <div class="top-section">
-      <div class="avatar-request">
-        <img src="{{ url_for('static', filename='assets/avatar.png') }}" alt="Preview de avatar" id="avatarPreview" />
-      </div>
-      <div class="details-request">
-        <div class="detail-item"><h3>Fringilla Sapien Leo</h3></div>
-        <div class="detail-item">778.899.001-23</div>
-        <div class="detail-item">fringilla.leo@sapienmail.org</div>
-        <div class="detail-item">Feminino</div>
-      </div>
-    </div>
-    <div class="request-group-buttons">
-      <button class="green-button">Aceitar</button>
-      <button class="red-button">Recusar</button>
-    </div>
-  </div>
-
-  <div class="container-request">
-    <div class="top-section">
-      <div class="avatar-request">
-        <img src="{{ url_for('static', filename='assets/avatar.png') }}" alt="Preview de avatar" id="avatarPreview" />
-      </div>
-      <div class="details-request">
-        <div class="detail-item"><h3>Nulla Vehicula Varius</h3></div>
-        <div class="detail-item">556.677.889-44</div>
-        <div class="detail-item">nulla.vehicula@varius.co</div>
-        <div class="detail-item">Masculino</div>
-      </div>
-    </div>
-    <div class="request-group-buttons">
-      <button class="green-button">Aceitar</button>
-      <button class="red-button">Recusar</button>
-    </div>
-  </div>
-
-</main>
 {% endblock content %}

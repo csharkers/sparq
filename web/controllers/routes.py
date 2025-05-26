@@ -36,3 +36,7 @@ def init_app(app):
     @app.route('/requestPage')
     def requestPage():
         return render_template('request.html',)
+    @app.route('/sensorsPage')
+    def sensorsPage():
+
+        return render_template('sensors.html',)
