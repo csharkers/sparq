@@ -412,16 +412,21 @@ main {
 
 /* Caixa centralizada arredondada */
 .popup-box {
-    border: 0.0625rem solid #fff;
-    background: #111;
-    border-radius: 1rem;
-    padding: 2rem;
-    max-width: 30vw;
-    width: 30%;
-    text-align: center;
-    color: #fff;
-    position: relative;
+  position: absolute;       /* ou relative, mas precisa de referência */
+  top: 50%;                 /* 50% a partir do topo do overlay */
+  left: 50%;                /* 50% a partir da esquerda */
+  transform: translate(-50%, -50%);
+  /* as demais regras que você já tem: */
+  border: 0.0625rem solid #fff;
+  background: #111;
+  border-radius: 1rem;
+  padding: 2rem;
+  max-width: 30vw;
+  width: 30%;
+  text-align: center;
+  color: #fff;
 }
+
 
 .popup-box h2 {
     font-size: 1.5rem;
