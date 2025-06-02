@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 <main class="background-register">
   <form id="registerForm" class="container-form" action="" method="post">
-    <h1>REGISTRAR-SE</h1>
+    <h1>REGISTRAR USUÁRIO</h1>
 
     <div class="input-name">
       <label for="name">Nome:</label>
@@ -68,11 +68,8 @@
       />
     </div>
 
-    <div class="button-group" style="text-align: center; margin-top: 1.5rem">
-      <button id="btn-register" class="white-button" type="submit">
-        Register
-      </button>
-      <a id="btn-login" class="black-button" href="/loginPage">Login</a>
+    <div class="container-btn-register">
+      <a id="btn-register" class="black-button" href="/menu">Register</a>
     </div>
   </form>
 

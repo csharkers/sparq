@@ -33,9 +33,9 @@ def init_app(app):
     def newPasswordPage():
 
         return render_template('newPassword.html',)
-    @app.route('/requestPage')
-    def requestPage():
-        return render_template('request.html',)
+    @app.route('/userPage')
+    def userPage():
+        return render_template('user.html',)
     @app.route('/sensorsPage')
     def sensorsPage():
 

@@ -1,11 +1,10 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 <main class="background-login">
   <form class="container-form" action="" method="post">
     <h1>FAZER LOGIN</h1>
 
     <div class="input-email">
-      <label for="email" class="form-label">E-mail:</label><br>
+      <label for="email" class="form-label">E-mail:</label><br />
       <input
         class="form-input"
         id="email"
@@ -16,10 +15,10 @@
       />
     </div>
 
-    <br>
+    <br />
 
     <div class="input-password">
-      <label for="password" class="form-label">Senha:</label><br>
+      <label for="password" class="form-label">Senha:</label><br />
       <input
         class="form-input"
         id="password"
@@ -33,10 +32,8 @@
     </div>
 
     <br />
-
-    <div class="button-group" style="text-align: center;">
-      <a id="btn-login" class="white-button" href="/menu">Login</a>
-      <a id="btn-register" class="black-button" href="/registerPage">Register</a>
+    <div class="container-btn-login">
+      <a id="btn-login" class="black-button" href="/menu">Login</a>
     </div>
   </form>
 
