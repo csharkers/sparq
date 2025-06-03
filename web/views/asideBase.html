@@ -14,7 +14,55 @@
 
   <body class="background-aside-base">
     <!-- 1) Nav fixa no topo -->
-    <nav class="nav-base-aside">
+    <!-- <nav class="nav-base-aside">
+      <div class="logo-and-clock-container">
+        <a href="/menu">
+          <h1 class="tittle-nav">SPARQ</h1>
+        </a>
+        <div class="container-clock-date">
+          <div class="container-clock">
+            <h2 id="clock-time" class="clock-time">carregando...</h2>
+          </div>
+          <div class="container-date">
+            <p id="date-day" class="date-day">carregando...</p>
+            <p>Horário de Brasília</p>
+          </div>
+        </div>
+      </div>
+    </nav> -->
+
+    <!-- 2) Aside fixa no lado direito, começando logo abaixo de nav -->
+    <!-- HTML simplificado, apenas a parte da sidebar -->
+    <aside class="aside-container">
+      <a href="#" class="button-aside">
+        <img
+          class="imgPerfil"
+          src="../static/assets/img/avatarDefault.jpg"
+          alt="foto de perfil"
+        />
+        <span class="aside-label">Perfil</span>
+      </a>
+      <a href="#" class="button-aside">
+        <i class="fa-solid fa-gear"></i>
+        <span class="aside-label">Configurações</span>
+      </a>
+      <a href="#" class="button-aside">
+        <i class="fa-solid fa-database"></i>
+        <span class="aside-label">Banco de Dados</span>
+      </a>
+      <a href="#" class="button-aside">
+        <i class="fa-solid fa-map"></i>
+        <span class="aside-label">Mapa</span>
+      </a>
+      <a href="/registerPage" class="button-aside">
+        <i class="fa-solid fa-person-circle-plus"></i>
+        <span class="aside-label">Cadastrar</span>
+      </a>
+    </aside>
+
+    <!-- 3) Conteúdo principal: será a “scrollview” -->
+    <div class="content-container">
+          <nav class="nav-base-aside">
       <div class="logo-and-clock-container">
         <a href="/menu">
           <h1 class="tittle-nav">SPARQ</h1>
@@ -30,32 +78,6 @@
         </div>
       </div>
     </nav>
-
-    <!-- 2) Aside fixa no lado direito, começando logo abaixo de nav -->
-    <aside class="aside-container">
-      <a class="button-aside">
-        <img
-          class="imgPerfil"
-          src="../static/assets/img/avatarDefault.jpg"
-          alt="foto de perfil"
-        />
-      </a>
-      <a class="button-aside">
-        <i class="fa-solid fa-gear"></i>
-      </a>
-      <a class="button-aside">
-        <i class="fa-solid fa-database"></i>
-      </a>
-      <a class="button-aside">
-        <i class="fa-solid fa-map"></i>
-      </a>
-      <a href="/registerPage" class="button-aside">
-        <i class="fa-solid fa-person-circle-plus"></i>
-      </a>
-    </aside>
-
-    <!-- 3) Conteúdo principal: será a “scrollview” -->
-    <div class="content-container">
       {% block content %}
       <!-- Aqui irá o conteúdo das outras páginas -->
       {% endblock content %}

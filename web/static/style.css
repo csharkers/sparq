@@ -164,12 +164,14 @@ main {
     margin-bottom: 1.5vh;
 }
 
-.container-btn-login, .container-btn-register{
+.container-btn-login,
+.container-btn-register {
     display: flex;
     justify-content: center;
 }
 
-#btn-login, #btn-register{
+#btn-login,
+#btn-register {
     width: 80%;
     text-align: center;
 }
@@ -373,7 +375,7 @@ main {
     justify-content: space-between;
     align-items: center;
     padding: 0 1vw;
-    z-index: 100;
+    z-index: 50;
     /* para ficar acima do conteúdo */
 }
 
@@ -391,29 +393,99 @@ main {
 }
 
 .aside-container {
+    padding-top: 5vh;;
     position: fixed;
-    /* logo abaixo da nav */
     right: 0;
     width: 5vw;
-    /* mesma largura que você já tinha */
-    height: calc(100vh - 6vh);
-    /* ocupa o restante da altura */
+    /* largura inicial fechada */
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* opcional, ajuste ao seu gosto */
+    /* só vai valer antes do hover (veja seletor acima) */
     overflow: hidden;
-    /* para garantir que nada “ultrapasse” */
-    z-index: 50;
-    /* fica atrás da nav, mas acima do conteúdo */
+    transition: width 0.6s ease;
+    z-index: 100;
 }
 
 .button-aside {
-    margin-top: 1.5rem;
-    /* espaçamento vertical entre botões */
+    display: flex;
+    align-content: center;
+    width: 100%;
+    padding: 1rem;
     text-decoration: none;
     color: #fff;
-    font-size: 1.5vw;
+    font-family: var(--widgets-font);
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+}
+
+
+.button-aside .imgPerfil {
+    width: 2rem;
+    /* aumenta de 1.5rem (anterior) para 2rem */
+    height: 2rem;
+    /* idem */
+    flex-shrink: 0;
+}
+
+.button-aside i {
+    font-size: 1.5rem;
+    /* ou 1.8rem, 2rem… ajuste conforme seu layout */
+    width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+    /* para garantir que o ícone fique verticalmente centralizado */
+    text-align: center;
+    /* centraliza horizontalmente o glyf */
+    flex-shrink: 0;
+    transition: margin 0.6s ease;
+}
+
+.aside-container:not(:hover) .button-aside {
+    justify-content: center;
+    /* faz com que, sem hover, o ícone fique centralizado */
+}
+
+
+.button-aside:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+
+.aside-container:hover {
+    width: 15vw;
+    /* ajustável conforme necessidade */
+    background-color: var(--gray-background);
+}
+
+.aside-container:not(:hover) {
+    align-items: center;
+    /* centraliza os botões (conteúdo de cada .button-aside) */
+}
+
+.aside-container:hover .aside-label {
+  opacity: 1;            /* no hover, o texto aparece */
+}
+
+.aside-label:not(:hover) {
+    width: 0px;
+}
+
+.aside-container:hover .button-aside i,
+.aside-container:hover .button-aside .imgPerfil {
+    margin-left: 0.5rem;
+    /* cria espaço entre ícone e texto */
+}
+
+.aside-label {
+    display: inline-block;
+    margin-left: 0.75rem;
+    white-space: nowrap;
+    opacity: 0;
+    /* texto invisível inicialmente */
+    transition: opacity 0.6s ease;
 }
 
 .user-img {
