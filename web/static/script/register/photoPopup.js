@@ -48,6 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
   confirmBtn.addEventListener('click', () => {
     // Aqui irá ocorrer o upload real via fetch
     // Neste exemplo, apenas redireciona para a página de login
-    window.location.href = '/loginPage';
+    window.location.href = '/menu';
   });
 });

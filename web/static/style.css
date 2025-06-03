@@ -172,7 +172,7 @@ main {
 
 #btn-login,
 #btn-register {
-    width: 80%;
+    width: 50%;
     text-align: center;
 }
 
@@ -393,7 +393,6 @@ main {
 }
 
 .aside-container {
-    padding-top: 5vh;;
     position: fixed;
     right: 0;
     width: 5vw;
@@ -410,7 +409,7 @@ main {
 
 .button-aside {
     display: flex;
-    align-content: center;
+    align-items: center;
     width: 100%;
     padding: 1rem;
     text-decoration: none;
@@ -481,11 +480,11 @@ main {
 
 .aside-label {
     display: inline-block;
-    margin-left: 0.75rem;
     white-space: nowrap;
     opacity: 0;
     /* texto invisível inicialmente */
     transition: opacity 0.6s ease;
+    padding-left: 3px;
 }
 
 .user-img {
