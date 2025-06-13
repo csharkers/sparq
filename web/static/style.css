@@ -178,7 +178,7 @@ main {
 
 .white-button,
 .black-button {
-    width: fit-content;
+    width: 5vw;
     font-family: "Plus Jakarta Sans";
     font-size: clamp(14px, 1.5vw, 18px);
     display: inline-block;
@@ -465,7 +465,8 @@ main {
 }
 
 .aside-container:hover .aside-label {
-  opacity: 1;            /* no hover, o texto aparece */
+    opacity: 1;
+    /* no hover, o texto aparece */
 }
 
 .aside-label:not(:hover) {
@@ -553,7 +554,7 @@ main {
     border-radius: 1rem;
     padding: 2rem;
     max-width: 30vw;
-    width: 30%;
+    max-height: 30vw;
     text-align: center;
     color: #fff;
 }
