@@ -1,3 +1,4 @@
+// Seleciona os elementos do relógio e da data
 const clockTime = document.getElementById("clock-time");
 const date = document.getElementById("date-day");
 
