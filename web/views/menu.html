@@ -1,30 +1,36 @@
-{% extends 'base.html' %}
-
-{% block content %}
+{% extends 'asideBase.html' %} {% block content %}
 <main class="background-menu">
-    <div class="container-tittle">
-        <h1 class="tittle-menu">Serviços</h1>
-    </div>
+  <div class="container-tittle">
+    <h1 class="tittle-menu">Serviços</h1>
+  </div>
 
-    <div class="container-buttons">
-        <a class="button-menu" href="/">
-            <i class="fa-solid fa-camera icon-menu-button"></i>
-            <h2 class="text-button-menu">Monitoramento</h2>
-        </a>
-        <a class="button-menu" href="/">
-            <i class="fa-solid fa-database icon-menu-button"></i>
-            <h2 class="text-button-menu">Registro</h2>
-        </a>
-        <a class="button-menu" href="/sensorsPage">
-            <i class="fa-solid fa-tower-broadcast icon-menu-button"></i>
-            <h2 class="text-button-menu">Sensores</h2>
-        </a>
-        <a class="button-menu" href="/userPage">
-                <i class="fa-solid fa-user icon-menu-button"></i>
-                <h2 class="text-button-menu">Usuários</h2>
-        </a>
-        </a>
-    </div>
+  <div class="container-buttons">
+    <a class="button-menu" href="/">
+      <i class="fa-solid fa-camera icon-menu-button"></i>
+      <h2 class="text-button-menu">Monitoramento</h2>
+    </a>
+    <a class="button-menu" href="/">
+      <i class="fa-solid fa-database icon-menu-button"></i>
+      <h2 class="text-button-menu">Registro</h2>
+    </a>
+    <a class="button-menu" href="/sensorsPage">
+      <i class="fa-solid fa-tower-broadcast icon-menu-button"></i>
+      <h2 class="text-button-menu">Sensores</h2>
+    </a>
+    <a class="button-menu" href="/">
+      <i class="fa-solid fa-map icon-menu-button"></i>
+      <h2 class="text-button-menu">Mapa</h2>
+    </a>
+    <a class="button-menu" href="/userPage">
+      <i class="fa-solid fa-users icon-menu-button"></i>
+      <h2 class="text-button-menu">Usuários</h2>
+    </a>
+    <a class="button-menu" href="/registerPage">
+      <i class="fa-solid fa-user-plus icon-menu-button"></i>
+      <h2 class="text-button-menu">Cadastro</h2>
+    </a>
+
+  </div>
 </main>
 
 {% endblock content %}

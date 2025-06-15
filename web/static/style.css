@@ -306,7 +306,6 @@ main {
     text-decoration: underline;
 }
 
-
 .container-questions li {
     list-style: none;
     padding: 2vw;
@@ -485,7 +484,7 @@ main {
     opacity: 0;
     /* texto invisível inicialmente */
     transition: opacity 0.6s ease;
-    padding-left: 3px;
+    margin-left: 5px;
 }
 
 .user-img {
