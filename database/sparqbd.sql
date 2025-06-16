@@ -112,7 +112,9 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 -- Copiando dados para a tabela sparqbd.usuario: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
 INSERT INTO `usuario` (`id_usuario`, `nome`, `email`, `cpf`, `sexo`, `parque`, `senha`, `cargo`, `avatar`, `created_at`) VALUES
-	(1, 'Ana', 'ana@email.com', '12345678901', 'feminino', 1, '123', 0, 'ana.png', '2025-06-16 11:34:49');
+	(1, 'Ana', 'ana@email.com', '12345678901', 'feminino', 1, '123', 1, 'ana.png', '2025-06-16 11:34:49'),
+	(26, 'Daniel Silva', 'daniel.silva@email.com', '123.456.789-03', 'masculino', 1, 'scrypt:32768:8:1$ctrRLNF1pewjjX4f$f7c3a9480d6d4466ff0d8e2c8ef2a1b3e0553d6552e1527f1d52c3db4eea6ad515f4782bbc20c5ae085b8bc52b58668d3a950a9c0a674e23449f270fe80a025f', 2, 'photo.png', '2025-06-16 14:55:24'),
+	(28, 'João Dolores', 'joao@email.com', '123.456.786-54', 'masculino', 2, 'scrypt:32768:8:1$ufordggGoqCwaBWA$57dd124a867eec0d4083f6ca5f9bf6b0ffb21b40d95149d2a68d0380dba2c01a99662e4f813a301ac8f3ab38eb8cf93fe70b24944c3157261e2bd60eecc3f16a', 2, 'homem.png', '2025-06-16 15:07:21');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

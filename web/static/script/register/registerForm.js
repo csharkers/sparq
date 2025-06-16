@@ -74,6 +74,5 @@ document.addEventListener('DOMContentLoaded', function() {
     form.addEventListener('submit', function() {
         const submitBtn = document.getElementById('btn-register');
         submitBtn.disabled = true;
-        submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
     });
 });

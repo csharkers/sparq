@@ -492,6 +492,12 @@ main {
     justify-content: center;
 }
 
+.user-avatar {
+    width: 100%;  /* Ocupa 100% do container pai */
+    height: 100%; /* Ocupa 100% do container pai */
+    object-fit: cover; /* Garante que a imagem cubra todo o espaço mantendo proporções */
+}
+
 .imgPerfil {
     width: 2.083vw;
     border-radius: 100%;
@@ -637,12 +643,16 @@ main {
     gap: 1.5vw;
 }
 
-.avatar-request img {
-    width: 3.125vw;
-    min-width: 50px;
+.avatar-request {
+    width: 80px;  /* Largura fixa para o container */
+    height: 80px; /* Altura fixa para o container */
+    min-width: 80px; /* Garante que não ficará menor que isso */
     border-radius: 50%;
-    object-fit: cover;
+    overflow: hidden; /* Garante que a imagem não ultrapasse os limites */
     border: 2px solid #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .details-request {
@@ -872,4 +882,29 @@ main {
     margin-bottom: 10px;
     border-radius: 4px;
     border: 1px solid #f5c6cb;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    gap: 10px;
+}
+
+.pagination a, .pagination strong {
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.pagination a:hover {
+    background-color: #f5f5f5;
+    color: #000;
+}
+
+.pagination strong {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
 }
