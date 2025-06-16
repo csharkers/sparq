@@ -1,1 +1,0 @@
-# Aqui se encontrará a classe usuário

@@ -12,22 +12,22 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 
--- Copiando estrutura do banco de dados para sparcqbd
-CREATE DATABASE IF NOT EXISTS `sparcqbd` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
-USE `sparcqbd`;
+-- Copiando estrutura do banco de dados para sparqbd
+CREATE DATABASE IF NOT EXISTS `sparqbd` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
+USE `sparqbd`;
 
--- Copiando estrutura para tabela sparcqbd.indice
+-- Copiando estrutura para tabela sparqbd.indice
 CREATE TABLE IF NOT EXISTS `indice` (
   `id_indice` int(11) NOT NULL AUTO_INCREMENT,
   `nome_indice` varchar(100) NOT NULL,
   PRIMARY KEY (`id_indice`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Copiando dados para a tabela sparcqbd.indice: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela sparqbd.indice: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `indice` DISABLE KEYS */;
 /*!40000 ALTER TABLE `indice` ENABLE KEYS */;
 
--- Copiando estrutura para tabela sparcqbd.leitura
+-- Copiando estrutura para tabela sparqbd.leitura
 CREATE TABLE IF NOT EXISTS `leitura` (
   `id_leitura` int(11) NOT NULL AUTO_INCREMENT,
   `qualidade_ar` varchar(50) DEFAULT NULL,
@@ -43,11 +43,11 @@ CREATE TABLE IF NOT EXISTS `leitura` (
   CONSTRAINT `fk_leitura_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Copiando dados para a tabela sparcqbd.leitura: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela sparqbd.leitura: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `leitura` DISABLE KEYS */;
 /*!40000 ALTER TABLE `leitura` ENABLE KEYS */;
 
--- Copiando estrutura para tabela sparcqbd.parque
+-- Copiando estrutura para tabela sparqbd.parque
 CREATE TABLE IF NOT EXISTS `parque` (
   `id_parque` int(11) NOT NULL AUTO_INCREMENT,
   `nome_parque` varchar(100) NOT NULL,
@@ -55,11 +55,11 @@ CREATE TABLE IF NOT EXISTS `parque` (
   PRIMARY KEY (`id_parque`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Copiando dados para a tabela sparcqbd.parque: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela sparqbd.parque: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `parque` DISABLE KEYS */;
 /*!40000 ALTER TABLE `parque` ENABLE KEYS */;
 
--- Copiando estrutura para tabela sparcqbd.registro
+-- Copiando estrutura para tabela sparqbd.registro
 CREATE TABLE IF NOT EXISTS `registro` (
   `id_registro` int(11) NOT NULL AUTO_INCREMENT,
   `descricao` varchar(255) DEFAULT NULL,
@@ -73,11 +73,11 @@ CREATE TABLE IF NOT EXISTS `registro` (
   CONSTRAINT `fk_registro_leitura` FOREIGN KEY (`id_leitura`) REFERENCES `leitura` (`id_leitura`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Copiando dados para a tabela sparcqbd.registro: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela sparqbd.registro: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `registro` DISABLE KEYS */;
 /*!40000 ALTER TABLE `registro` ENABLE KEYS */;
 
--- Copiando estrutura para tabela sparcqbd.sensores
+-- Copiando estrutura para tabela sparqbd.sensores
 CREATE TABLE IF NOT EXISTS `sensores` (
   `id_sensor` int(11) NOT NULL AUTO_INCREMENT,
   `localizacao` varchar(100) NOT NULL,
@@ -88,26 +88,31 @@ CREATE TABLE IF NOT EXISTS `sensores` (
   CONSTRAINT `fk_sensores_parque` FOREIGN KEY (`id_parque`) REFERENCES `parque` (`id_parque`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Copiando dados para a tabela sparcqbd.sensores: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela sparqbd.sensores: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `sensores` DISABLE KEYS */;
 /*!40000 ALTER TABLE `sensores` ENABLE KEYS */;
--- Copiando estrutura para tabela sparcqbd.usuario
+
+-- Copiando estrutura para tabela sparqbd.usuario
 CREATE TABLE IF NOT EXISTS `usuario` (
   `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `cpf` varchar(11) DEFAULT NULL,
-  `sexo` ENUM('masculino', 'feminino', 'outro') DEFAULT NULL,
-  `parque` varchar(100) DEFAULT NULL,
-  `senha` varchar(50) DEFAULT NULL,
-  `cargo` int(1) DEFAULT NULL,
-  PRIMARY KEY (`id_usuario`)
+  `email` varchar(150) NOT NULL,
+  `cpf` char(14) NOT NULL,
+  `sexo` enum('masculino','feminino','outro') NOT NULL,
+  `parque` int(11) NOT NULL,
+  `senha` varchar(255) NOT NULL,
+  `cargo` int(11) NOT NULL,
+  `avatar` varchar(200) NOT NULL DEFAULT 'avatar.png',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_usuario`),
+  UNIQUE KEY `email` (`email`),
+  UNIQUE KEY `cpf` (`cpf`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
--- Copiando dados para a tabela sparcqbd.usuario: ~1 rows (aproximadamente)
+-- Copiando dados para a tabela sparqbd.usuario: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` (`id_usuario`, `nome`, `email`, `cpf`, `sexo`, `parque`, `senha`, `cargo`) VALUES
-	(1, 'Ana Silva', 'ana.silva@example.com', '12345678901', 'feminino', 'Parque das Águas', 'senhaAna123', 1);
+INSERT INTO `usuario` (`id_usuario`, `nome`, `email`, `cpf`, `sexo`, `parque`, `senha`, `cargo`, `avatar`, `created_at`) VALUES
+	(1, 'Ana', 'ana@email.com', '12345678901', 'feminino', 1, '123', 0, 'ana.png', '2025-06-16 11:34:49');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
