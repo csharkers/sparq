@@ -107,8 +107,14 @@ def init_app(app):
     @app.route('/userPage')
     @app.route('/userPage/<int:page>')
     def userPage(page=1):
-        per_page = 10
-        usuarios_paginados = Usuario.query.paginate(page=page, per_page=per_page, error_out=False)
+        per_page = 10  # Itens por página
+        
+        # Adicione ordenação para consistência
+        usuarios_paginados = Usuario.query.order_by(Usuario.nome.asc()).paginate(
+            page=page, 
+            per_page=per_page, 
+            error_out=False
+        )
         
         usuarios_formatados = []
         for usuario in usuarios_paginados.items:
@@ -122,7 +128,7 @@ def init_app(app):
                 'cargo': usuario.cargo_nome(),
                 'parque': usuario.parque_nome(),
                 'ativo': usuario.status_ativo(),  
-                'ativo_bool': usuario.ativo  # Para usar no botão
+                'ativo_bool': usuario.ativo
             })
         
         return render_template('user.html', 
