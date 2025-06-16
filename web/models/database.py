@@ -17,16 +17,18 @@ class Usuario(db.Model):
     cargo = db.Column(db.Integer, nullable=False)
     avatar = db.Column(db.String(200), nullable=False, server_default='avatar.png')
     created_at = db.Column(db.TIMESTAMP, nullable=False, server_default=func.current_timestamp())
+    ativo = db.Column(db.Boolean, nullable=False, default=True)  # NOVO CAMPO ADICIONADO
 
-    def __init__(self, nome, email, cpf, sexo, parque, senha, cargo, avatar='avatar.png'):
+    def __init__(self, nome, email, cpf, sexo, parque, senha, cargo, avatar='avatar.png', ativo=True):
         self.nome = nome
         self.email = email
         self.cpf = cpf
         self.sexo = sexo
         self.parque = parque
-        self.senha = generate_password_hash(senha)  # Já faz o hash da senha
+        self.senha = generate_password_hash(senha)
         self.cargo = cargo
         self.avatar = avatar
+        self.ativo = ativo
 
     def verify_password(self, senha):
         return check_password_hash(self.senha, senha)
@@ -47,3 +49,5 @@ class Usuario(db.Model):
             return "Parque 2"
         else:
             return "Desconhecido"
+    def status_ativo(self):  # NOVO MÉTODO PARA STATUS
+        return "Ativo" if self.ativo else "Inativo"

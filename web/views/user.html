@@ -22,11 +22,41 @@
         <div class="detail-item-request">{{ usuario.parque }}</div>
         <div class="detail-item-request">{{ usuario.sexo | capitalize }}</div>
         <div class="detail-item-request">{{ usuario.cargo }}</div>
+        <div class="detail-item-request">
+          Status:
+          <span
+            class="status-{{ 'active' if usuario.ativo_bool else 'inactive' }}"
+          >
+            {{ usuario.ativo }}
+          </span>
+        </div>
       </div>
     </div>
     <div class="request-group-buttons">
       <button class="green-button">Editar</button>
-      <button class="red-button">Desativar</button>
+      <form
+        method="POST"
+        action="{{ url_for('toggle_usuario_status', id=usuario.id) }}"
+        style="display: inline"
+      >
+        {% if usuario.ativo_bool %}
+        <button
+          type="submit"
+          class="red-button"
+          onclick="return confirm('Deseja realmente desativar o usuário {{usuario.nome}}?')"
+        >
+          Desativar
+        </button>
+        {% else %}
+        <button
+          type="submit"
+          class="blue-button"
+          onclick="return confirm('Deseja realmente ativar o usuário {{usuario.nome}}?')"
+        >
+          Ativar
+        </button>
+        {% endif %}
+      </form>
     </div>
   </div>
   {% endfor %}

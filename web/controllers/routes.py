@@ -82,7 +82,8 @@ def init_app(app):
                     parque=parque,
                     senha=senha_hash,
                     cargo=cargo,
-                    avatar=avatar
+                    avatar=avatar,
+                    ativo=True
                 )
                 # Adicionar ao banco de dados
                 db.session.add(novo_usuario)
@@ -118,14 +119,37 @@ def init_app(app):
                 'email': usuario.email,
                 'sexo': usuario.sexo,
                 'avatar': usuario.avatar,
-                'cargo': usuario.cargo_nome(),  # Chama o método aqui
-                'parque': usuario.parque_nome()  # Chama o método aqui
+                'cargo': usuario.cargo_nome(),
+                'parque': usuario.parque_nome(),
+                'ativo': usuario.status_ativo(),  
+                'ativo_bool': usuario.ativo  # Para usar no botão
             })
         
         return render_template('user.html', 
                             usuarios=usuarios_formatados,
                             pagination=usuarios_paginados)
 
+    @app.route('/toggle_usuario_status/<int:id>', methods=['POST'])
+    def toggle_usuario_status(id):
+        usuario = Usuario.query.get(id)
+        if usuario:
+            try:
+                # Inverte o status atual
+                usuario.ativo = not usuario.ativo
+                db.session.commit()
+                
+                acao = "ativado" if usuario.ativo else "desativado"
+                flash(f'Usuário {acao} com sucesso!', 'success')
+            except Exception as e:
+                db.session.rollback()
+                flash(f'Erro ao alterar status do usuário: {str(e)}', 'danger')
+        else:
+            flash('Usuário não encontrado!', 'danger')
+        
+        # Redireciona de volta para a página de usuários mantendo a paginação
+        page = request.args.get('page', 1, type=int)
+        return redirect(url_for('userPage', page=page))
+    
     @app.route('/sensorsPage')
     def sensorsPage():
         return render_template('sensors.html')

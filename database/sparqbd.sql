@@ -104,10 +104,11 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `cargo` int(11) NOT NULL,
   `avatar` varchar(200) NOT NULL DEFAULT 'avatar.png',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ativo` tinyint(1) NOT NULL DEFAULT 1,
   PRIMARY KEY (`id_usuario`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `cpf` (`cpf`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4;
 
 -- Copiando dados para a tabela sparqbd.usuario: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;

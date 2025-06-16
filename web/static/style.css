@@ -225,6 +225,11 @@ main {
     color: #fff;
 }
 
+.blue-button {
+    background-color: #007bff;
+    color: #fff;
+}
+
 .green-button:hover {
     background-color: #27AE60;
     transform: scale(0.98);
@@ -232,6 +237,10 @@ main {
 
 .red-button:hover {
     background-color: #C0392B;
+    transform: scale(0.98);
+}
+.blue-button:hover {
+    background-color: #0567d1;
     transform: scale(0.98);
 }
 
@@ -699,7 +708,9 @@ main {
 }
 
 .green-button,
-.red-button {
+.red-button,
+.blue-button
+{
     font-family: var(--nav-and-login-font);
     font-weight: 600;
     font-size: clamp(14px, 1.2vw, 16px);
@@ -908,3 +919,14 @@ main {
     color: white;
     border-color: #007bff;
 }
+
+.status-active {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.status-inactive {
+    color: #dc3545;
+    font-weight: bold;
+}
+
