@@ -33,7 +33,9 @@
       </div>
     </div>
     <div class="request-group-buttons">
-      <button class="green-button">Editar</button>
+      <a href="{{ url_for('editUser', id=usuario.id) }}"
+        ><button class="green-button">Editar</button></a
+      >
       <form
         method="POST"
         action="{{ url_for('toggle_usuario_status', id=usuario.id) }}"
