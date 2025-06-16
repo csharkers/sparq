@@ -1,5 +1,5 @@
-{% extends 'asideBase.html' %} {% block content %} 
-{% if usuarios | length == 0%}
+{% extends 'asideBase.html' %} {% block content %} {% if usuarios | length ==
+0%}
 <div class="no-users-message">
   <p>Nenhum usuário cadastrado ainda.</p>
 </div>
@@ -19,7 +19,9 @@
         <div class="detail-item-request"><h3>{{ usuario.nome }}</h3></div>
         <div class="detail-item-request">{{ usuario.cpf }}</div>
         <div class="detail-item-request">{{ usuario.email }}</div>
+        <div class="detail-item-request">{{ usuario.parque }}</div>
         <div class="detail-item-request">{{ usuario.sexo | capitalize }}</div>
+        <div class="detail-item-request">{{ usuario.cargo }}</div>
       </div>
     </div>
     <div class="request-group-buttons">

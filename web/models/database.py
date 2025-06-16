@@ -30,3 +30,20 @@ class Usuario(db.Model):
 
     def verify_password(self, senha):
         return check_password_hash(self.senha, senha)
+    def cargo_nome(self):
+        if self.cargo == 1:
+            return "Administrador"
+        elif self.cargo == 2:
+            return "Suporte"
+        elif self.cargo == 3:
+            return "Funcionário"
+        else:
+            return "Desconhecido"
+    
+    def parque_nome(self):
+        if self.parque == 1:
+            return "Parque 1"
+        elif self.parque == 2:
+            return "Parque 2"
+        else:
+            return "Desconhecido"

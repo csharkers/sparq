@@ -106,7 +106,7 @@ def init_app(app):
     @app.route('/userPage')
     @app.route('/userPage/<int:page>')
     def userPage(page=1):
-        per_page = 10  # Usuários por página
+        per_page = 10
         usuarios_paginados = Usuario.query.paginate(page=page, per_page=per_page, error_out=False)
         
         usuarios_formatados = []
@@ -118,7 +118,8 @@ def init_app(app):
                 'email': usuario.email,
                 'sexo': usuario.sexo,
                 'avatar': usuario.avatar,
-                'cargo': usuario.cargo  # Adicionei o cargo para exibição
+                'cargo': usuario.cargo_nome(),  # Chama o método aqui
+                'parque': usuario.parque_nome()  # Chama o método aqui
             })
         
         return render_template('user.html', 
