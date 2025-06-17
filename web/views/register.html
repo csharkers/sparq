@@ -52,6 +52,15 @@ get_flashed_messages(with_categories=true) %} {% if messages %}
         required
       />
     </div>
+    <div class="input-sexo">
+      <label for="sexo">Sexo:</label>
+      <select class="form-input" id="sexo" name="sexo" required>
+        <option value="" disabled selected hidden>Selecione</option>
+        <option value="masculino">Masculino</option>
+        <option value="feminino">Feminino</option>
+        <option value="outro">Outro</option>
+      </select>
+    </div>
     <div class="input-parque">
       <label for="parque">Parque:</label>
       <select class="form-input" id="parque" name="parque" required>
