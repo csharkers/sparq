@@ -107,7 +107,7 @@ def init_app(app):
     @app.route('/userPage')
     @app.route('/userPage/<int:page>')
     def userPage(page=1):
-        per_page = 10  # Itens por página
+        per_page = 5  # Itens por página
         
         # Adicione ordenação para consistência
         usuarios_paginados = Usuario.query.order_by(Usuario.nome.asc()).paginate(
