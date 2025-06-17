@@ -1,59 +1,114 @@
-{% extends 'asideBase.html' %} {% block content %}
+{% extends 'asideBase.html' %} {% with messages =
+get_flashed_messages(with_categories=true) %} {% if messages %}
+<div class="flash-messages">
+  {% for category, message in messages %}
+  <div class="flash-{{ category }}">{{ message }}</div>
+  {% endfor %}
+</div>
+{% endif %} {% endwith %} {% block content %}
 <main class="background-register">
-  <form id="registerForm" class="container-form" action="" method="post">
+  <form
+    id="registerForm"
+    class="container-form"
+    action="{{url_for('registerPage')}}"
+    method="post"
+    enctype="multipart/form-data"
+  >
     <h1>REGISTRAR USUÁRIO</h1>
 
     <div class="input-name">
       <label for="name">Nome:</label>
-      <input class="form-input" id="name" name="name" type="text" placeholder="Lorem da Silva Sitamet" required />
+      <input
+        class="form-input"
+        id="name"
+        name="name"
+        type="text"
+        placeholder="Lorem da Silva Sitamet"
+        required
+      />
     </div>
     <div class="input-email">
       <label for="email">E-mail:</label>
-      <input class="form-input" id="email" name="email" type="email" placeholder="Exemplo@email.com" required />
+      <input
+        class="form-input"
+        id="email"
+        name="email"
+        type="email"
+        placeholder="Exemplo@email.com"
+        required
+      />
     </div>
     <div class="input-cpf">
       <label for="cpf">CPF:</label>
-      <input class="form-input" id="cpf" name="cpf" type="text" placeholder="000.000.000-00" minlength="14"
-        maxlength="14" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required />
+      <input
+        class="form-input"
+        id="cpf"
+        name="cpf"
+        type="text"
+        placeholder="000.000.000-00"
+        minlength="14"
+        maxlength="14"
+        pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
+        required
+      />
     </div>
     <div class="input-parque">
       <label for="parque">Parque:</label>
       <select class="form-input" id="parque" name="parque" required>
-        <option value="" disabled selected hidden>Selecione seu Parque</option>
+        <option value="" disabled selected hidden>Selecione o Parque</option>
         <option value="1">Parque 1</option>
         <option value="2">Parque 2</option>
       </select>
     </div>
+    <div class="input-cargo">
+      <label for="cargo">Cargo:</label>
+      <select class="form-input" id="cargo" name="cargo" required>
+        <option value="" disabled selected hidden>Selecione o Cargo</option>
+        <option value="1">Administrador</option>
+        <option value="2">Suporte</option>
+        <option value="3">Funcionário</option>
+      </select>
+    </div>
     <div class="input-password">
       <label for="password">Senha:</label>
-      <input class="form-input" id="password" name="password" type="password" placeholder="••••••••••••••" required />
+      <input
+        class="form-input"
+        id="password"
+        name="password"
+        type="password"
+        placeholder="••••••••••••••"
+        required
+      />
     </div>
 
-    <div class="container-btn-register">
-      <button id="btn-register" class="black-button" type="submit">Register</button>
-    </div>
-  </form>
-
-  <!-- Popup de upload estilizado -->
-  <div id="popupOverlay" class="popup-overlay">
-    <div class="popup-box">
-      <h2>Selecione uma Imagem de Perfil</h2>
+    <!-- Input de imagem adicionado no form -->
+    <div class="input-avatar">
+      <label for="input-avatar">Imagem de Perfil:</label>
       <div class="avatar-container">
-        <img src="{{ url_for('static', filename='assets/img/avatar.png') }}" alt="Preview de avatar"
-          id="avatarPreview" />
+        <img
+          src="{{ url_for('static', filename='assets/img/avatar.png') }}"
+          alt="Preview de avatar"
+          id="avatarPreview"
+        />
         <button id="btn-choose-file" class="camera-button" type="button">
           <i id="icon-camera" class="fa-solid fa-camera"></i>
         </button>
-        <input type="file" id="input-avatar" name="avatar" accept="image/*" hidden />
-      </div>
-      <div class="popup-actions">
-        <button id="btn-confirm" class="white-button" type="button">
-          Confirmar
-        </button>
-        <button id="btn-back" class="black-button" type="button">Voltar</button>
+        <input
+          type="file"
+          id="input-avatar"
+          name="avatar"
+          accept="image/*"
+          hidden
+        />
       </div>
     </div>
-  </div>
+
+    <div class="container-btn-register">
+      <button id="btn-register" class="black-button" type="submit">
+        Registro
+      </button>
+    </div>
+  </form>
 
   <div class="container-questions">
     <h2>Dúvidas Frequentes:</h2>
@@ -65,7 +120,6 @@
     </ul>
   </div>
 </main>
-
-<script src="{{ url_for('static', filename='script/register/photoPopUp.js') }}"></script>
+<script src="{{ url_for('static', filename='script/register/registerForm.js') }}"></script>
 <script src="{{ url_for('static', filename='script/register/inputCpf.js') }}"></script>
 {% endblock content %}
