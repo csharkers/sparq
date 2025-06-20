@@ -3,6 +3,7 @@ from flask import render_template, request, session, current_app, redirect, url_
 from werkzeug.utils import secure_filename
 from werkzeug.security import generate_password_hash
 from models.database import db, Usuario
+from controllers.sensorValues import dadosApi
 import hashlib
 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
@@ -204,4 +205,6 @@ def init_app(app):
     
     @app.route('/sensorsPage')
     def sensorsPage():
-        return render_template('sensors.html')
+        info = dadosApi()
+        print(info)
+        return render_template('sensors.html', info=info)
