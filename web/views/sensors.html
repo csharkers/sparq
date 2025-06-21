@@ -1,62 +1,60 @@
 {% extends 'asideBase.html' %}
 {% block content %}
 <main>
-  
+
+  {% if dados %}
+  {% for item in dados %}
   <div class="container-sensors">
     <!-- Sensor 1: Norte (aberto por padrão) -->
-
-
-   
-    {% if dados %}
-      {% for item in dados %}
-        <div class="sensor-panel">
-          <button class="sensor-header">
-            <!-- <span class="status status-orange"></span> -->
-            <span class="sensor-title">{{ item.id }}</span>
-            <span class="arrow-icon">▼</span>
-          </button>
-          <div class="sensor-content">
-            <!-- Coluna 1: Qualidade do ar + Umidade -->
-            <div class="column">
-              <div class="detail-item-sensor">
-                <h4>Qualidade do ar</h4>
-                <p>CO₂ <span style="color: #ffffff;"> {{ item.carb }} </span> ppm</p>
-              </div>
-              <div class="detail-item-sensor">
-                <h4>Umidade</h4>
-                <p><strong> {{ item.humi }} %</strong></p>
-              </div>
-            </div>
-            <!-- Coluna 2: Temperaturas -->
-            <div class="column">
-              <div class="detail-item-sensor">
-                <h4>Temperatura do solo</h4>
-                <p><strong> {{ item.temp }} °C</strong></p>
-              </div>
-              <!-- <div class="detail-item-sensor">
+    <div class="sensor-panel">
+      <button class="sensor-header">
+        <!-- <span class="status status-orange"></span> -->
+        <span class="sensor-title">{{ item.sens_name }}</span>
+        <span class="arrow-icon">▼</span>
+      </button>
+      <div class="sensor-content">
+        <!-- Coluna 1: Qualidade do ar + Umidade -->
+        <div class="column">
+          <div class="detail-item-sensor">
+            <h4>Qualidade do ar</h4>
+            <p>CO₂ <span style="color: #ffffff;"> {{ item.carb }} </span> ppm</p>
+          </div>
+          <div class="detail-item-sensor">
+            <h4>Umidade</h4>
+            <p><strong> {{ item.humi/100 }} %</strong></p>
+          </div>
+        </div>
+        <!-- Coluna 2: Temperaturas -->
+        <div class="column">
+          <div class="detail-item-sensor">
+            <h4>Temperatura do solo</h4>
+            <p><strong>NuM</strong></p>
+          </div>
+          <div class="detail-item-sensor">
                 <h4>Temperatura do ar</h4>
-                <p><strong>28°C</strong></p>
+                <p><strong>{{ item.temp/100 }} °C</strong></p>
               </div>
             </div>
-            Coluna 3: Mapa + Botão
+            <!-- Coluna 3: Mapa + Botão -->
             <div class="column map-column">
               <div class="detail-item-sensor map">
                 <h4>Localização</h4>
                 <img src="../static/assets/img/map.png" alt="Mapa" />
               </div>
               <button class="map-btn">Abrir Mapa</button>
-            </div> -->
-          </div>
+            </div>
         </div>
-    {% endfor %}
-    {% else %}
-          <div style="text-align: center;" class="error-container">
-            <h1>Nenhum sensor encontrado</h1>
-            <i style="font-size: 5vw;" class="fa-solid fa-circle-exclamation"></i>
-            <h4>espere um pouco e pressione a tecla [F5] para recarregar a pagina</h4>
-          </div>
-    {% endif %}
-  </div>
+      </div>
+      </div>
+      {% endfor %}
+      {% else %}
+      <div style="text-align: center;" class="error-container">
+        <h1>Nenhum sensor encontrado</h1>
+        <i style="font-size: 5vw;" class="fa-solid fa-circle-exclamation"></i>
+        <h4>espere um pouco e pressione a tecla [F5] para recarregar a pagina</h4>
+      </div>
+      {% endif %}
+    
 </main>
 <script src="{{ url_for('static', filename='script/sensors/sensor.js') }}"></script>
 {% endblock content %}

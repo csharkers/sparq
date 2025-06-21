@@ -802,9 +802,11 @@ main {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  padding: 1rem;
+  margin: 5vw;
+  padding: 2vw;
   background-color: var(--blue-widget-background);
   border-radius: 8px;
+  
 }
 
 /* Remove as barras entre as detail-item apenas dentro de sensor-content */

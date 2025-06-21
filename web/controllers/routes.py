@@ -209,6 +209,7 @@ def init_app(app):
         
         if dados is None:
             
+            
             render_template('sensors.html', dados=dados)
-        
+        print(dados)
         return render_template('sensors.html', dados=dados)
