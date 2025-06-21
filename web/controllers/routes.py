@@ -205,6 +205,10 @@ def init_app(app):
     
     @app.route('/sensorsPage')
     def sensorsPage():
-        info = dadosApi()
-        print(info)
-        return render_template('sensors.html', info=info)
+        dados = dadosApi()
+        
+        if dados is None:
+            
+            render_template('sensors.html', dados=dados)
+        
+        return render_template('sensors.html', dados=dados)

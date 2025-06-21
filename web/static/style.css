@@ -27,14 +27,12 @@ body {
 
   /* ← AQUI: fundo com gradient SOMENTE no body */
   /* Background geral para todos os bodys */
-  background-image: linear-gradient(
-    to top right,
-    #1e2c28,
-    #1c2725,
-    #192021,
-    #161a1e,
-    #141518
-  );
+  background-image: linear-gradient(to top right,
+      #1e2c28,
+      #1c2725,
+      #192021,
+      #161a1e,
+      #141518);
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
@@ -104,8 +102,8 @@ main {
   overflow: auto;
 }
 
-.background-login > div,
-.background-register > div {
+.background-login>div,
+.background-register>div {
   padding: 5vw;
 }
 
@@ -250,6 +248,7 @@ main {
   background-color: #c0392b;
   transform: scale(0.98);
 }
+
 .blue-button:hover {
   background-color: #0567d1;
   transform: scale(0.98);
@@ -341,14 +340,12 @@ main {
 /* STYLE BASE ASIDE*/
 .background-aside-base {
   display: flex;
-  background-image: linear-gradient(
-    to top right,
-    #1e2c28,
-    #1c2725,
-    #192021,
-    #161a1e,
-    #141518
-  );
+  background-image: linear-gradient(to top right,
+      #1e2c28,
+      #1c2725,
+      #192021,
+      #161a1e,
+      #141518);
   overflow: auto;
 }
 
@@ -508,9 +505,12 @@ main {
 }
 
 .user-avatar {
-  width: 100%; /* Ocupa 100% do container pai */
-  height: 100%; /* Ocupa 100% do container pai */
-  object-fit: cover; /* Garante que a imagem cubra todo o espaço mantendo proporções */
+  width: 100%;
+  /* Ocupa 100% do container pai */
+  height: 100%;
+  /* Ocupa 100% do container pai */
+  object-fit: cover;
+  /* Garante que a imagem cubra todo o espaço mantendo proporções */
 }
 
 .imgPerfil {
@@ -656,11 +656,15 @@ main {
 }
 
 .avatar-request {
-  width: 80px; /* Largura fixa para o container */
-  height: 80px; /* Altura fixa para o container */
-  min-width: 80px; /* Garante que não ficará menor que isso */
+  width: 80px;
+  /* Largura fixa para o container */
+  height: 80px;
+  /* Altura fixa para o container */
+  min-width: 80px;
+  /* Garante que não ficará menor que isso */
   border-radius: 50%;
-  overflow: hidden; /* Garante que a imagem não ultrapasse os limites */
+  overflow: hidden;
+  /* Garante que a imagem não ultrapasse os limites */
   border: 2px solid #fff;
   display: flex;
   align-items: center;
@@ -792,6 +796,15 @@ main {
   overflow: hidden;
   /* já que está aberto por padrão */
   transition: max-height 300ms ease;
+}
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem;
+  background-color: var(--blue-widget-background);
+  border-radius: 8px;
 }
 
 /* Remove as barras entre as detail-item apenas dentro de sensor-content */
