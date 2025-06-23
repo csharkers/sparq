@@ -1,8 +1,8 @@
 {% extends 'asideBase.html' %}
 {% block content %}
 <main>
-    {% if dados_M %}
-    {% for item in dados_M %}
+    {% if dados %}
+    
     <div class="container-widgets-service">
         <div class="widget-service">
             <div class="widget-service-header">
@@ -16,6 +16,7 @@
             </div>
         </div>
         <div class="widget-service">
+            {% for item in dados %}
             <div class="widget-service-header">
                 <!-- <div>
                     <select class="select-sensor" id="sexo" name="sexo" required>
@@ -52,6 +53,7 @@
                     </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
         <div class="widget-service">
             <div class="widget-service-header">
@@ -60,14 +62,14 @@
             <div class="widget-service-content">
                 <div class="content-temp-sensor">
                     <div>
-                        <h1>{{ item.temp/100 }}°</h1>
+                        <h1>{{ temp.media }}°</h1>
                     </div>
                     <div>
                         <div class="content-temp-sensor">
                             <i class="fa-solid fa-arrow-up"></i>
-                            <h2>00°</h2>
+                            <h2>{{ temp.maxTemp }}°</h2>
                             <i class="fa-solid fa-arrow-down"></i>
-                            <h2>00°</h2>
+                            <h2>{{ temp.minTemp }}°</h2>
                         </div>
                         <div class="content-temp-sensor">
                             <i class="fa-solid fa-droplet"></i>
@@ -92,7 +94,7 @@
             </div>
         </div>
     </div>
-    {% endfor %}
+    
     {% else %}
     <div style="text-align: center;" class="error-container">
         <h1>Não foi possivel estabelecer conexão com os sensores!</h1>

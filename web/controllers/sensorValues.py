@@ -2,11 +2,15 @@ import requests
 
 # Função que retorna o Json
 
+maxTemp = 0
+minTemp = 0
+
+
 def dadosApi():
     url_api = "https://sparq-api-dpbdg9c9h3ehaub8.brazilsouth-01.azurewebsites.net/readings"
-    
+
     try:
-        response = requests.get( url_api , timeout=10)
+        response = requests.get(url_api, timeout=10)
         response.raise_for_status()
         dados = response.json()
         return dados
@@ -16,7 +20,15 @@ def dadosApi():
 
 # Função para media de temperatura
 
+
+max_temp = float('-inf')
+min_temp = float('inf')
+
+
 def mediaTemp():
+
+    global max_temp
+    global min_temp
     
     dados = dadosApi()
     
@@ -28,18 +40,25 @@ def mediaTemp():
             
             list_temp.append(item["temp"]/100)
             
-    if len(list_temp) > 0:
+    if len(list_temp):    
         
-        soma_temp = 0 
+        media = sum(list_temp) / len(list_temp)
         
-        for temp in list_temp:
-
-            soma_temp += temp
+        if media > max_temp:
+            max_temp = media
+            
+        if media < min_temp:
+            min_temp = media
         
-        media = soma_temp / len(list_temp)
-        
-        return media
+        return {
+            "media" : round(media , 2),
+            "minTemp" : round(min_temp, 2),
+            "maxTemp" : round(max_temp, 2)
+        }
     
     else:
         return None
     
+# Função para informações dos sensores
+
+
