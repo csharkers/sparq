@@ -1,0 +1,105 @@
+{% extends 'asideBase.html' %}
+{% block content %}
+<main>
+    {% if dados_M %}
+    {% for item in dados_M %}
+    <div class="container-widgets-service">
+        <div class="widget-service">
+            <div class="widget-service-header">
+                <h3>Alerta & notificações</h3>
+            </div>
+            <div class="widget-service-content">
+                <div class="content-notify-widget">
+                    <i style="font-size: 2.5vw;" class="fa-solid fa-bell"></i>
+                    <h2>Não há nada por aqui.</h2>
+                </div>
+            </div>
+        </div>
+        <div class="widget-service">
+            <div class="widget-service-header">
+                <!-- <div>
+                    <select class="select-sensor" id="sexo" name="sexo" required>
+                        <option value="" disabled selected hidden>Selecione</option>
+                        <option value="masculino">Masculino</option>
+                        <option value="feminino">Feminino</option>
+                        <option value="outro">Outro</option>
+                    </select>
+                </div> -->
+                <h3>Informações do sensor - {{ item.sens_name }}</h3>
+            </div>
+            <div class="widget-service-content">
+                <div class="content-info-sensor">
+                    <div>
+                        <h2>Qualidade do ar</h2>
+                        <p>CO2 {{ item.carb }} ppm</p>
+                    </div>
+                    <div>
+                        <h2>Temperatura do solo</h2>
+                        <p>00°C</p>
+                    </div>
+                    <div>
+                        <h2>Localização</h2>
+                        <div></div>
+                        <button>Abrir</button>
+                    </div>
+                    <div>
+                        <h2>Umidade</h2>
+                        <p>{{ item.humi/100 }}%</p>
+                    </div>
+                    <div>
+                        <h2>Temperatura do ar</h2>
+                        <p>{{ item.temp/100 }}°C</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="widget-service">
+            <div class="widget-service-header">
+                <h3>Temperatura</h3>
+            </div>
+            <div class="widget-service-content">
+                <div class="content-temp-sensor">
+                    <div>
+                        <h1>{{ item.temp/100 }}°</h1>
+                    </div>
+                    <div>
+                        <div class="content-temp-sensor">
+                            <i class="fa-solid fa-arrow-up"></i>
+                            <h2>00°</h2>
+                            <i class="fa-solid fa-arrow-down"></i>
+                            <h2>00°</h2>
+                        </div>
+                        <div class="content-temp-sensor">
+                            <i class="fa-solid fa-droplet"></i>
+                            <i class="fa-solid fa-droplet"></i>
+                            <i class="fa-solid fa-droplet"></i>
+                            <h2>00%</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="widget-service">
+            <div class="widget-service-header">
+                <h3>Lista de sensores </h3>
+            </div>
+            <div class="widget-service-content">
+                <div class="content-list-sensor">
+                    <ul>
+                        <li>Sensor </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <div style="text-align: center;" class="error-container">
+        <h1>Não foi possivel estabelecer conexão com os sensores!</h1>
+        <i style="font-size: 5vw;" class="fa-solid fa-circle-exclamation"></i>
+        <h4>espere um pouco e pressione a tecla [F5] para recarregar a pagina</h4>
+    </div>
+    {% endif %}
+</main>
+<script src="{{ url_for('static', filename='script/sensors/sensor.js') }}"></script>
+{% endblock content %}

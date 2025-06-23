@@ -207,9 +207,10 @@ def init_app(app):
     def sensorsPage():
         dados = dadosApi()
         
-        if dados is None:
-            
-            
-            render_template('sensors.html', dados=dados)
-        print(dados)
         return render_template('sensors.html', dados=dados)
+    @app.route('/service')
+    def servicePage():
+
+        dados = dadosApi()
+        
+        return render_template('service.html', dados=dados)

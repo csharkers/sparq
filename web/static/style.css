@@ -969,3 +969,45 @@ main {
   color: #dc3545;
   font-weight: bold;
 }
+
+/* SERVICE PAGE STYLE */
+
+.container-widgets-service{
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+}
+.widget-service{
+  background-color: var(--blue-widget-background);
+  margin: 0.5vw;
+  min-height: 10px;
+  border-radius: 1vw;
+  font-family: var(--widgets-font);
+  font-weight: 200;
+  font-style: normal  ;
+}
+.widget-service-header{
+  display: flex;
+  align-items: center;
+  padding: 1.5vh;
+  flex-direction: row;
+}
+.widget-service-content{
+  padding: 1vw;
+}
+.content-notify-widget{
+  opacity: 0.5;
+  text-align: center ;
+}
+.select-sensor{
+  color: #000;
+}
+.content-info-sensor{
+  display: grid;
+  grid-template-columns: repeat(3,auto);
+}
+.content-temp-sensor{
+  display: flex;
+}
+.max-and-min-content{
+  display: flex;
+}
