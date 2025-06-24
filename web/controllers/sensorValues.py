@@ -1,3 +1,4 @@
+from flask import request
 import requests
 
 # Função que retorna o Json
@@ -34,31 +35,47 @@ def mediaTemp():
     
     list_temp = []
     
-    for item in dados:
-        
-        if "temp" in item and item["temp"] is not None:
+    if dados:   
+        for item in dados:
             
-            list_temp.append(item["temp"]/100)
+            if "temp" in item and item["temp"] is not None:
+                
+                list_temp.append(item["temp"]/100)
+                
+        if len(list_temp):    
             
-    if len(list_temp):    
-        
-        media = sum(list_temp) / len(list_temp)
-        
-        if media > max_temp:
-            max_temp = media
+            media = sum(list_temp) / len(list_temp)
             
-        if media < min_temp:
-            min_temp = media
-        
-        return {
-            "media" : round(media , 2),
-            "minTemp" : round(min_temp, 2),
-            "maxTemp" : round(max_temp, 2)
-        }
+            if media > max_temp:
+                max_temp = media
+                
+            if media < min_temp:
+                min_temp = media
+            
+            return {
+                "media" : round(media , 2),
+                "minTemp" : round(min_temp, 2),
+                "maxTemp" : round(max_temp, 2)
+            }
     
     else:
         return None
     
 # Função para informações dos sensores
 
-
+def sensorInfo():
+    
+    dados = dadosApi()
+    sensorSelect = 0
+    sensorDados = None
+    
+    if request.method == "POST":    
+        
+        sensorSelect = request.form.get('park')
+        
+        for sensor in dados:
+            if sensor['sens_id'] == sensorSelect:
+                sensorDados = sensor
+                return sensorDados
+    else:
+        print(dados)

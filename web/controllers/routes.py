@@ -3,7 +3,7 @@ from flask import render_template, request, session, current_app, redirect, url_
 from werkzeug.utils import secure_filename
 from werkzeug.security import generate_password_hash
 from models.database import db, Usuario
-from controllers.sensorValues import dadosApi , mediaTemp
+from controllers.sensorValues import dadosApi , mediaTemp, sensorInfo
 import hashlib
 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
@@ -208,10 +208,14 @@ def init_app(app):
         dados = dadosApi()
         
         return render_template('sensors.html', dados=dados)
-    @app.route('/service')
+    @app.route('/service', methods=['GET', 'POST'])
     def servicePage():
 
         dados = dadosApi()
         temp = mediaTemp()
+        sensor = sensorInfo()
         
-        return render_template('service.html', dados=dados, temp = temp)
+        return render_template('service.html',
+                               dados=dados,
+                               temp = temp, 
+                               sensor = sensor)
