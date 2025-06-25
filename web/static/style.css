@@ -1005,6 +1005,7 @@ main {
 .content-info-sensor{
   display: grid;
   grid-template-columns: repeat(3,auto);
+  grid-row-end: auto, auto;
 }
 .content-temp-sensor{
   display: flex;

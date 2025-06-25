@@ -66,7 +66,7 @@ def mediaTemp():
 def sensorInfo():
     
     dados = dadosApi()
-    sensorSelect = 1
+    sensorSelect = 0
     sensorDados = None
     
     # if request.method == "POST":    

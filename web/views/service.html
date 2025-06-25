@@ -19,8 +19,9 @@
             <div class="widget-service-header">
                 <form action="/service" method="post">
                     <select style="background-color: black;" name="park" id="park" onchange="this.form.submit()">
-                        <option value="1">Parque 1</option>
-                        <option value="2">Parque 2</option>
+                        <option>Nenhum Selecionad</option>
+                        <option value="1">Sensor 1</option>
+                        <option value="2">Sensor 2</option>
                     </select>
                 </form>
                 <h3>Informações do sensor - {{ sensor.sens_name }}</h3>
