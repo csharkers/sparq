@@ -1,4 +1,4 @@
-from flask import request
+from flask import request, session
 import requests
 
 # Função que retorna o Json
@@ -66,16 +66,23 @@ def mediaTemp():
 def sensorInfo():
     
     dados = dadosApi()
-    sensorSelect = 0
+    sensorSelect = 1
     sensorDados = None
     
+    # if request.method == "POST":    
+    #     sensorSelect = int(request.form.get('park'))
     if request.method == "POST":    
+        try:
+            sensorSelect = int(request.form.get('park'))
+            session['sensorSelect'] = sensorSelect
+        except (ValueError, TypeError):
+            sensorSelect = session.get('sensorSelect', 1)
+    else:
+        sensorSelect = session.get('sensorSelect', 1)
+
         
-        sensorSelect = request.form.get('park')
-        
-        for sensor in dados:
+    for sensor in dados:
             if sensor['sens_id'] == sensorSelect:
                 sensorDados = sensor
                 return sensorDados
-    else:
-        print(dados)
+                

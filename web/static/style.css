@@ -975,6 +975,7 @@ main {
 .container-widgets-service{
   display: grid;
   grid-template-columns: repeat(2, auto);
+  
 }
 .widget-service{
   background-color: var(--blue-widget-background);

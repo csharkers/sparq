@@ -18,7 +18,7 @@
         <div class="widget-service">
             <div class="widget-service-header">
                 <form action="/service" method="post">
-                    <select name="park" id="park" onchange="this.form.submit()">
+                    <select style="background-color: black;" name="park" id="park" onchange="this.form.submit()">
                         <option value="1">Parque 1</option>
                         <option value="2">Parque 2</option>
                     </select>
@@ -33,20 +33,22 @@
                     </div>
                     <div>
                         <h2>Temperatura do solo</h2>
-                        <p>00°C</p>
+                        <p>--°C</p>
                     </div>
-                    <div>
-                        <h2>Localização</h2>
-                        <div></div>
-                        <button>Abrir</button>
+                    <div class="column map-column">
+                        <div class="detail-item-sensor map">
+                            <h4>Localização</h4>
+                            <img src="../static/assets/img/map.png" alt="Mapa" />
+                        </div>
+                        <button class="map-btn">Abrir Mapa</button>
                     </div>
                     <div>
                         <h2>Umidade</h2>
-                        <p>{{ sensor.humi }}%</p>
+                        <p>{{ sensor.humi/100 }}%</p>
                     </div>
                     <div>
                         <h2>Temperatura do ar</h2>
-                        <p>{{ sensor.temp}}°C</p>
+                        <p>{{ sensor.temp/100}}°C</p>
                     </div>
                 </div>
             </div>
@@ -71,7 +73,7 @@
                             <i class="fa-solid fa-droplet"></i>
                             <i class="fa-solid fa-droplet"></i>
                             <i class="fa-solid fa-droplet"></i>
-                            <h2>00%</h2>
+                            <h2>--%</h2>
                         </div>
                     </div>
                 </div>
