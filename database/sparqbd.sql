@@ -2,7 +2,7 @@
 -- Servidor:                     127.0.0.1
 -- Versão do servidor:           10.4.32-MariaDB - mariadb.org binary distribution
 -- OS do Servidor:               Win64
--- HeidiSQL Versão:              12.10.0.7000
+-- HeidiSQL Versão:              12.11.0.7065
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -85,7 +85,6 @@ CREATE TABLE IF NOT EXISTS `sensores` (
 
 -- Copiando dados para a tabela sparqbd.sensores: ~0 rows (aproximadamente)
 
--- Substituição da tabela usuários pelo novo modelo --
 -- Copiando estrutura para tabela sparqbd.usuario
 CREATE TABLE IF NOT EXISTS `usuario` (
   `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
@@ -104,11 +103,11 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   UNIQUE KEY `cpf` (`cpf`)
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Copiando dados para a tabela sparqbd.usuario: ~16 rows (aproximadamente)
+-- Copiando dados para a tabela sparqbd.usuario: ~13 rows (aproximadamente)
 INSERT INTO `usuario` (`id_usuario`, `nome`, `email`, `cpf`, `sexo`, `parque`, `senha`, `cargo`, `avatar`, `created_at`, `ativo`) VALUES
-	(1, 'Ana Maria', 'ana@email.com', '123.456.789-01', 'feminino', 1, 'scrypt:32768:8:1$sxTNcfb85Ukj8Lnj$bad062c8a4f235bc4ac7afa832551cc357659707128eee461bf83b518d178223fd6c81cb83de033533ae1eb629ef8dc025ab3e0737e45738d88041d5fce86e66', 3, 'ana.png', '2025-06-16 11:34:49', 1),
-	(2, 'Daniel Silva', 'daniel.silva@email.com', '123.456.789-03', 'masculino', 1, 'scrypt:32768:8:1$ctrRLNF1pewjjX4f$f7c3a9480d6d4466ff0d8e2c8ef2a1b3e0553d6552e1527f1d52c3db4eea6ad515f4782bbc20c5ae085b8bc52b58668d3a950a9c0a674e23449f270fe80a025f', 1, 'daniel.png', '2025-06-16 14:55:24', 1),
-	(3, 'João Dolores', 'joao@email.com', '123.456.786-54', 'masculino', 2, 'scrypt:32768:8:1$ufordggGoqCwaBWA$57dd124a867eec0d4083f6ca5f9bf6b0ffb21b40d95149d2a68d0380dba2c01a99662e4f813a301ac8f3ab38eb8cf93fe70b24944c3157261e2bd60eecc3f16a', 2, 'joao.png', '2025-06-16 15:07:21', 1),
+	(1, 'Ana Maria', 'ana@email.com', '123.456.789-01', 'feminino', 1, 'scrypt:32768:8:1$sxTNcfb85Ukj8Lnj$bad062c8a4f235bc4ac7afa832551cc357659707128eee461bf83b518d178223fd6c81cb83de033533ae1eb629ef8dc025ab3e0737e45738d88041d5fce86e66', 3, 'avatar.png', '2025-06-16 11:34:49', 1),
+	(2, 'Daniel Silva', 'daniel.silva@email.com', '123.456.789-03', 'masculino', 1, 'scrypt:32768:8:1$ctrRLNF1pewjjX4f$f7c3a9480d6d4466ff0d8e2c8ef2a1b3e0553d6552e1527f1d52c3db4eea6ad515f4782bbc20c5ae085b8bc52b58668d3a950a9c0a674e23449f270fe80a025f', 1, 'avatar.png', '2025-06-16 14:55:24', 1),
+	(3, 'João Dolores', 'joao@email.com', '123.456.786-54', 'masculino', 2, 'scrypt:32768:8:1$ufordggGoqCwaBWA$57dd124a867eec0d4083f6ca5f9bf6b0ffb21b40d95149d2a68d0380dba2c01a99662e4f813a301ac8f3ab38eb8cf93fe70b24944c3157261e2bd60eecc3f16a', 2, 'avatar.png', '2025-06-16 15:07:21', 1),
 	(7, 'Maria Silva', 'maria.silva@exemplo.com', '529.982.310-68', 'feminino', 1, '$2y$10$abc123def456ghi789jkl', 2, 'avatar.png', '2025-06-17 14:12:44', 1),
 	(8, 'Carlos Oliveira', 'carlos.oliveira@exemplo.com', '714.635.820-49', 'masculino', 2, '$2y$10$xyz987uvw654rst321opq', 3, 'avatar.png', '2025-06-17 14:12:44', 1),
 	(9, 'Ana Souza', 'ana.souza@exemplo.com', '203.857.460-31', 'outro', 1, '$2y$10$mno456pqr123stu789vwx', 1, 'avatar.png', '2025-06-17 14:12:44', 1),
