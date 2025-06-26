@@ -995,9 +995,20 @@ main {
 .widget-service-content{
   padding: 1vw;
 }
-.content-notify-widget{
+.content-none-notify-widget{
   opacity: 0.5;
   text-align: center ;
+}
+.content-notify-widget{
+  display: flex;
+  align-items: center;
+  padding-left: 1vw;
+  min-height: 4vw;
+  border-radius: 0.5vw;
+  background-color: #ff7c31;
+}
+.text-alert{
+  padding-left: 1vw;
 }
 .select-sensor{
   color: #000;

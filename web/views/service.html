@@ -9,10 +9,17 @@
                 <h3>Alerta & notificações</h3>
             </div>
             <div class="widget-service-content">
+                {% if carbRisc %}
                 <div class="content-notify-widget">
+                    <i class="fa-solid fa-triangle-exclamation" style="color: #FFD43B; font-size: 2.5vw"></i>
+                    <h2 class="text-alert">ALTO RISCO: Nivel de carbono superior a 500.</h2>
+                </div>
+                {% else %}
+                <div class="content-none-notify-widget">
                     <i style="font-size: 2.5vw;" class="fa-solid fa-bell"></i>
                     <h2>Não há nada por aqui.</h2>
                 </div>
+                {% endif %}
             </div>
         </div>
         <div class="widget-service">
@@ -75,15 +82,15 @@
                             <h2>{{ temp.minTemp }}°</h2>
                         </div>
                         <div class="content-temp-sensor sub-info-temp">
-                            {% if humi > 0 and humi < 40 %}
+                            {% if humi > 0 and humi < 50 %}
                             <i style="color: #4545fc;" class="fa-solid fa-droplet"></i>
                             <i class="fa-solid fa-droplet"></i>
                             <i class="fa-solid fa-droplet"></i>
-                            {% elif humi > 40 and humi < 80 %}
+                            {% elif humi > 50 and humi < 60 %}
                             <i style="color: #4545fc;" class="fa-solid fa-droplet"></i>
                             <i style="color: #4545fc;" class="fa-solid fa-droplet"></i>
                             <i class="fa-solid fa-droplet"></i>
-                            {% elif humi > 80 %}
+                            {% elif humi > 60 %}
                             <i style="color: #4545fc;" class="fa-solid fa-droplet"></i>
                             <i style="color: #4545fc;" class="fa-solid fa-droplet"></i>
                             <i style="color: #4545fc;" class="fa-solid fa-droplet"></i>

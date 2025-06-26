@@ -3,7 +3,7 @@ from flask import render_template, request, session, current_app, redirect, url_
 from werkzeug.utils import secure_filename
 from werkzeug.security import generate_password_hash
 from models.database import db, Usuario
-from controllers.sensorValues import dadosApi , mediaTemp, sensorInfo, mediaHumi
+from controllers.sensorValues import dadosApi , mediaTemp, sensorInfo, mediaHumi, carbAlert
 import hashlib
 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
@@ -215,9 +215,11 @@ def init_app(app):
         temp = mediaTemp()
         sensor = sensorInfo()
         humi = mediaHumi()
+        carbRisc = carbAlert()
         
         return render_template('service.html',
                                dados=dados,
                                temp = temp, 
                                sensor = sensor,
-                               humi = humi)
+                               humi = humi,
+                               carbRisc = carbRisc)
