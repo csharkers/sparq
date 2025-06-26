@@ -1040,3 +1040,12 @@ main {
 .sub-info-temp * {
   margin-right: 0.4vw;
 }
+.select-sensor-info{
+  all: unset;
+  background-color: #3E3F43;
+  padding: 0.3vw;
+  margin-right: 0.4vw;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 0.3vw;
+}
