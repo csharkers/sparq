@@ -55,7 +55,7 @@ def mediaTemp():
                 min_temp = media
             
             return {
-                "media" : round(media , 2),
+                "media" : round(media),
                 "minTemp" : round(min_temp, 2),
                 "maxTemp" : round(max_temp, 2)
             }
@@ -112,6 +112,5 @@ def sensorInfo():
     for sensor in dados:
             if sensor['sens_id'] == sensorSelect:
                 sensorDados = sensor
-                print(sensorDados)
                 return sensorDados
                 

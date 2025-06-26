@@ -1007,7 +1007,25 @@ main {
 }
 .content-temp-sensor{
   display: flex;
+  align-items: center;
+
 }
 .max-and-min-content{
   display: flex;
+}
+.content-info-cell{
+  text-align: center;
+  padding: 2vw;
+}
+.prince-temp{
+  font-size: 2vw;
+  font-weight: 200;
+  font-family: var(--widgets-font);
+  margin-right: 1vw;
+}
+.sub-info-temp{
+  padding: 0.2vw;
+}
+.sub-info-temp * {
+  margin-right: 0.4vw;
 }

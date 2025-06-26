@@ -29,21 +29,21 @@
             <div class="widget-service-content">
                 <div class="content-info-sensor">
                     <div>
-                        <div>
+                        <div class="content-info-cell">
                             <h2>Qualidade do ar</h2>
                             <p>CO2 {{ sensor.carb }} ppm</p>
                         </div>
-                        <div>
+                        <div class="content-info-cell">
                             <h2>Temperatura do ar</h2>
                             <p>{{ sensor.temp/100}}°C</p>
                         </div>
                     </div>
                     <div>
-                        <div>
+                        <div class="content-info-cell">
                             <h2>Temperatura do solo</h2>
-                            <p>--°C</p>
+                            <p>{{sensor.temp_soil | float | round(2)}}°C</p>
                         </div>
-                        <div>
+                        <div class="content-info-cell">
                             <h2>Umidade</h2>
                             <p>{{ sensor.humi/100 }}%</p>
                         </div>
@@ -64,20 +64,30 @@
             </div>
             <div class="widget-service-content">
                 <div class="content-temp-sensor">
-                    <div>
+                    <div class="prince-temp">
                         <h1>{{ temp.media }}°</h1>
                     </div>
                     <div>
-                        <div class="content-temp-sensor">
-                            <i class="fa-solid fa-arrow-up"></i>
+                        <div class="content-temp-sensor sub-info-temp">
+                            <i style="color: #d35151;" class="fa-solid fa-arrow-up"></i>
                             <h2>{{ temp.maxTemp }}°</h2>
-                            <i class="fa-solid fa-arrow-down"></i>
+                            <i style="color: #4545fc;" class="fa-solid fa-arrow-down"></i>
                             <h2>{{ temp.minTemp }}°</h2>
                         </div>
-                        <div class="content-temp-sensor">
+                        <div class="content-temp-sensor sub-info-temp">
+                            {% if humi > 0 and humi < 40 %}
+                            <i style="color: #4545fc;" class="fa-solid fa-droplet"></i>
                             <i class="fa-solid fa-droplet"></i>
                             <i class="fa-solid fa-droplet"></i>
+                            {% elif humi > 40 and humi < 80 %}
+                            <i style="color: #4545fc;" class="fa-solid fa-droplet"></i>
+                            <i style="color: #4545fc;" class="fa-solid fa-droplet"></i>
                             <i class="fa-solid fa-droplet"></i>
+                            {% elif humi > 80 %}
+                            <i style="color: #4545fc;" class="fa-solid fa-droplet"></i>
+                            <i style="color: #4545fc;" class="fa-solid fa-droplet"></i>
+                            <i style="color: #4545fc;" class="fa-solid fa-droplet"></i>
+                            {% endif %}
                             <h2>{{ humi }}%</h2>
                         </div>
                     </div>
