@@ -2,7 +2,7 @@ from flask import request, session
 import requests
 
 # Função que retorna o Json
-
+    
 maxTemp = 0
 minTemp = 0
 
@@ -61,6 +61,32 @@ def mediaTemp():
     else:
         return None
     
+# Função para media da umidade
+
+def mediaHumi():
+    
+    dados = dadosApi()
+    
+    list_humi = []
+    
+    if dados:   
+        for item in dados:
+            
+            if "humi" in item and item["humi"] is not None:
+                
+                list_humi.append(item["humi"]/100)
+                
+        if len(list_humi):    
+            
+            media = sum(list_humi) / len(list_humi)
+
+            return round(media , 2)
+            
+    
+    else:
+        return None
+    
+    
 # Função para informações dos sensores
 
 def sensorInfo():
@@ -79,10 +105,11 @@ def sensorInfo():
             sensorSelect = session.get('sensorSelect', 1)
     else:
         sensorSelect = session.get('sensorSelect', 1)
-
+    
         
     for sensor in dados:
             if sensor['sens_id'] == sensorSelect:
                 sensorDados = sensor
+                print(sensorDados)
                 return sensorDados
                 

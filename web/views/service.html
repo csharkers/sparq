@@ -13,7 +13,13 @@
                     <i style="font-size: 2.5vw;" class="fa-solid fa-bell"></i>
                     <h2>Não há nada por aqui.</h2>
                 </div>
-            </div>
+                <!-- <div class="">
+                    <h1>Alerta alto risco de fogo</h1>
+                </div>
+                  <div class="">
+                    <h1>Alerta risco medio de fogo</h1>
+                </div>
+            </div> -->
         </div>
         <div class="widget-service">
             <div class="widget-service-header">
@@ -29,12 +35,24 @@
             <div class="widget-service-content">
                 <div class="content-info-sensor">
                     <div>
-                        <h2>Qualidade do ar</h2>
-                        <p>CO2 {{ sensor.carb }} ppm</p>
+                        <div>
+                            <h2>Qualidade do ar</h2>
+                            <p>CO2 {{ sensor.carb }} ppm</p>
+                        </div>
+                        <div>
+                            <h2>Temperatura do ar</h2>
+                            <p>{{ sensor.temp/100}}°C</p>
+                        </div>
                     </div>
                     <div>
-                        <h2>Temperatura do solo</h2>
-                        <p>--°C</p>
+                        <div>
+                            <h2>Temperatura do solo</h2>
+                            <p>--°C</p>
+                        </div>
+                        <div>
+                            <h2>Umidade</h2>
+                            <p>{{ sensor.humi/100 }}%</p>
+                        </div>
                     </div>
                     <div class="column map-column">
                         <div class="detail-item-sensor map">
@@ -42,14 +60,6 @@
                             <img src="../static/assets/img/map.png" alt="Mapa" />
                         </div>
                         <button class="map-btn">Abrir Mapa</button>
-                    </div>
-                    <div>
-                        <h2>Umidade</h2>
-                        <p>{{ sensor.humi/100 }}%</p>
-                    </div>
-                    <div>
-                        <h2>Temperatura do ar</h2>
-                        <p>{{ sensor.temp/100}}°C</p>
                     </div>
                 </div>
             </div>
@@ -74,13 +84,13 @@
                             <i class="fa-solid fa-droplet"></i>
                             <i class="fa-solid fa-droplet"></i>
                             <i class="fa-solid fa-droplet"></i>
-                            <h2>--%</h2>
+                            <h2>{{ humi }}%</h2>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="widget-service">
+        <!-- <div class="widget-service">
             <div class="widget-service-header">
                 <h3>Lista de sensores </h3>
             </div>
@@ -91,7 +101,7 @@
                     </ul>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 
     {% else %}
