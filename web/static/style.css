@@ -1,56 +1,1051 @@
 /* project fonts import */
-/* Todas as fonts do projeto estão importadas aqui */
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=REM:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=REM:ital,wght@0,100..900;1,100..900&display=swap");
 
-:root{
-    /* project colors */
-    --gray-brackground: #14151B;
-    --green-background: #49895C;
-    --blue-widget-background: #1E2530;
-    --black-nav-background: #000;
-    --white-text-hover: #cdd4da;
-    /* project fonts */
-    --menu-font: "Plus Jakarta Sans", sans-serif;
-    --nav-and-login-font: "REM", sans-serif;
-    --widgets-font: "Instrument Sans", sans-serif;
-    --secondary-font: "Montserrat", sans-serif;
+:root {
+  --gray-background: #14151b;
+  --green-background: #49895c;
+  --blue-widget-background: #1e2530;
+  --black-nav-background: #000;
+  --white-text-hover: #cdd4da;
+  --menu-font: "Plus Jakarta Sans", sans-serif;
+  --nav-and-login-font: "REM", sans-serif;
+  --widgets-font: "Instrument Sans", sans-serif;
+  --secondary-font: "Montserrat", sans-serif;
 }
 
 /* Global style */
-*{
-    margin: 0;
-    padding: 0;
-    color: #fff;
-}
-body{
-    background-color: var(--gray-brackground);
+* {
+  margin: 0;
+  padding: 0;
+  color: #fff;
 }
 
-/* Todas as telas criadas devem ter um comentario em cima escrito o nome da tela e um style após */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--nav-and-login-font);
+
+  /* ← AQUI: fundo com gradient SOMENTE no body */
+  /* Background geral para todos os bodys */
+  background-image: linear-gradient(to top right,
+      #1e2c28,
+      #1c2725,
+      #192021,
+      #161a1e,
+      #141518);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 /* BASE HTML STYLE */
-nav{
-    display: flex;
-    background-color: var(--black-nav-background);
-    height: 6vh;
-    align-items: center;
-    padding: 0 0 0 1.25vw;
+nav {
+  display: flex;
+  /* background-color: var(--black-nav-background); */
+  height: 6vh;
+  align-items: center;
+  padding: 0 0 0 1.25vw;
 }
-.tittle-nav{
-    font-family: var(--nav-and-login-font);
-    font-weight: 300;
-    text-decoration: underline;
-    font-size: 2rem;
+
+main {
+  min-height: calc(100vh - 6vh);
 }
-.button-navbar{
-    all: unset;
-    cursor: pointer;
-    font-family: var(--nav-and-login-font);
-    font-weight: 200;
-    font-size: 1.3rem;
-    padding: 0 0 0 2vw;
-    transition: color 200ms , transform 200ms, text-decoration ;
+
+main {
+  flex: 1;
 }
-.button-navbar:hover{
-    color: var(--white-text-hover);
-    transform: scale(1.05);
+
+/* MANTIDAS FIXAS */
+.base-nav-background {
+  background-color: var(--black-nav-background);
+}
+
+.tittle-nav {
+  font-family: var(--nav-and-login-font);
+  font-weight: 300;
+  text-decoration: underline;
+  font-size: 2rem;
+}
+
+.button-navbar {
+  all: unset;
+  cursor: pointer;
+  font-family: var(--nav-and-login-font);
+  font-weight: 200;
+  font-size: 1.3rem;
+  padding: 0 0 0 2vw;
+  transition: color 200ms, transform 200ms, text-decoration;
+}
+
+.button-navbar:hover {
+  color: var(--white-text-hover);
+}
+
+/* MENU STYLE */
+.background-menu {
+  flex: 1;
+  overflow: auto;
+  /* background: #14151B url("data:image/svg+xml,%3Csvg width='1280' height='832' viewBox='0 0 1280 832' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1280' height='832' fill='%2314151B'/%3E%3Crect width='1280' height='832' fill='url(%23paint0_linear_257_320)'/%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear_257_320' x1='640' y1='1.74229e-05' x2='260' y2='742.5' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%2314151B'/%3E%3Cstop offset='0.233984' stop-color='%23161A1E'/%3E%3Cstop offset='0.480586' stop-color='%23192021'/%3E%3Cstop offset='0.762467' stop-color='%231C2725'/%3E%3Cstop offset='0.995929' stop-color='%231E2C28'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E") no-repeat center center fixed;
+    background-size: cover; */
+}
+
+/* Elemento para Telas*/
+.background-login,
+.background-password,
+.background-register,
+.background-main-request {
+  font-family: var(--nav-and-login-font);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2vw;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.background-login>div,
+.background-register>div {
+  padding: 5vw;
+}
+
+.background-main-request {
+  flex-direction: column;
+}
+
+.container-tittle {
+  align-items: center;
+  text-align: center;
+  padding: 7vh 0 7vh 0;
+}
+
+.tittle-menu {
+  font-size: 2.25rem;
+  font-family: var(--menu-font);
+  font-weight: 500;
+}
+
+.container-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  padding: 0 20vw 0 20vw;
+}
+
+.button-menu {
+  display: flex;
+  flex-direction: column;
+  width: 17vw;
+  height: 23vh;
+  background-color: #ffffff21;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 0.5px solid #ffffff7c;
+  border-radius: 1vw;
+  margin: 0.2vw;
+  transition: 250ms;
+}
+
+.button-menu:hover {
+  background-color: #ffffff4b;
+  transform: scale(0.98);
+}
+
+.text-button-menu {
+  font-family: var(--menu-font);
+  font-weight: 400;
+}
+
+.icon-menu-button {
+  font-size: 2vw;
+  margin-bottom: 1.5vh;
+}
+
+.container-btn-login,
+.container-btn-register {
+  display: flex;
+  justify-content: center;
+}
+
+.container-btn-edit {
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+  width: 100%;
+}
+
+#btn-login,
+#btn-register,
+#btn-edit,
+#btn-cancel {
+  width: 50%;
+  text-align: center;
+}
+
+.white-button,
+.black-button {
+  width: 5vw;
+  font-family: "Plus Jakarta Sans";
+  font-size: clamp(14px, 1.5vw, 18px);
+  display: inline-block;
+  padding: 0.4vw;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid;
+  box-sizing: border-box;
+  margin-top: 1vw;
+}
+
+.white-button {
+  background-color: #ffffff;
+  color: #000000;
+  border-color: #000000;
+}
+
+.black-button {
+  background-color: #000000;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.white-button:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.black-button:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.green-button {
+  background-color: #2ecc71;
+  color: #fff;
+}
+
+.red-button {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+.blue-button {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.green-button:hover {
+  background-color: #27ae60;
+  transform: scale(0.98);
+}
+
+.red-button:hover {
+  background-color: #c0392b;
+  transform: scale(0.98);
+}
+
+.blue-button:hover {
+  background-color: #0567d1;
+  transform: scale(0.98);
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.6vw 0.8vw;
+  margin-bottom: 2vh;
+  border: 1px solid #fff;
+  border-left: 10px solid #fff;
+  border-radius: 8px;
+  background-color: #333;
+  color: #999;
+  font-size: clamp(14px, 1.6vw, 18px);
+  box-sizing: border-box;
+}
+
+.form-input::placeholder {
+  color: #999;
+}
+
+.form-input:focus {
+  border: 1px solid #fff;
+}
+
+.container-form {
+  width: 30vw;
+  min-width: 20rem;
+  /* ~320px se 1rem = 16px */
+  max-width: 550px;
+  background-color: var(--gray-background);
+  border: 1px solid #ffffff;
+  border-radius: 20px;
+  padding: 2.5vw;
+  box-sizing: border-box;
+}
+
+.container-form h1 {
+  padding: 0.5vw 0vw 3vw 0vw;
+  font-size: clamp(22px, 3.5vw, 36px);
+}
+
+.button-group {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+.button-group .white-button,
+.button-group .black-button {
+  flex: 1;
+  max-width: 150px;
+}
+
+.forgot-password {
+  display: block;
+  font-style: italic;
+  font-size: clamp(12px, 1.3vw, 14px);
+  text-decoration: none;
+  text-align: right;
+  margin-left: auto;
+
+  /* Transição suave para todas as mudanças */
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Estado hover */
+.forgot-password:hover {
+  color: var(--white-text-hover);
+  text-decoration: underline;
+}
+
+.container-questions li {
+  list-style: none;
+  padding: 2vw;
+  font-size: clamp(14px, 1.8vw, 16px);
+  font-weight: lighter;
+}
+
+/* Overlay com fundo escuro semi-transparente */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+}
+
+/* STYLE BASE ASIDE*/
+.background-aside-base {
+  display: flex;
+  background-image: linear-gradient(to top right,
+      #1e2c28,
+      #1c2725,
+      #192021,
+      #161a1e,
+      #141518);
+  overflow: auto;
+}
+
+.search-box-input {
+  all: unset;
+}
+
+.container-search {
+  display: flex;
+  background-color: #2e2f32;
+  width: 9vw;
+  height: 4vh;
+  border-radius: 2vw;
+}
+
+.input-search {
+  all: unset;
+}
+
+.input-search {
+  width: 100%;
+  height: 100%;
+}
+
+.button-search {
+  display: flex;
+  width: 1.5vw;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.nav-base-aside {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6vh;
+  /* mesma altura que já existia */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1vw;
+  z-index: 50;
+  /* para ficar acima do conteúdo */
+}
+
+.logo-and-clock-container {
+  display: flex;
+}
+
+.container-clock-date {
+  display: flex;
+  margin-left: 2vw;
+}
+
+.main-container {
+  display: flex;
+}
+
+.aside-container {
+  position: fixed;
+  right: 0;
+  width: 5vw;
+  /* largura inicial fechada */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* só vai valer antes do hover (veja seletor acima) */
+  overflow: hidden;
+  transition: width 0.4s ease, background-color 0.4s ease;
+  z-index: 100;
+}
+
+.button-aside {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  text-decoration: none;
+  color: #fff;
+  font-family: var(--widgets-font);
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.button-aside .imgPerfil {
+  width: 2rem;
+  /* aumenta de 1.5rem (anterior) para 2rem */
+  height: 2rem;
+  /* idem */
+  flex-shrink: 0;
+}
+
+.button-aside i {
+  font-size: 1.5rem;
+  /* ou 1.8rem, 2rem… ajuste conforme seu layout */
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  /* para garantir que o ícone fique verticalmente centralizado */
+  text-align: center;
+  /* centraliza horizontalmente o glyf */
+  flex-shrink: 0;
+  transition: margin 0.6s ease;
+}
+
+.aside-container:not(:hover) .button-aside {
+  justify-content: center;
+  /* faz com que, sem hover, o ícone fique centralizado */
+}
+
+.button-aside:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.aside-container:hover {
+  width: 15vw;
+  /* ajustável conforme necessidade */
+  background-color: var(--gray-background);
+}
+
+.aside-container:not(:hover) {
+  align-items: center;
+  /* centraliza os botões (conteúdo de cada .button-aside) */
+}
+
+.aside-container:hover .aside-label {
+  opacity: 1;
+  /* no hover, o texto aparece */
+}
+
+.aside-label:not(:hover) {
+  width: 0px;
+}
+
+.aside-container:hover .button-aside i,
+.aside-container:hover .button-aside .imgPerfil {
+  margin-left: 0.5rem;
+  /* cria espaço entre ícone e texto */
+}
+
+.aside-label {
+  display: inline-block;
+  white-space: nowrap;
+  opacity: 0;
+  /* texto invisível inicialmente */
+  transition: opacity 0.6s ease;
+  margin-left: 5px;
+}
+
+.user-img {
+  display: flex;
+  justify-content: center;
+}
+
+.user-avatar {
+  width: 100%;
+  /* Ocupa 100% do container pai */
+  height: 100%;
+  /* Ocupa 100% do container pai */
+  object-fit: cover;
+  /* Garante que a imagem cubra todo o espaço mantendo proporções */
+}
+
+.imgPerfil {
+  width: 2.083vw;
+  border-radius: 100%;
+}
+
+.content-container {
+  position: fixed;
+  top: 6vh;
+  /* começa logo abaixo da nav */
+  left: 0;
+  right: 5vw;
+  /* termina antes do aside de 5vw */
+  bottom: 0;
+  /* vai até o rodapé da janela */
+  overflow-y: auto;
+  /* habilita o scroll vertical */
+  scrollbar-width: none;
+  /* Firefox */
+  /* — para navegadores IE/Edge antigos */
+  -ms-overflow-style: none;
+  /* IE 10+ */
+}
+
+/* Para Chrome, Safari e Opera */
+.content-container::-webkit-scrollbar {
+  display: none;
+}
+
+.clock-time {
+  font-family: var(--widgets-font);
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.container-date {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--widgets-font);
+  font-size: 0.7rem;
+  font-weight: 300;
+  justify-content: center;
+  margin-left: 0.2vw;
+}
+
+/* Caixa centralizada arredondada */
+.popup-box {
+  position: absolute;
+  /* ou relative, mas precisa de referência */
+  top: 50%;
+  /* 50% a partir do topo do overlay */
+  left: 50%;
+  /* 50% a partir da esquerda */
+  transform: translate(-50%, -50%);
+  /* as demais regras que você já tem: */
+  border: 0.0625rem solid #fff;
+  background: #111;
+  border-radius: 1rem;
+  padding: 2rem;
+  max-width: 30vw;
+  max-height: 30vw;
+  text-align: center;
+  color: #fff;
+}
+
+.popup-box h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.avatar-container {
+  position: relative;
+  width: 8rem;
+  height: 8rem;
+  margin: 0 auto 1.5rem;
+}
+
+.avatar-container img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #ddd;
+}
+
+.camera-button {
+  position: absolute;
+  bottom: -0.5rem;
+  right: -0.5rem;
+  background: #1e2530;
+  border: none;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.camera-button #icon-camera {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.popup-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.popup-actions button {
+  /* flex-grow | flex-shrink | flex-basis */
+  flex: 1 1 auto;
+  max-width: 200px;
+  /* limite máximo de largura */
+  white-space: nowrap;
+  box-sizing: border-box;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+}
+
+.container-request {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--blue-widget-background);
+  border-radius: 10px;
+  padding: 1vw;
+  margin-top: 3vh;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  font-family: var(--nav-and-login-font);
+  width: 100%;
+  box-sizing: border-box;
+  gap: 0.2vw;
+}
+
+.top-section {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 1.5vw;
+}
+
+.avatar-request {
+  width: 80px;
+  /* Largura fixa para o container */
+  height: 80px;
+  /* Altura fixa para o container */
+  min-width: 80px;
+  /* Garante que não ficará menor que isso */
+  border-radius: 50%;
+  overflow: hidden;
+  /* Garante que a imagem não ultrapasse os limites */
+  border: 2px solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.details-request {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.detail-item-request {
+  flex: 1;
+  text-align: center;
+  font-size: clamp(14px, 1.2vw, 16px);
+  color: #fff;
+  font-weight: 400;
+  font-family: var(--nav-and-login-font);
+  position: relative;
+  padding: 0 0.5vw;
+  white-space: nowrap;
+}
+
+.detail-item-request:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 25%;
+  height: 50%;
+  width: 1px;
+  background-color: #888;
+}
+
+.details-request h3 {
+  font-size: clamp(16px, 1.4vw, 18px);
+  font-weight: 600;
+}
+
+.request-group-buttons {
+  display: flex;
+  padding-left: 4vw;
+  gap: 1vw;
+}
+
+.green-button,
+.red-button,
+.blue-button {
+  font-family: var(--nav-and-login-font);
+  font-weight: 600;
+  font-size: clamp(14px, 1.2vw, 16px);
+  border: none;
+  border-radius: 8px;
+  padding: 0.6em 1.2em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 120px;
+}
+
+/* CSS para tela de sensores */
+/* Container geral */
+.container-sensors {
+  width: 80vw;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Cada painel */
+.sensor-panel {
+  background-color: var(--blue-widget-background);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: box-shadow 200ms;
+}
+
+/* Cabeçalho clicável */
+.sensor-header {
+  all: unset;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  cursor: pointer;
+  gap: 0.5rem;
+}
+
+/* Bolinha de status */
+.status {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.status-orange {
+  background: #f39c12;
+}
+
+.status-green {
+  background: #2ecc71;
+}
+
+.status-yellow {
+  background: #f1c40f;
+}
+
+/* Título e seta */
+.sensor-title {
+  flex: 1;
+  font-family: var(--widgets-font);
+  font-size: 1.1rem;
+}
+
+.arrow-icon {
+  transition: transform 200ms;
+  font-size: 1.2rem;
+}
+
+/* Conteúdo escondido por padrão */
+.sensor-content {
+  display: flex;
+  gap: 2rem;
+  padding: 1rem;
+  max-height: 0;
+  overflow: hidden;
+  /* já que está aberto por padrão */
+  transition: max-height 300ms ease;
+}
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 5vw;
+  padding: 2vw;
+  background-color: var(--blue-widget-background);
+  border-radius: 8px;
+  
+}
+
+/* Remove as barras entre as detail-item apenas dentro de sensor-content */
+
+.column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+/* para a coluna do mapa, centralizar conteúdo */
+.map-column {
+  align-items: center;
+}
+
+/* Cada detalhe */
+.detail-item-sensor {
+  flex: 1 1 30%;
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 2.5vh;
+  font-family: var(--widgets-font);
+  font-weight: lighter;
+}
+
+.detail-item-sensor.map {
+  flex: 1 1 40%;
+}
+
+.detail-item.map img {
+  width: 10vw;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.map-btn {
+  padding: 0.6rem 3rem;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  transition: 200ms;
+}
+
+.map-btn:hover {
+  background-color: rgb(247, 233, 233);
+  color: #050404;
+}
+
+/* estado fechado */
+.sensor-panel .sensor-content {
+  max-height: 0;
+  padding: 0;
+  /* <— tira todo padding */
+  overflow: hidden;
+  transition: max-height 300ms ease, padding 300ms ease;
+}
+
+/* Quando aberto */
+.sensor-panel.open {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.sensor-panel.open .sensor-content {
+  max-height: 600px;
+  /* ou o valor que precisar */
+  padding: 1rem;
+  /* <— traz de volta o padding */
+}
+
+.sensor-panel.open .arrow-icon {
+  transform: rotate(180deg);
+}
+
+.flash-messages {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.flash-success {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border: 1px solid #c3e6cb;
+}
+
+.flash-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border: 1px solid #f5c6cb;
+}
+
+/* Estilos da paginação */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.pagination a,
+.pagination strong,
+.pagination span {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-family: var(--nav-and-login-font);
+  transition: all 0.3s ease;
+}
+
+.pagination a.page-link {
+  color: var(--white-text-hover);
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.pagination a.page-link:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.pagination strong.current-page {
+  background-color: var(--green-background);
+  color: white;
+  border: 1px solid var(--green-background);
+  font-weight: 600;
+}
+
+.pagination span.ellipsis {
+  color: var(--white-text-hover);
+  padding: 0 0.5rem;
+}
+
+.pagination i {
+  margin: 0 0.3rem;
+}
+
+.status-active {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.status-inactive {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+/* SERVICE PAGE STYLE */
+
+.container-widgets-service{
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  
+}
+.widget-service{
+  background-color: var(--blue-widget-background);
+  margin: 0.5vw;
+  min-height: 10px;
+  border-radius: 1vw;
+  font-family: var(--widgets-font);
+  font-weight: 200;
+  font-style: normal  ;
+}
+.widget-service-header{
+  display: flex;
+  align-items: center;
+  padding: 1.5vh;
+  flex-direction: row;
+}
+.widget-service-content{
+  padding: 1vw;
+}
+.content-none-notify-widget{
+  opacity: 0.5;
+  text-align: center ;
+}
+.content-notify-widget{
+  display: flex;
+  align-items: center;
+  padding-left: 1vw;
+  min-height: 4vw;
+  border-radius: 0.5vw;
+  background-color: #ff7c31;
+}
+.text-alert{
+  padding-left: 1vw;
+}
+.select-sensor{
+  color: #000;
+}
+.content-info-sensor{
+  display: flex;
+}
+.content-temp-sensor{
+  display: flex;
+  align-items: center;
+
+}
+.max-and-min-content{
+  display: flex;
+}
+.content-info-cell{
+  text-align: center;
+  padding: 2vw;
+}
+.prince-temp{
+  font-size: 2vw;
+  font-weight: 200;
+  font-family: var(--widgets-font);
+  margin-right: 1vw;
+}
+.sub-info-temp{
+  padding: 0.2vw;
+}
+.sub-info-temp * {
+  margin-right: 0.4vw;
+}
+.select-sensor-info{
+  all: unset;
+  background-color: #3E3F43;
+  padding: 0.3vw;
+  margin-right: 0.4vw;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 0.3vw;
 }

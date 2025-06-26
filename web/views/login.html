@@ -1,0 +1,50 @@
+{% extends 'base.html' %} {% block content %}
+<main class="background-login">
+  <form class="container-form" action="" method="post">
+    <h1>FAZER LOGIN</h1>
+
+    <div class="input-email">
+      <label for="email" class="form-label">E-mail:</label><br />
+      <input
+        class="form-input"
+        id="email"
+        name="email"
+        type="email"
+        required
+        placeholder="exemplo@email.com"
+      />
+    </div>
+
+    <br />
+
+    <div class="input-password">
+      <label for="password" class="form-label">Senha:</label><br />
+      <input
+        class="form-input"
+        id="password"
+        name="senha"
+        type="password"
+        required
+        placeholder="••••••••••••••"
+      />
+      <br />
+      <a class="forgot-password" href="/newPasswordPage">Esqueceu sua senha?</a>
+    </div>
+
+    <br />
+    <div class="container-btn-login">
+      <a id="btn-login" class="black-button" href="/menu">Login</a>
+    </div>
+  </form>
+
+  <div class="container-questions">
+    <h2>Dúvidas Frequentes:</h2>
+    <ul>
+      <li>Lorem ipsum dolor sit amet?</li>
+      <li>Lorem ipsum dolor sit amet consectetur adipisicing?</li>
+      <li>Lorem ipsum dolor sit amet consectetur adipisicing?</li>
+      <li>Lorem ipsum dolor sit amet consectetur adipisicing?</li>
+    </ul>
+  </div>
+</main>
+{% endblock content %}

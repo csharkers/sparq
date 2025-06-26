@@ -1,0 +1,133 @@
+{% extends 'asideBase.html' %}
+{% block content %}
+<main>
+    {% if dados %}
+
+    <div class="container-widgets-service">
+        <div class="widget-service">
+            <div class="widget-service-header">
+                <h3>Alerta & notificações</h3>
+            </div>
+            <div class="widget-service-content">
+                {% if carbRisc %}
+                <div class="content-notify-widget">
+                    <i class="fa-solid fa-triangle-exclamation" style="color: #FFD43B; font-size: 2.5vw"></i>
+                    <h3 class="text-alert">Alerta - {{ carbRisc.name }}: Nivel de carbono superior a 500.</h3>
+                </div>
+                {% else %}
+                <div class="content-none-notify-widget">
+                    <i style="font-size: 2.5vw;" class="fa-solid fa-bell"></i>
+                    <h2>Não há nada por aqui.</h2>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="widget-service">
+            <div class="widget-service-header">
+                <form action="/service" method="post">
+                    
+                    <select class="select-sensor-info" name="park" id="park" onchange="this.form.submit()">
+                        <option>Nenhum Selecionado  </option>
+                        <option value="1">Sensor 1</option>
+                        <option value="2">Sensor 2</option>
+                    </select>
+                </form>
+                <h3>Informações do sensor - {{ sensor.sens_name }}</h3>
+            </div>
+            <div class="widget-service-content">
+                <div class="content-info-sensor">
+                    <div>
+                        <div class="content-info-cell">
+                            <h2>Qualidade do ar</h2>
+                            <p>CO2 {{ sensor.carb }} ppm</p>
+                        </div>
+                        <div class="content-info-cell">
+                            <h2>Temperatura do ar</h2>
+                            <p>{{ sensor.temp/100}}°C</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="content-info-cell">
+                            <h2>Temperatura do solo</h2>
+                            <p>{{sensor.temp_soil | float | round(2)}}°C</p>
+                        </div>
+                        <div class="content-info-cell">
+                            <h2>Umidade</h2>
+                            <p>{{ sensor.humi/100 }}%</p>
+                        </div>
+                    </div>
+                    <div class="column map-column">
+                        <div class="detail-item-sensor map">
+                            <h4>Localização</h4>
+                            <img src="../static/assets/img/map.png" alt="Mapa" />
+                        </div>
+                        <button class="map-btn">Abrir Mapa</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="widget-service">
+            <div class="widget-service-header">
+                <h3>Temperatura</h3>
+            </div>
+            <div class="widget-service-content">
+                <div class="content-temp-sensor">
+                    <div class="prince-temp">
+                        <h1>{{ temp.media }}°</h1>
+                    </div>
+                    <div>
+                        <div class="content-temp-sensor sub-info-temp">
+                            <i style="color: #d35151;" class="fa-solid fa-arrow-up"></i>
+                            <h2>{{ temp.maxTemp }}°</h2>
+                            <i style="color: #4545fc;" class="fa-solid fa-arrow-down"></i>
+                            <h2>{{ temp.minTemp }}°</h2>
+                        </div>
+                        <div class="content-temp-sensor sub-info-temp">
+                            {% if humi > 0 and humi < 50 %} <i style="color: #4545fc;" class="fa-solid fa-droplet"></i>
+                                <i class="fa-solid fa-droplet"></i>
+                                <i class="fa-solid fa-droplet"></i>
+                                {% elif humi > 50 and humi < 60 %} <i style="color: #4545fc;"
+                                    class="fa-solid fa-droplet"></i>
+                                    <i style="color: #4545fc;" class="fa-solid fa-droplet"></i>
+                                    <i class="fa-solid fa-droplet"></i>
+                                    {% elif humi > 60 %}
+                                    <i style="color: #4545fc;" class="fa-solid fa-droplet"></i>
+                                    <i style="color: #4545fc;" class="fa-solid fa-droplet"></i>
+                                    <i style="color: #4545fc;" class="fa-solid fa-droplet"></i>
+                                    {% endif %}
+                                    <h2>{{ humi }}%</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="widget-service">
+            <div class="widget-service-header">
+                <h3>Lista de sensores </h3>
+            </div>
+            <div class="widget-service-content">
+                <div class="content-list-sensor">
+                    <ul>
+                        <li>Sensor </li>
+                    </ul>
+                </div>
+            </div>
+        </div> -->
+    </div>
+
+    {% else %}
+    <div style="text-align: center;" class="error-container">
+        <h1>Não foi possivel estabelecer conexão com os sensores!</h1>
+        <i style="font-size: 5vw;" class="fa-solid fa-circle-exclamation"></i>
+        <h4>espere um pouco e pressione a tecla [F5] para recarregar a pagina</h4>
+    </div>
+    {% endif %}
+</main>
+<script src="{{ url_for('static', filename='script/sensors/sensor.js') }}"></script>
+<script>
+    setTimeout(function () {
+        console.log("refresh")
+        location.reload();
+    }, 22000);
+</script>
+{% endblock content %}

@@ -1,0 +1,94 @@
+{% extends 'asideBase.html' %}
+
+{% block content %}
+{% if usuarios | length == 0 %}
+<div class="no-users-message">
+  <p>Nenhum usuário cadastrado ainda.</p>
+</div>
+{% endif %}
+
+<main class="background-main-request">
+  {% for usuario in usuarios %}
+  <div class="container-request">
+    <div class="top-section">
+      <div class="avatar-request">
+        <img
+          src="{{ url_for('static', filename='uploads/' + usuario.avatar) }}"
+          alt="Avatar de {{ usuario.nome }}"
+          class="user-avatar"
+        />
+      </div>
+      <div class="details-request">
+        <div class="detail-item-request"><h3>{{ usuario.nome }}</h3></div>
+        <div class="detail-item-request">{{ usuario.cpf }}</div>
+        <div class="detail-item-request">{{ usuario.email }}</div>
+        <div class="detail-item-request">{{ usuario.parque }}</div>
+        <div class="detail-item-request">{{ usuario.sexo | capitalize }}</div>
+        <div class="detail-item-request">{{ usuario.cargo }}</div>
+        <div class="detail-item-request">
+          Status:
+          <span
+            class="status-{{ 'active' if usuario.ativo_bool else 'inactive' }}"
+          >
+            {{ usuario.ativo }}
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="request-group-buttons">
+      <a href="{{ url_for('editUser', id=usuario.id) }}"
+        ><button class="green-button">Editar</button></a
+      >
+      <form
+        method="POST"
+        action="{{ url_for('toggle_usuario_status', id=usuario.id) }}"
+        style="display: inline"
+      >
+        {% if usuario.ativo_bool %}
+        <button
+          type="submit"
+          class="red-button"
+          onclick="return confirm('Deseja realmente desativar o usuário {{usuario.nome}}?')"
+        >
+          Desativar
+        </button>
+        {% else %}
+        <button
+          type="submit"
+          class="blue-button"
+          onclick="return confirm('Deseja realmente ativar o usuário {{usuario.nome}}?')"
+        >
+          Ativar
+        </button>
+        {% endif %}
+      </form>
+    </div>
+  </div>
+  {% endfor %}
+
+  <!-- Paginação - Mostrar apenas se houver mais de uma página -->
+  {% if pagination.pages > 1 %}
+  <div class="pagination">
+    {% if pagination.has_prev %}
+      <a href="{{ url_for('userPage', page=pagination.prev_num) }}" class="page-link">&laquo; Anterior</a>
+    {% endif %}
+    
+    {% for page_num in pagination.iter_pages(left_edge=1, right_edge=1, left_current=2, right_current=2) %}
+      {% if page_num %}
+        {% if page_num == pagination.page %}
+          <strong class="current-page">{{ page_num }}</strong>
+        {% else %}
+          <a href="{{ url_for('userPage', page=page_num) }}" class="page-link">{{ page_num }}</a>
+        {% endif %}
+      {% else %}
+        <span class="ellipsis">...</span>
+      {% endif %}
+    {% endfor %}
+    
+    {% if pagination.has_next %}
+      <a href="{{ url_for('userPage', page=pagination.next_num) }}" class="page-link">Próxima &raquo;</a>
+    {% endif %}
+  </div>
+  {% endif %}
+</main>
+{% endblock content %}
