@@ -124,4 +124,9 @@
     {% endif %}
 </main>
 <script src="{{ url_for('static', filename='script/sensors/sensor.js') }}"></script>
+<script>
+    setTimeout(function(){
+        location.reload();
+    }, 22000); // tempo em milissegundos: 22000 = 22 segundos
+</script>
 {% endblock content %}
