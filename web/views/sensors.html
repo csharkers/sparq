@@ -1,7 +1,6 @@
 {% extends 'asideBase.html' %}
 {% block content %}
 <main>
-
   {% if dados %}
   {% for item in dados %}
   <div class="container-sensors">
@@ -23,18 +22,28 @@
             <h4>Umidade</h4>
             <p><strong> {{ item.humi/100 }} %</strong></p>
           </div>
+          <div class="detail-item-sensor">
+            <h4>Data da Leitura</h4>
+            <p><strong> {{ item.dateserver[8:10] }}/{{ item.dateserver[5:7] }}/{{ item.dateserver[0:4] }} {{ item.dateserver[11:19] }} </strong></p>
+          </div>
         </div>
         <!-- Coluna 2: Temperaturas -->
         <div class="column">
           <div class="detail-item-sensor">
             <h4>Temperatura do solo</h4>
-            <p><strong>99°C</strong></p>
+            <p><strong> {{item.temp_soil | float | round(2)}} °C</strong></p>
           </div>
           <div class="detail-item-sensor">
                 <h4>Temperatura do ar</h4>
                 <p><strong>{{ item.temp/100 }} °C</strong></p>
-              </div>
-            </div>
+          </div>
+          <!-- <div class="detail-item-sensor">
+                <h4>Tddsg</h4>
+                <p><strong>{{ item.temp/100 }} °C</strong></p>
+          </div> -->
+        </div>
+          
+            
             <!-- Coluna 3: Mapa + Botão -->
             <div class="column map-column">
               <div class="detail-item-sensor map">

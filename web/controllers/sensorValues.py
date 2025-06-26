@@ -41,6 +41,8 @@ def mediaTemp():
             if "temp" in item and item["temp"] is not None:
                 
                 list_temp.append(item["temp"]/100)
+
+                
                 
         if len(list_temp):    
             
