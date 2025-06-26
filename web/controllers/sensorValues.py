@@ -122,5 +122,6 @@ def carbAlert():
             if "carb" in item and item["carb"] is not None:
 
                 if item["carb"] > 500:
-                    return True
-                    
+                    return {
+                        "name" : item["sens_name"],
+                    }
