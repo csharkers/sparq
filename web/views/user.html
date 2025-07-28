@@ -37,7 +37,7 @@
     </div>
     <div class="request-group-buttons">
       <a href="{{ url_for('editUser', id=usuario.id) }}"
-        ><button class="green-button">Editar</button></a
+        ><button class="blue-button">Editar</button></a
       >
       <form
         method="POST"
@@ -55,7 +55,7 @@
         {% else %}
         <button
           type="submit"
-          class="blue-button"
+          class="green-button"
           onclick="return confirm('Deseja realmente ativar o usuário {{usuario.nome}}?')"
         >
           Ativar

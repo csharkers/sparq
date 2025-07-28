@@ -2,11 +2,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=REM:ital,wght@0,100..900;1,100..900&display=swap");
 
 :root {
-  --gray-background: #14151b;
-  --green-background: #49895c;
+  --gray-background: #eeeeee;
   --blue-widget-background: #1e2530;
-  --black-nav-background: #000;
-  --white-text-hover: #cdd4da;
+  --white-nav-background: #fff;
+  --white-text-hover: #707479;
   --menu-font: "Plus Jakarta Sans", sans-serif;
   --nav-and-login-font: "REM", sans-serif;
   --widgets-font: "Instrument Sans", sans-serif;
@@ -17,7 +16,7 @@
 * {
   margin: 0;
   padding: 0;
-  color: #fff;
+  color: #000;
 }
 
 body {
@@ -27,12 +26,7 @@ body {
 
   /* ← AQUI: fundo com gradient SOMENTE no body */
   /* Background geral para todos os bodys */
-  background-image: linear-gradient(to top right,
-      #1e2c28,
-      #1c2725,
-      #192021,
-      #161a1e,
-      #141518);
+  background-color: #EDEDED;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
@@ -56,7 +50,7 @@ main {
 
 /* MANTIDAS FIXAS */
 .base-nav-background {
-  background-color: var(--black-nav-background);
+  background-color: var(--white-nav-background);
 }
 
 .tittle-nav {
@@ -141,14 +135,14 @@ main {
   align-items: center;
   justify-content: center;
   text-align: center;
-  border: 0.5px solid #ffffff7c;
+  border: 0.5px solid #000000;
   border-radius: 1vw;
   margin: 0.2vw;
   transition: 250ms;
 }
 
 .button-menu:hover {
-  background-color: #ffffff4b;
+  background-color: #a0a0a04b;
   transform: scale(0.98);
 }
 
@@ -258,11 +252,10 @@ main {
   width: 100%;
   padding: 0.6vw 0.8vw;
   margin-bottom: 2vh;
-  border: 1px solid #fff;
-  border-left: 10px solid #fff;
+  border: 1px solid #000000;
+  border-left: 10px solid #000000;
   border-radius: 8px;
-  background-color: #333;
-  color: #999;
+  color: #5c5c5c;
   font-size: clamp(14px, 1.6vw, 18px);
   box-sizing: border-box;
 }
@@ -280,8 +273,7 @@ main {
   min-width: 20rem;
   /* ~320px se 1rem = 16px */
   max-width: 550px;
-  background-color: var(--gray-background);
-  border: 1px solid #ffffff;
+  border: 1px solid #000000;
   border-radius: 20px;
   padding: 2.5vw;
   box-sizing: border-box;
@@ -340,12 +332,7 @@ main {
 /* STYLE BASE ASIDE*/
 .background-aside-base {
   display: flex;
-  background-image: linear-gradient(to top right,
-      #1e2c28,
-      #1c2725,
-      #192021,
-      #161a1e,
-      #141518);
+  background-color: #EDEDED;
   overflow: auto;
 }
 
@@ -461,13 +448,13 @@ main {
 }
 
 .button-aside:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(209, 209, 209, 0.1);
 }
 
 .aside-container:hover {
   width: 15vw;
   /* ajustável conforme necessidade */
-  background-color: var(--gray-background);
+  background-color: var(--white-nav-background);
 }
 
 .aside-container:not(:hover) {
@@ -637,7 +624,7 @@ main {
 .container-request {
   display: flex;
   flex-direction: column;
-  background-color: var(--blue-widget-background);
+  background-color: var(--gray-widget-background);
   border-radius: 10px;
   padding: 1vw;
   margin-top: 3vh;
@@ -665,7 +652,6 @@ main {
   border-radius: 50%;
   overflow: hidden;
   /* Garante que a imagem não ultrapasse os limites */
-  border: 2px solid #fff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -684,7 +670,6 @@ main {
   flex: 1;
   text-align: center;
   font-size: clamp(14px, 1.2vw, 16px);
-  color: #fff;
   font-weight: 400;
   font-family: var(--nav-and-login-font);
   position: relative;
@@ -934,19 +919,19 @@ main {
 
 .pagination a.page-link {
   color: var(--white-text-hover);
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(97, 97, 97, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .pagination a.page-link:hover {
   background-color: rgba(255, 255, 255, 0.2);
-  color: #fff;
+  color: #000000;
   transform: translateY(-2px);
 }
 
 .pagination strong.current-page {
   background-color: var(--green-background);
-  color: white;
+  color: #4e4e4e;
   border: 1px solid var(--green-background);
   font-weight: 600;
 }
