@@ -4,24 +4,47 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
 import * as React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+//import das telas do app
+import Home from "./src/Telas/Home";
+import Login from "./src/Telas/Login";
+import Map from "./src/Telas/Map";
+import Sensor from "./src/Telas/Sensor";
+import Splash from "./src/Telas/Splash";
 
 const Stack = createNativeStackNavigator();
 
 const MyStack = () => {
   return (
     <NavigationContainer>
-       <Stack.Navigator>
+      <Stack.Navigator
+        initialRouteName='Home'
+        screenOptions={{ headerShown: false }}>
         <Stack.Screen
           name="Home"
-          component={HomeScreen}
-          options={{title: 'Welcome'}}
+          component={Home}
         />
-        <Stack.Screen name="Profile" component={ProfileScreen} />
+        <Stack.Screen
+          name="Login"
+          component={Login}
+        />
+        <Stack.Screen
+          name="Map"
+          component={Map}
+        />
+        <Stack.Screen
+          name="Sensor"
+          component={Sensor}
+        />
+        <Stack.Screen
+          name="Splash"
+          component={Splash}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
 };
 
-export default App;
+export default MyStack;
