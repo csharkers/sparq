@@ -1,4 +1,6 @@
 //npm install @react-navigation/native @react-navigation/native-stack
+//npx expo install react-native-screens react-native-safe-area-context
+//npm install @react-navigation/native-stack
 
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
@@ -20,7 +22,7 @@ const MyStack = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName='Home'
+        initialRouteName='Login'
         screenOptions={{ headerShown: false }}>
         <Stack.Screen
           name="Home"

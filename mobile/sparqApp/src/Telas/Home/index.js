@@ -2,8 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, SafeAreaView, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-
-export default function Home() {
+export default function Home({ navigation }) {
   return (
     <View style={styles.container}>
       <View style={styles.navbar}>
@@ -21,17 +20,20 @@ export default function Home() {
         </View>
       </View>
       <View style={styles.buttonContainer} >
-        <TouchableOpacity style={styles.button}>
-          <Ionicons style={styles.iconButton} name="map" size={24} color="black" />
-          <Text style={styles.textButton}>Mapa de sensores</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.button}>
-          <Ionicons style={styles.iconButton} name="server" size={24} color="black" />
-          <Text style={styles.textButton}>informação dos sensores</Text>
-        </TouchableOpacity>
-      </View>
-
+        <TouchableOpacity style={styles.button}
+          onPress={() =>
+            navigation.navigate('Map')
+          }
+      >
+        {/* <Ionicons  name="map-outline"></Ionicons > */}
+        <Text style={styles.textButton}>Mapa de sensores</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button}>
+        {/* <Ionicons  style={styles.iconButton} name="server" size={24} color="black" /> */}
+        <Text style={styles.textButton}>informação dos sensores</Text>
+      </TouchableOpacity>
     </View>
+    </View >
   );
 }
 
