@@ -39,5 +39,26 @@ const styles = StyleSheet.create({
     margin: 12,
     borderWidth: 1,
     padding: 10,
+    borderRadius: 5,
+    backgroundColor: "#ffffffff"
   },
+  formContainer: {
+    borderWidth: 2,
+    width: "80%",
+    height: "40%",
+    justifyContent: "center",
+    borderRadius: 15,
+  },
+  textTittle: {
+    fontSize: 30,
+    padding: 10
+  },
+  buttonLogin: {
+    backgroundColor: "#000",
+    width: "35%",
+    alignItems: "center",
+  },
+  textButtonLogin: {
+    color: "#fff"
+  }
 });
