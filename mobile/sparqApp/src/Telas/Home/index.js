@@ -15,8 +15,8 @@ export default function Home({ navigation }) {
           <Image style={styles.imageProfile} source={require("../../../assets/profileIMG.jpg")}></Image>
         </View>
         <View>
-          <Text style={styles.textName}>Davi Lambari</Text>
-          <Text style={styles.textFunction}>Guarda mata</Text>
+          <Text style={styles.textName}>Name</Text>
+          <Text style={styles.textFunction}>function</Text>
         </View>
       </View>
       <View style={styles.buttonContainer} >

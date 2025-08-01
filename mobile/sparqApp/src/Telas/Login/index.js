@@ -16,12 +16,14 @@ export default function App() {
         // onChangeText={onChangeText}
         // value={text}
         />
-        <TouchableOpacity style={styles.buttonPassword}>
-          <Text style={styles.textButtonPass}>Esqueceu sua senha?</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonLogin}>
-          <Text style={styles.textButtonLogin}>Login</Text>
-        </TouchableOpacity>
+        <View style={styles.containerButtons}>
+          <TouchableOpacity style={styles.buttonPassword}>
+            <Text style={styles.textButtonPass}>Esqueceu sua senha?</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.buttonLogin}>
+            <Text style={styles.textButtonLogin}>Login</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
@@ -60,5 +62,8 @@ const styles = StyleSheet.create({
   },
   textButtonLogin: {
     color: "#fff"
+  },
+  containerButtons: {
+    alignItems: "center"
   }
 });

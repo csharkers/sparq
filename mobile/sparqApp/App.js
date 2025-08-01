@@ -22,7 +22,7 @@ const MyStack = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName='Login'
+        initialRouteName='Home'
         screenOptions={{ headerShown: false }}>
         <Stack.Screen
           name="Home"
