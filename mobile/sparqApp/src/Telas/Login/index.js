@@ -1,26 +1,37 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { FontAwesome } from '@expo/vector-icons';
 
 export default function App() {
   return (
     <View style={styles.container}>
       <View style={styles.formContainer}>
         <Text style={styles.textTittle}>FAZER LOGIN</Text>
-        <TextInput
-          style={styles.input}
-        // onChangeText={onChangeText}
-        // value={text}
-        />
-        <TextInput
-          style={styles.input}
-        // onChangeText={onChangeText}
-        // value={text}
-        />
+        <View style={styles.inputContainer}>
+          <FontAwesome name="user" size={20} color="#666" style={styles.inputIcon} />
+          <TextInput
+            style={styles.input}
+            placeholder="Email"
+          // onChangeText={onChangeText}
+          // value={text}
+          />
+        </View>
+        <View style={styles.inputContainer}>
+          <FontAwesome name="lock" size={20} color="#666" style={styles.inputIcon} />
+          <TextInput
+            style={styles.input}
+            placeholder="Senha"
+            secureTextEntry={true}
+          // onChangeText={onChangeText}
+          // value={text}
+          />
+        </View>
         <View style={styles.containerButtons}>
           <TouchableOpacity style={styles.buttonPassword}>
             <Text style={styles.textButtonPass}>Esqueceu sua senha?</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.buttonLogin}>
+            <FontAwesome name="sign-in" size={16} color="white" style={styles.buttonIcon} />
             <Text style={styles.textButtonLogin}>Login</Text>
           </TouchableOpacity>
         </View>
@@ -36,13 +47,22 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: "center"
   },
-  input: {
-    height: 40,
+  inputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
     margin: 12,
     borderWidth: 1,
-    padding: 10,
     borderRadius: 5,
-    backgroundColor: "#ffffffff"
+    backgroundColor: "#ffffffff",
+    paddingHorizontal: 10,
+  },
+  inputIcon: {
+    marginRight: 10,
+  },
+  input: {
+    flex: 1,
+    height: 40,
+    padding: 10,
   },
   formContainer: {
     borderWidth: 2,
@@ -59,6 +79,13 @@ const styles = StyleSheet.create({
     backgroundColor: "#000",
     width: "35%",
     alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'center',
+    padding: 10,
+    borderRadius: 5,
+  },
+  buttonIcon: {
+    marginRight: 8,
   },
   textButtonLogin: {
     color: "#fff"

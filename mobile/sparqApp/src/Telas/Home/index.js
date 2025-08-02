@@ -1,22 +1,22 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, SafeAreaView, TouchableOpacity } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
 
 export default function Home({ navigation }) {
   return (
     <View style={styles.container}>
       <View style={styles.navbar}>
-        <View>
-          {/* <TouchableOpacity>
-            <Ionicons name="menu" size={24} color="white" />
-          </TouchableOpacity> */}
+        <View style={styles.menuContainer}>
+          <TouchableOpacity>
+            <FontAwesome name="bars" size={24} color="white" />
+          </TouchableOpacity>
         </View>
-        <View>
+        <View style={styles.profileContainer}>
           <Image style={styles.imageProfile} source={require("../../../assets/profileIMG.jpg")}></Image>
-        </View>
-        <View>
-          <Text style={styles.textName}>Name</Text>
-          <Text style={styles.textFunction}>function</Text>
+          <View>
+            <Text style={styles.textName}>Name</Text>
+            <Text style={styles.textFunction}>function</Text>
+          </View>
         </View>
       </View>
       <View style={styles.buttonContainer} >
@@ -25,11 +25,11 @@ export default function Home({ navigation }) {
             navigation.navigate('Map')
           }
       >
-        {/* <Ionicons  name="map-outline"></Ionicons > */}
+        <FontAwesome name="map" size={15} color="#333" style={styles.iconButton} />
         <Text style={styles.textButton}>Mapa de sensores</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.button}>
-        {/* <Ionicons  style={styles.iconButton} name="server" size={24} color="black" /> */}
+        <FontAwesome name="database" size={15} color="#333" style={styles.iconButton} />
         <Text style={styles.textButton}>informação dos sensores</Text>
       </TouchableOpacity>
     </View>
@@ -44,14 +44,23 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   navbar: {
-    display: "flex",
     backgroundColor: '#111111',
     width: "100%",
     height: "30%",
-    alignContent: "center",
+    paddingHorizontal: 20,
+    paddingTop: 50,
+  },
+  menuContainer: {
+    position: 'absolute',
+    top: 50,
+    left: 20,
+    zIndex: 1,
+  },
+  profileContainer: {
+    flex: 1,
+    flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    flexDirection: "row",
   },
   button: {
     display: "flex",
@@ -61,7 +70,7 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   iconButton: {
-    fontSize: 50
+    fontSize: 35
   },
   textButton: {
     padding: 10,
@@ -69,11 +78,13 @@ const styles = StyleSheet.create({
   },
   textName: {
     color: "#fff",
-    fontSize: 30
+    fontSize: 30,
+    fontFamily: "REM"
   },
   textFunction: {
     color: "#fff",
-    fontSize: 15
+    fontSize: 15,
+    fontFamily: "REM"
   },
   buttonContainer: {
     display: "flex",

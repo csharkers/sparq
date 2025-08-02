@@ -8,7 +8,7 @@
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/splash-icon.png",
+      "image": "./assets/icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -24,6 +24,16 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "fonts": [
+      {
+        "asset": "./assets/fonts/REM-Regular.ttf",
+        "family": "REM-Regular"
+      },
+      {
+        "asset": "./assets/fonts/REM-Bold.ttf",
+        "family": "REM-Bold"
+      }
+    ]
   }
 }
