@@ -724,7 +724,7 @@ main {
 
 /* Cada painel */
 .sensor-panel {
-  background-color: var(--blue-widget-background);
+  background-color: #fff;
   border-radius: 8px;
   overflow: hidden;
   transition: box-shadow 200ms;
@@ -781,6 +781,7 @@ main {
   overflow: hidden;
   /* já que está aberto por padrão */
   transition: max-height 300ms ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .error-container {
@@ -789,9 +790,9 @@ main {
   gap: 2rem;
   margin: 5vw;
   padding: 2vw;
-  background-color: var(--blue-widget-background);
+  background-color: #fff;
   border-radius: 8px;
-  
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 /* Remove as barras entre as detail-item apenas dentro de sensor-content */
@@ -957,34 +958,39 @@ main {
 
 /* SERVICE PAGE STYLE */
 
-.container-widgets-service{
+.container-widgets-service {
   display: grid;
   grid-template-columns: repeat(2, auto);
-  
+
 }
-.widget-service{
+
+.widget-service {
   background-color: var(--blue-widget-background);
   margin: 0.5vw;
   min-height: 10px;
   border-radius: 1vw;
   font-family: var(--widgets-font);
   font-weight: 200;
-  font-style: normal  ;
+  font-style: normal;
 }
-.widget-service-header{
+
+.widget-service-header {
   display: flex;
   align-items: center;
   padding: 1.5vh;
   flex-direction: row;
 }
-.widget-service-content{
+
+.widget-service-content {
   padding: 1vw;
 }
-.content-none-notify-widget{
+
+.content-none-notify-widget {
   opacity: 0.5;
-  text-align: center ;
+  text-align: center;
 }
-.content-notify-widget{
+
+.content-notify-widget {
   display: flex;
   align-items: center;
   padding-left: 1vw;
@@ -992,40 +998,50 @@ main {
   border-radius: 0.5vw;
   background-color: #ff7c31;
 }
-.text-alert{
+
+.text-alert {
   padding-left: 1vw;
 }
-.select-sensor{
+
+.select-sensor {
   color: #000;
 }
-.content-info-sensor{
+
+.content-info-sensor {
   display: flex;
 }
-.content-temp-sensor{
+
+.content-temp-sensor {
   display: flex;
   align-items: center;
 
 }
-.max-and-min-content{
+
+.max-and-min-content {
   display: flex;
 }
-.content-info-cell{
+
+.content-info-cell {
   text-align: center;
   padding: 2vw;
 }
-.prince-temp{
+
+.prince-temp {
   font-size: 2vw;
   font-weight: 200;
   font-family: var(--widgets-font);
   margin-right: 1vw;
 }
-.sub-info-temp{
+
+.sub-info-temp {
   padding: 0.2vw;
 }
+
 .sub-info-temp * {
   margin-right: 0.4vw;
 }
-.select-sensor-info{
+
+.select-sensor-info {
   all: unset;
   background-color: #3E3F43;
   padding: 0.3vw;
@@ -1033,4 +1049,8 @@ main {
   align-items: center;
   cursor: pointer;
   border-radius: 0.3vw;
+}
+
+#map {
+  height: 180px;
 }
