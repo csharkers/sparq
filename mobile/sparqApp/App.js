@@ -10,11 +10,11 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 //import das telas do app
-import Home from "./src/Telas/Home";
-import Login from "./src/Telas/Login";
-import Map from "./src/Telas/Map";
-import Sensor from "./src/Telas/Sensor";
-import Splash from "./src/Telas/Splash";
+import Home from "./src/Screens/Home";
+import Login from "./src/Screens/Login";
+import Map from "./src/Screens/Map";
+import Sensor from "./src/Screens/Sensor";
+import Splash from "./src/Screens/Splash";
 
 const Stack = createNativeStackNavigator();
 
