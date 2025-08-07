@@ -4,6 +4,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 db = SQLAlchemy()
 
+
 class Usuario(db.Model):
     __tablename__ = 'usuario'
 
@@ -11,13 +12,17 @@ class Usuario(db.Model):
     nome = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(150), nullable=False, unique=True)
     cpf = db.Column(db.String(14), nullable=False, unique=True)
-    sexo = db.Column(Enum('masculino', 'feminino', 'outro', name='sexo'), nullable=False)
+    sexo = db.Column(Enum('masculino', 'feminino',
+                     'outro', name='sexo'), nullable=False)
     parque = db.Column(db.Integer, nullable=False)
     senha = db.Column(db.String(255), nullable=False)
     cargo = db.Column(db.Integer, nullable=False)
-    avatar = db.Column(db.String(200), nullable=False, server_default='avatar.png')
-    created_at = db.Column(db.TIMESTAMP, nullable=False, server_default=func.current_timestamp())
-    ativo = db.Column(db.Boolean, nullable=False, default=True)  # NOVO CAMPO ADICIONADO
+    avatar = db.Column(db.String(200), nullable=False,
+                       server_default='avatar.png')
+    created_at = db.Column(db.TIMESTAMP, nullable=False,
+                           server_default=func.current_timestamp())
+    ativo = db.Column(db.Boolean, nullable=False,
+                      default=True)  # NOVO CAMPO ADICIONADO
 
     def __init__(self, nome, email, cpf, sexo, parque, senha, cargo, avatar='avatar.png', ativo=True):
         self.nome = nome
@@ -32,6 +37,7 @@ class Usuario(db.Model):
 
     def verify_password(self, senha):
         return check_password_hash(self.senha, senha)
+
     def cargo_nome(self):
         if self.cargo == 1:
             return "Administrador"
@@ -41,7 +47,7 @@ class Usuario(db.Model):
             return "Funcionário"
         else:
             return "Desconhecido"
-    
+
     def parque_nome(self):
         if self.parque == 1:
             return "Parque 1"
@@ -49,5 +55,6 @@ class Usuario(db.Model):
             return "Parque 2"
         else:
             return "Desconhecido"
+
     def status_ativo(self):  # NOVO MÉTODO PARA STATUS
         return "Ativo" if self.ativo else "Inativo"

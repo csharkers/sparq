@@ -223,3 +223,6 @@ def init_app(app):
                                sensor = sensor,
                                humi = humi,
                                carbRisc = carbRisc)
+    @app.route('/mapPage')
+    def mapPage():
+        return render_template('testMap.html')
