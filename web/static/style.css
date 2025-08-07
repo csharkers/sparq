@@ -781,7 +781,6 @@ main {
   overflow: hidden;
   /* já que está aberto por padrão */
   transition: max-height 300ms ease;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .error-container {
