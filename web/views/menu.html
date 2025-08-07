@@ -1,4 +1,5 @@
 {% extends 'asideBase.html' %} {% block content %}
+{% if dados %}
 <main class="background-menu">
   <div class="container-tittle">
     <h1 class="tittle-menu">Serviços</h1>
@@ -17,7 +18,7 @@
       <i class="fa-solid fa-tower-broadcast icon-menu-button"></i>
       <h2 class="text-button-menu">Sensores</h2>
     </a>
-    <a class="button-menu" href="#">
+    <a class="button-menu" href="/mapPage">
       <i class="fa-solid fa-map icon-menu-button"></i>
       <h2 class="text-button-menu">Mapa</h2>
     </a>
