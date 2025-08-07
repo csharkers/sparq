@@ -130,12 +130,12 @@ main {
   flex-direction: column;
   width: 17vw;
   height: 23vh;
-  background-color: #ffffff21;
+  background-color: #fff;
   text-decoration: none;
   align-items: center;
   justify-content: center;
   text-align: center;
-  border: 0.5px solid #000000;
+  border: 0.1px solid #00000083;
   border-radius: 1vw;
   margin: 0.2vw;
   transition: 250ms;
@@ -624,7 +624,7 @@ main {
 .container-request {
   display: flex;
   flex-direction: column;
-  background-color: var(--gray-widget-background);
+  background-color: #fff;
   border-radius: 10px;
   padding: 1vw;
   margin-top: 3vh;
@@ -965,13 +965,14 @@ main {
 }
 
 .widget-service {
-  background-color: var(--blue-widget-background);
+  background-color: #fff;
   margin: 0.5vw;
   min-height: 10px;
   border-radius: 1vw;
   font-family: var(--widgets-font);
   font-weight: 200;
   font-style: normal;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .widget-service-header {
@@ -1004,7 +1005,7 @@ main {
 }
 
 .select-sensor {
-  color: #000;
+  color: var(--gray-background);
 }
 
 .content-info-sensor {
@@ -1043,7 +1044,7 @@ main {
 
 .select-sensor-info {
   all: unset;
-  background-color: #3E3F43;
+  background-color: var(--gray-background);
   padding: 0.3vw;
   margin-right: 0.4vw;
   align-items: center;
