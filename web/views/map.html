@@ -1,0 +1,41 @@
+{% extends 'asideBase.html' %} {% block content %}
+<main>
+  <div class="container-map">
+    <div class="map-info">
+      <div class="sensor-info">
+        <!-- Legend -->
+        <div class="sensor-caption">
+          <div class="caption-item">
+            <span class="status-icon green"></span>
+            <span>Seguro</span>
+          </div>
+          <div class="caption-item">
+            <span class="status-icon yellow"></span>
+            <span>Alerta</span>
+          </div>
+          <div class="caption-item">
+            <span class="status-icon red"></span>
+            <span>Perigo</span>
+          </div>
+        </div>
+
+        <!-- Sensor items with status icons -->
+        <div class="sensor-item">
+          <span class="status-icon green"></span>
+          <p>Norte - Sensor 1</p>
+        </div>
+        <div class="sensor-item">
+          <span class="status-icon yellow"></span>
+          <p>Oeste - Sensor 2</p>
+        </div>
+        <div class="sensor-item">
+          <span class="status-icon red"></span>
+          <p>Sul - Sensor 3</p>
+        </div>
+      </div>
+      <div id="map"></div>
+    </div>
+  </div>
+</main>
+<script src="../static/script/map/map.js"></script>
+{% endblock content %}

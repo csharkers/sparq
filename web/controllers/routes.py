@@ -225,4 +225,4 @@ def init_app(app):
                                carbRisc = carbRisc)
     @app.route('/mapPage')
     def mapPage():
-        return render_template('testMap.html')
+        return render_template('map.html')
