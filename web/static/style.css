@@ -96,8 +96,8 @@ main {
   overflow: auto;
 }
 
-.background-login > div,
-.background-register > div {
+.background-login>div,
+.background-register>div {
   padding: 5vw;
 }
 
@@ -833,16 +833,16 @@ main {
 
 .map-btn {
   padding: 0.6rem 3rem;
-  border: 1px solid #fff;
+  border: 1px solid #000000;
   border-radius: 5px;
   background: transparent;
-  color: #fff;
+  color: #000000;
   cursor: pointer;
   transition: 200ms;
 }
 
 .map-btn:hover {
-  background-color: rgb(247, 233, 233);
+  background-color: rgb(202, 202, 202);
   color: #050404;
 }
 
@@ -958,19 +958,23 @@ main {
 /* SERVICE PAGE STYLE */
 
 .container-widgets-service {
-  display: grid;
-  grid-template-columns: repeat(2, auto);
+  display: flex;
+  column-gap: 2rem;
+  padding-top: 1vh;
 }
 
 .widget-service {
   background-color: #fff;
-  margin: 0.5vw;
   min-height: 10px;
   border-radius: 1vw;
   font-family: var(--widgets-font);
   font-weight: 200;
   font-style: normal;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#sensor-widget {
+  min-height: fit-content;
 }
 
 .widget-service-header {
@@ -1050,85 +1054,123 @@ main {
 }
 
 .container-map {
-  padding-top: 1vh;
   display: flex;
   justify-content: center;
+  width: 100%;
+  /* ocupa toda a largura disponível */
+  box-sizing: border-box;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+.container-map,
+.container-widgets-service {
+  max-width: 90vw;
+  /* ou o valor que deseja */
+  margin: 0 auto;
+  /* centraliza */
 }
 
 .map-info {
   background-color: #fff;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: fit-content;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  /* ocupa 100% da largura do container */
+  max-width: 100%;
+  /* impede que passe do limite */
   height: 50vh;
   border-radius: 10px;
+  overflow: hidden;
 }
 
 #map {
   width: 70vw;
   height: 100%;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
 }
 
 .sensor-info {
   width: 20vw;
-  background-color: #fff;
+  min-width: 200px;
+  background-color: #f9f9f9;
+  padding: 20px;
   display: flex;
-  justify-content: center; 
-  align-items: center;    
-  flex-direction: column;  
+  flex-direction: column;
+  gap: 30px;
+  border-right: 1px solid #e0e0e0;
 }
 
-.sensor-info p {
-  text-align: center; 
-  width: 100%;          
-  margin: 0.5vh 0;       
-}
-
-/* Status icon (circle) styles */
-.status-icon {
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  margin-right: 8px;
-}
-
-/* Status colors */
-.green {
-  background-color: #4CAF50;  /* Safe */
-}
-
-.yellow {
-  background-color: #FFC107;  /* Warning */
-}
-
-.red {
-  background-color: #F44336;  /* Danger */
-}
-
-/* Sensor item alignment */
-.sensor-item {
-  display: flex;
-  align-items: center;
-  margin: 5px 0;
-}
-
-/* Legend styling */
+/* Legend styles */
 .sensor-caption {
   display: flex;
-  justify-content: space-around;
-  margin-bottom: 15px;
-  padding: 8px;
-  background-color: #f5f5f5;
-  border-radius: 5px;
+  justify-content: center;
+  flex-direction: row;
+  margin-bottom: 20px;
 }
 
 .caption-item {
   display: flex;
   align-items: center;
-  margin: 0 5px;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+
+/* Sensor items styles */
+.sensor-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sensor-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background-color 0.2s ease;
+}
+
+.sensor-item:hover {
+  background-color: #f0f0f0;
+}
+
+.sensor-item p {
+  margin: 0;
+  font-family: var(--widgets-font);
+  font-size: 0.9rem;
+  color: #444;
+}
+
+/* Status icon styles */
+.status-icon {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.green {
+  background-color: #4CAF50;
+}
+
+.yellow {
+  background-color: #FFC107;
+}
+
+.red {
+  background-color: #F44336;
+}
+
+/* Titles */
+.sensor-info h2 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #333;
+  font-family: var(--widgets-font);
+  text-align: center;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #e0e0e0;
 }
