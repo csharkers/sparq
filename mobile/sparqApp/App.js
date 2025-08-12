@@ -8,6 +8,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { useEffect } from 'react';
+import axios from 'axios';
 
 //import das telas do app
 import Home from "./src/Screens/Home";
@@ -19,10 +21,24 @@ import Splash from "./src/Screens/Splash";
 const Stack = createNativeStackNavigator();
 
 const MyStack = () => {
+
+  useEffect(() => {
+    const BASE_URL = 'http://192.168.0.102/sparq-mobile-api';
+
+    axios.get(`${BASE_URL}/teste.php`)
+      .then(res => {
+        console.log("Resposta da API:", res.data);
+      })
+      .catch(err => {
+        console.error("Erro na API:", err.message);
+      });
+  }, []);
+
+
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName='Splash'
+        initialRouteName='Login'
         screenOptions={{ headerShown: false }}>
         <Stack.Screen
           name="Home"
