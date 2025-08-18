@@ -27,15 +27,21 @@
                 <div class="sensor-items">
                     <div class="sensor-item">
                         <span class="status-icon green"></span>
-                        <p>Norte - Sensor 1</p>
+                        <p>Central - Sensor 1</p>
+                        <p>-</p>
+                        <h4>CO2 339 ppm</h4>
                     </div>
                     <div class="sensor-item">
                         <span class="status-icon yellow"></span>
                         <p>Oeste - Sensor 2</p>
+                        <p>-</p>
+                        <h4>CO2 400 ppm</h4>
                     </div>
                     <div class="sensor-item">
                         <span class="status-icon red"></span>
                         <p>Sul - Sensor 3</p>
+                        <p>-</p>
+                        <h4>CO2 631 ppm</h4>
                     </div>
                 </div>
             </div>
@@ -65,7 +71,7 @@
             <div class="widget-service-header">
                 <form action="/service" method="post">
                     <select class="select-sensor-info" name="park" id="park" onchange="this.form.submit()">
-                        <option>Nenhum Selecionado  </option>
+                        <option>Nenhum Selecionado </option>
                         <option value="1">Sensor 1</option>
                         <option value="2">Sensor 2</option>
                     </select>
@@ -115,25 +121,35 @@
                     </div>
                     <div>
                         <div class="content-temp-sensor sub-info-temp">
-                            <i style="color: #d35151;" class="fa-solid fa-arrow-up"></i>
-                            <h2>{{ temp.maxTemp }}°</h2>
-                            <i style="color: #4545fc;" class="fa-solid fa-arrow-down"></i>
-                            <h2>{{ temp.minTemp }}°</h2>
+                            <div class="temp-max">
+                                <i style="color: #d35151;" class="fa-solid fa-arrow-up"></i>
+                                <h2>{{ temp.maxTemp }}°</h2>
+                                <p>Máxima</p>
+                            </div>
+                            <div class="temp-min">
+                                <i style="color: #4545fc;" class="fa-solid fa-arrow-down"></i>
+                                <h2>{{ temp.minTemp }}°</h2>
+                                <p>Mínima</p>
+                            </div>
                         </div>
-                        <div class="content-temp-sensor sub-info-temp">
-                            {% if humi > 0 and humi < 50 %} <i style="color: #4545fc;" class="fa-solid fa-droplet"></i>
-                                <i class="fa-solid fa-droplet"></i>
-                                <i class="fa-solid fa-droplet"></i>
-                                {% elif humi > 50 and humi < 60 %} <i style="color: #4545fc;"
-                                    class="fa-solid fa-droplet"></i>
-                                    <i style="color: #4545fc;" class="fa-solid fa-droplet"></i>
+                        <div class="humidity-wrapper">
+                            <div class="humidity-info">
+                                {% if humi > 0 and humi < 50 %} <i style="color: #4545fc;" class="fa-solid fa-droplet">
+                                    </i>
                                     <i class="fa-solid fa-droplet"></i>
-                                    {% elif humi > 60 %}
-                                    <i style="color: #4545fc;" class="fa-solid fa-droplet"></i>
-                                    <i style="color: #4545fc;" class="fa-solid fa-droplet"></i>
-                                    <i style="color: #4545fc;" class="fa-solid fa-droplet"></i>
-                                    {% endif %}
-                                    <h2>{{ humi }}%</h2>
+                                    <i class="fa-solid fa-droplet"></i>
+                                    {% elif humi > 50 and humi < 60 %} <i style="color: #4545fc;"
+                                        class="fa-solid fa-droplet"></i>
+                                        <i style="color: #4545fc;" class="fa-solid fa-droplet"></i>
+                                        <i class="fa-solid fa-droplet"></i>
+                                        {% elif humi > 60 %}
+                                        <i style="color: #4545fc;" class="fa-solid fa-droplet"></i>
+                                        <i style="color: #4545fc;" class="fa-solid fa-droplet"></i>
+                                        <i style="color: #4545fc;" class="fa-solid fa-droplet"></i>
+                                        {% endif %}
+                                        <h2>{{ humi }}%</h2>
+                            </div>
+                            <p class="humidity-label">Umidade</p>
                         </div>
                     </div>
                 </div>
