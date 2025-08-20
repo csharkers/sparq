@@ -1,8 +1,37 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
+import { useState } from 'react';
+import axios from 'axios';
+import api from "../../services/api"
 
-export default function App() {
+export default function Login({navigation}) {
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const login = async () => {
+    try {
+      const res = await api.post('/login.php', { email, password });
+
+      const status = res.data.status
+      console.log("Resposta da API:", res.data.status);
+      console.log("status var:", status)
+
+      
+      if (status === 'success') {
+        console.log("SUCCESS")
+        navigation.navigate('Home');
+      }
+      else {
+        console.log(res.data.message)
+      }
+    } catch (error) {
+      console.log("erro de conexão com a rede", error);
+    }
+  }
+
+
   return (
     <View style={styles.container}>
       <View style={styles.formContainer}>
@@ -12,8 +41,8 @@ export default function App() {
           <TextInput
             style={styles.input}
             placeholder="Email"
-          // onChangeText={onChangeText}
-          // value={text}
+            onChangeText={(text) => setEmail(text)}
+            value={email}
           />
         </View>
         <View style={styles.inputContainer}>
@@ -22,15 +51,15 @@ export default function App() {
             style={styles.input}
             placeholder="Senha"
             secureTextEntry={true}
-          // onChangeText={onChangeText}
-          // value={text}
+            onChangeText={(text) => setPassword(text)}
+            value={password}
           />
         </View>
         <View style={styles.containerButtons}>
           <TouchableOpacity style={styles.buttonPassword}>
             <Text style={styles.textButtonPass}>Esqueceu sua senha?</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.buttonLogin}>
+          <TouchableOpacity onPress={login} style={styles.buttonLogin}>
             <FontAwesome name="sign-in" size={16} color="white" style={styles.buttonIcon} />
             <Text style={styles.textButtonLogin}>Login</Text>
           </TouchableOpacity>

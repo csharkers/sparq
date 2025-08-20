@@ -2,7 +2,7 @@
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json");
 
-include 'db.php';
+include 'bd.php';
 
 if ($conn->connect_error) {
     echo json_encode(["status" => "erro", "mensagem" => "Falha na conexão com o banco"]);
