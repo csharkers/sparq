@@ -1,7 +1,17 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
+
+{% block content %}
 <main class="background-login">
-  <form class="container-form" action="" method="post">
+  <form class="container-form" action="{{ url_for('loginPage') }}" method="post">
     <h1>FAZER LOGIN</h1>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="alert-message">
+          {{ messages[0] }}
+        </div>
+      {% endif %}
+    {% endwith %}
 
     <div class="input-email">
       <label for="email" class="form-label">E-mail:</label><br />
@@ -22,18 +32,17 @@
       <input
         class="form-input"
         id="password"
-        name="senha"
+        name="password"
         type="password"
         required
         placeholder="••••••••••••••"
       />
-      <br />
-      <a class="forgot-password" href="/newPasswordPage">Esqueceu sua senha?</a>
     </div>
 
     <br />
+
     <div class="container-btn-login">
-      <a id="btn-login" class="white-button" href="/menu">Login</a>
+      <button type="submit" id="btn-login" class="white-button">Entrar</button>
     </div>
   </form>
 </main>
