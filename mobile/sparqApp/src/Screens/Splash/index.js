@@ -14,7 +14,7 @@ export default function Splash({ navigation }) {
     }).start(() => {
       // Navigate to Home after animation completes
       setTimeout(() => {
-        navigation.replace('Home');
+        navigation.replace('Login');
       }, 500);
     });
   }, []);

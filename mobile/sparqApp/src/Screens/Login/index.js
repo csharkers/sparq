@@ -1,30 +1,33 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import { useState } from 'react';
 import axios from 'axios';
-import api from "../../services/api"
+import { loginRequest } from '../../services/auth';
+import { useAuth } from '../../context/authContext';
 
 export default function Login({navigation}) {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const { user, setUser } = useAuth();
+
   const login = async () => {
     try {
-      const res = await api.post('/login.php', { email, password });
+      const data = await loginRequest(email, password)
 
-      const status = res.data.status
-      console.log("Resposta da API:", res.data.status);
-      console.log("status var:", status)
-
+      const status = data.status
+      const ativo = data.ativo
+      console.log("Resposta da API:", status);
+      console.log(data.user)
       
-      if (status === 'success') {
-        console.log("SUCCESS")
-        navigation.navigate('Home');
+      if (status === 'success') { 
+        setUser(data.user);
+        console.log(user)
+        navigation.replace('Home');
       }
       else {
-        console.log(res.data.message)
+        console.log(data.message)
       }
     } catch (error) {
       console.log("erro de conexão com a rede", error);

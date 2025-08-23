@@ -1,8 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, SafeAreaView, TouchableOpacity } from 'react-native';
+import { useState, useEffect } from 'react';
 import { FontAwesome } from '@expo/vector-icons';
+import { useAuth } from '../../context/authContext';
+
+
 
 export default function Home({ navigation }) {
+
+  const { user } = useAuth()
+  console.log(user)
+
   return (
     <View style={styles.container}>
       <View style={styles.navbar}>
@@ -12,10 +20,10 @@ export default function Home({ navigation }) {
           </TouchableOpacity>
         </View>
         <View style={styles.profileContainer}>
-          <Image style={styles.imageProfile} source={require("../../../assets/profileIMG.jpg")}></Image>
+          <Image style={styles.imageProfile} source={require('../../../assets/avatar.jpg')}></Image>
           <View>
-            <Text style={styles.textName}>Name</Text>
-            <Text style={styles.textFunction}>function</Text>
+            <Text style={styles.textName}>{user?.nome}</Text>
+            {/* <Text style={styles.textFunction}>{user?.cargo}</Text> */}
           </View>
         </View>
       </View>
@@ -24,15 +32,15 @@ export default function Home({ navigation }) {
           onPress={() =>
             navigation.navigate('Map')
           }
-      >
-        <FontAwesome name="map" size={15} color="#333" style={styles.iconButton} />
-        <Text style={styles.textButton}>Mapa de sensores</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.button}>
-        <FontAwesome name="database" size={15} color="#333" style={styles.iconButton} />
-        <Text style={styles.textButton}>informação dos sensores</Text>
-      </TouchableOpacity>
-    </View>
+        >
+          <FontAwesome name="map" size={15} color="#333" style={styles.iconButton} />
+          <Text style={styles.textButton}>Mapa de sensores</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button}>
+          <FontAwesome name="database" size={15} color="#333" style={styles.iconButton} />
+          <Text style={styles.textButton}>informação dos sensores</Text>
+        </TouchableOpacity>
+      </View>
     </View >
   );
 }

@@ -18,6 +18,9 @@ import Map from "./src/Screens/Map";
 import Sensor from "./src/Screens/Sensor";
 import Splash from "./src/Screens/Splash";
 
+//import context
+import { AuthProvider } from './src/context/authContext';
+
 const Stack = createNativeStackNavigator();
 
 const MyStack = () => {
@@ -36,32 +39,34 @@ const MyStack = () => {
 
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName='Login'
-        screenOptions={{ headerShown: false }}>
-        <Stack.Screen
-          name="Home"
-          component={Home}
-        />
-        <Stack.Screen
-          name="Login"
-          component={Login}
-        />
-        <Stack.Screen
-          name="Map"
-          component={Map}
-        />
-        <Stack.Screen
-          name="Sensor"
-          component={Sensor}
-        />
-        <Stack.Screen
-          name="Splash"
-          component={Splash}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <AuthProvider>
+      <NavigationContainer>
+        <Stack.Navigator
+          initialRouteName='Splash'
+          screenOptions={{ headerShown: false }}>
+          <Stack.Screen
+            name="Home"
+            component={Home}
+          />
+          <Stack.Screen
+            name="Login"
+            component={Login}
+          />
+          <Stack.Screen
+            name="Map"
+            component={Map}
+          />
+          <Stack.Screen
+            name="Sensor"
+            component={Sensor}
+          />
+          <Stack.Screen
+            name="Splash"
+            component={Splash}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </AuthProvider>
   );
 };
 
