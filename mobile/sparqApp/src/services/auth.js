@@ -1,4 +1,5 @@
 import api from "./api";
+import * as Location from "expo-location";
 
 export const loginRequest = async(email, password) => {
     try{

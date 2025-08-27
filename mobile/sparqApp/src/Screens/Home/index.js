@@ -16,7 +16,7 @@ export default function Home({ navigation }) {
       <View style={styles.navbar}>
         <View style={styles.menuContainer}>
           <TouchableOpacity>
-            <FontAwesome name="bars" size={24} color="white" />
+            <FontAwesome name="house" size={24} color="white" />
           </TouchableOpacity>
         </View>
         <View style={styles.profileContainer}>

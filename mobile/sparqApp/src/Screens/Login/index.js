@@ -1,7 +1,6 @@
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import { useState } from 'react';
-import axios from 'axios';
 import { loginRequest } from '../../services/auth';
 import { useAuth } from '../../context/authContext';
 

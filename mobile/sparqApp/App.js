@@ -17,6 +17,7 @@ import Login from "./src/Screens/Login";
 import Map from "./src/Screens/Map";
 import Sensor from "./src/Screens/Sensor";
 import Splash from "./src/Screens/Splash";
+import SensorRegister from "./src/Screens/SensorRegister";
 
 //import context
 import { AuthProvider } from './src/context/authContext';
@@ -42,7 +43,7 @@ const MyStack = () => {
     <AuthProvider>
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName='Splash'
+          initialRouteName='SensorRegister'
           screenOptions={{ headerShown: false }}>
           <Stack.Screen
             name="Home"
@@ -63,6 +64,10 @@ const MyStack = () => {
           <Stack.Screen
             name="Splash"
             component={Splash}
+          />
+          <Stack.Screen
+            name="SensorRegister"
+            component={SensorRegister}
           />
         </Stack.Navigator>
       </NavigationContainer>
