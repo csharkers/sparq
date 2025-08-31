@@ -74,10 +74,12 @@ CREATE TABLE IF NOT EXISTS `registro` (
 
 -- Copiando estrutura para tabela sparqbd.sensores
 CREATE TABLE IF NOT EXISTS `sensores` (
-  `id_sensor` int(11) NOT NULL AUTO_INCREMENT,
-  `localizacao` varchar(100) NOT NULL,
-  `tipo_sensor` varchar(100) NOT NULL,
-  `id_parque` int(11) NOT NULL,
+  `id_sensor` INT(11) NOT NULL AUTO_INCREMENT,
+  `nome_sensor` VARCHAR(100) NOT NULL,
+  `tipo_sensor` VARCHAR(100) NOT NULL,
+  `latitude` DECIMAL(10,8) NOT NULL,
+  `longitude` DECIMAL(11,8) NOT NULL,
+  `id_parque` INT(11) NOT NULL,
   PRIMARY KEY (`id_sensor`),
   KEY `fk_sensores_parque` (`id_parque`),
   CONSTRAINT `fk_sensores_parque` FOREIGN KEY (`id_parque`) REFERENCES `parque` (`id_parque`)
