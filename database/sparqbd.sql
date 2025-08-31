@@ -2,7 +2,7 @@
 -- Servidor:                     127.0.0.1
 -- Versão do servidor:           10.4.32-MariaDB - mariadb.org binary distribution
 -- OS do Servidor:               Win64
--- HeidiSQL Versão:              12.11.0.7065
+-- HeidiSQL Versão:              12.10.0.7000
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -74,10 +74,12 @@ CREATE TABLE IF NOT EXISTS `registro` (
 
 -- Copiando estrutura para tabela sparqbd.sensores
 CREATE TABLE IF NOT EXISTS `sensores` (
-  `id_sensor` int(11) NOT NULL AUTO_INCREMENT,
-  `localizacao` varchar(100) NOT NULL,
-  `tipo_sensor` varchar(100) NOT NULL,
-  `id_parque` int(11) NOT NULL,
+  `id_sensor` INT(11) NOT NULL AUTO_INCREMENT,
+  `nome_sensor` VARCHAR(100) NOT NULL,
+  `tipo_sensor` VARCHAR(100) NOT NULL,
+  `latitude` DECIMAL(10,8) NOT NULL,
+  `longitude` DECIMAL(11,8) NOT NULL,
+  `id_parque` INT(11) NOT NULL,
   PRIMARY KEY (`id_sensor`),
   KEY `fk_sensores_parque` (`id_parque`),
   CONSTRAINT `fk_sensores_parque` FOREIGN KEY (`id_parque`) REFERENCES `parque` (`id_parque`)
@@ -101,6 +103,13 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   PRIMARY KEY (`id_usuario`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `cpf` (`cpf`)
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Copiando dados para a tabela sparqbd.usuario: ~3 rows (aproximadamente)
+INSERT INTO `usuario` (`id_usuario`, `nome`, `email`, `cpf`, `sexo`, `parque`, `senha`, `cargo`, `avatar`, `created_at`, `ativo`) VALUES
+	(1, 'Ana Maria', 'ana@email.com', '123.456.789-01', 'feminino', 1, '123', 3, 'ana.png', '2025-06-16 14:34:49', 1),
+	(2, 'Daniel Silva', 'daniel.silva@email.com', '123.456.789-03', 'masculino', 1, 'scrypt:32768:8:1$ctrRLNF1pewjjX4f$f7c3a9480d6d4466ff0d8e2c8ef2a1b3e0553d6552e1527f1d52c3db4eea6ad515f4782bbc20c5ae085b8bc52b58668d3a950a9c0a674e23449f270fe80a025f', 1, 'daniel.png', '2025-06-16 17:55:24', 1),
+	(3, 'João Dolores', 'joao@email.com', '123.456.786-54', 'masculino', 2, 'scrypt:32768:8:1$ufordggGoqCwaBWA$57dd124a867eec0d4083f6ca5f9bf6b0ffb21b40d95149d2a68d0380dba2c01a99662e4f813a301ac8f3ab38eb8cf93fe70b24944c3157261e2bd60eecc3f16a', 2, 'joao.png', '2025-06-16 18:07:21', 1);
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Copiando dados para a tabela sparqbd.usuario: ~13 rows (aproximadamente)
