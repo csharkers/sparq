@@ -1,39 +1,38 @@
+// Seleciona os elementos do relógio e da data
 const clockTime = document.getElementById("clock-time");
-const date = document.getElementById('date-day')
+const date = document.getElementById("date-day");
 
-const today = new Date();
+// Função para atualizar o horário
+function updateTime() {
+    const now = new Date(); // Cria nova data a cada chamada
 
-clockTime.innerHTML = "00:00"
+    let H = now.getHours();
+    let M = now.getMinutes();
 
-function updateTime(){
+    let hours = H < 10 ? '0' + H : H;
+    let minutes = M < 10 ? '0' + M : M;
 
- let H = today.getHours();
- let M = today.getMinutes();
-
- hours = H < 10 ? '0' + H : H;
- minutes = M < 10 ? '0' + M : M;
-
- clockTime.innerHTML = `${hours}:${minutes}`;
-
+    clockTime.innerHTML = `${hours}:${minutes}`;
 }
 
-function updateday(){
+// Função para atualizar a data
+function updateDay() {
+    const now = new Date(); // Cria nova data a cada chamada
 
-    D = today.getDate();
-    M = today.getMonth();
-    year = today.getFullYear();
+    let D = now.getDate();
+    let M = now.getMonth() + 1; // Janeiro = 0, por isso somamos 1
+    let year = now.getFullYear();
 
-     M =  M + 1;
- 
-     month = M < 10 ? '0' + M : M;
-     day = D < 10? '0' + D : D;
+    let month = M < 10 ? '0' + M : M;
+    let day = D < 10 ? '0' + D : D;
 
     date.innerHTML = `${day}/${month}/${year}`;
-
 }
 
-updateTime()
-updateday()
+// Atualiza imediatamente ao carregar
+updateTime();
+updateDay();
 
-setInterval(updateday, 1000);
+// Atualiza a cada segundo
 setInterval(updateTime, 1000);
+setInterval(updateDay, 1000);

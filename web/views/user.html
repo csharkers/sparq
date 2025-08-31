@@ -1,131 +1,94 @@
-{% extends 'asideBase.html' %} {% block content %}
+{% extends 'asideBase.html' %}
+
+{% block content %}
+{% if usuarios | length == 0 %}
+<div class="no-users-message">
+  <p>Nenhum usuário cadastrado ainda.</p>
+</div>
+{% endif %}
+
 <main class="background-main-request">
-
+  {% for usuario in usuarios %}
   <div class="container-request">
     <div class="top-section">
       <div class="avatar-request">
-        <img src="{{ url_for('static', filename='assets/img/avatar.png') }}" alt="Preview de avatar" id="avatarPreview" />
+        <img
+          src="{{ url_for('static', filename='uploads/' + usuario.avatar) }}"
+          alt="Avatar de {{ usuario.nome }}"
+          class="user-avatar"
+        />
       </div>
       <div class="details-request">
-        <div class="detail-item-request"><h3>Lorinet Sit Amet</h3></div>
-        <div class="detail-item-request">123.456.789-00</div>
-        <div class="detail-item-request">lorinet@ipsumlorem.com</div>
-        <div class="detail-item-request">Feminino</div>
+        <div class="detail-item-request"><h3>{{ usuario.nome }}</h3></div>
+        <div class="detail-item-request">{{ usuario.cpf }}</div>
+        <div class="detail-item-request">{{ usuario.email }}</div>
+        <div class="detail-item-request">{{ usuario.parque }}</div>
+        <div class="detail-item-request">{{ usuario.sexo | capitalize }}</div>
+        <div class="detail-item-request">{{ usuario.cargo }}</div>
+        <div class="detail-item-request">
+          Status:
+          <span
+            class="status-{{ 'active' if usuario.ativo_bool else 'inactive' }}"
+          >
+            {{ usuario.ativo }}
+          </span>
+        </div>
       </div>
     </div>
     <div class="request-group-buttons">
-      <button class="green-button">Editar</button>
-      <button class="red-button">Desativar</button>
+      <a href="{{ url_for('editUser', id=usuario.id) }}"
+        ><button class="green-button">Editar</button></a
+      >
+      <form
+        method="POST"
+        action="{{ url_for('toggle_usuario_status', id=usuario.id) }}"
+        style="display: inline"
+      >
+        {% if usuario.ativo_bool %}
+        <button
+          type="submit"
+          class="red-button"
+          onclick="return confirm('Deseja realmente desativar o usuário {{usuario.nome}}?')"
+        >
+          Desativar
+        </button>
+        {% else %}
+        <button
+          type="submit"
+          class="blue-button"
+          onclick="return confirm('Deseja realmente ativar o usuário {{usuario.nome}}?')"
+        >
+          Ativar
+        </button>
+        {% endif %}
+      </form>
     </div>
   </div>
+  {% endfor %}
 
-  <div class="container-request">
-    <div class="top-section">
-      <div class="avatar-request">
-        <img src="{{ url_for('static', filename='assets/img/avatar.png') }}" alt="Preview de avatar" id="avatarPreview" />
-      </div>
-      <div class="details-request">
-        <div class="detail-item-request"><h3>Dolor Ipsum Vectis</h3></div>
-        <div class="detail-item-request">987.654.321-11</div>
-        <div class="detail-item-request">dolor.ipsum@latinmail.com</div>
-        <div class="detail-item-request">Masculino</div>
-      </div>
-    </div>
-    <div class="request-group-buttons">
-      <button class="green-button">Editar</button>
-      <button class="red-button">Desativar</button>
-    </div>
+  <!-- Paginação - Mostrar apenas se houver mais de uma página -->
+  {% if pagination.pages > 1 %}
+  <div class="pagination">
+    {% if pagination.has_prev %}
+      <a href="{{ url_for('userPage', page=pagination.prev_num) }}" class="page-link">&laquo; Anterior</a>
+    {% endif %}
+    
+    {% for page_num in pagination.iter_pages(left_edge=1, right_edge=1, left_current=2, right_current=2) %}
+      {% if page_num %}
+        {% if page_num == pagination.page %}
+          <strong class="current-page">{{ page_num }}</strong>
+        {% else %}
+          <a href="{{ url_for('userPage', page=page_num) }}" class="page-link">{{ page_num }}</a>
+        {% endif %}
+      {% else %}
+        <span class="ellipsis">...</span>
+      {% endif %}
+    {% endfor %}
+    
+    {% if pagination.has_next %}
+      <a href="{{ url_for('userPage', page=pagination.next_num) }}" class="page-link">Próxima &raquo;</a>
+    {% endif %}
   </div>
-
-  <div class="container-request">
-    <div class="top-section">
-      <div class="avatar-request">
-        <img src="{{ url_for('static', filename='assets/img/avatar.png') }}" alt="Preview de avatar" id="avatarPreview" />
-      </div>
-      <div class="details-request">
-        <div class="detail-item-request"><h3>Consectetur Elit Magna</h3></div>
-        <div class="detail-item-request">741.852.963-22</div>
-        <div class="detail-item-request">elit.consectetur@dolor.org</div>
-        <div class="detail-item-request">Feminino</div>
-      </div>
-    </div>
-    <div class="request-group-buttons">
-      <button class="green-button">Editar</button>
-      <button class="red-button">Desativar</button>
-    </div>
-  </div>
-
-  <div class="container-request">
-    <div class="top-section">
-      <div class="avatar-request">
-        <img src="{{ url_for('static', filename='assets/img/avatar.png') }}" alt="Preview de avatar" id="avatarPreview" />
-      </div>
-      <div class="details-request">
-        <div class="detail-item-request"><h3>Adipiscing Tempor Nunc</h3></div>
-        <div class="detail-item-request">369.258.147-33</div>
-        <div class="detail-item-request">tempor.adipiscing@nuncmail.com</div>
-        <div class="detail-item-request">Masculino</div>
-      </div>
-    </div>
-    <div class="request-group-buttons">
-      <button class="green-button">Editar</button>
-      <button class="red-button">Desativar</button>
-    </div>
-  </div>
-
-  <div class="container-request">
-    <div class="top-section">
-      <div class="avatar-request">
-        <img src="{{ url_for('static', filename='assets/img/avatar.png') }}" alt="Preview de avatar" id="avatarPreview" />
-      </div>
-      <div class="details-request">
-        <div class="detail-item-request"><h3>Velit Auctor Porta</h3></div>
-        <div class="detail-item-request">112.334.556-77</div>
-        <div class="detail-item-request">auctor.velit@porta.net</div>
-        <div class="detail-item-request">Masculino</div>
-      </div>
-    </div>
-    <div class="request-group-buttons">
-      <button class="green-button">Editar</button>
-      <button class="red-button">Desativar</button>
-    </div>
-  </div>
-
-  <div class="container-request">
-    <div class="top-section">
-      <div class="avatar-request">
-        <img src="{{ url_for('static', filename='assets/img/avatar.png') }}" alt="Preview de avatar" id="avatarPreview" />
-      </div>
-      <div class="details-request">
-        <div class="detail-item-request"><h3>Fringilla Sapien Leo</h3></div>
-        <div class="detail-item-request">778.899.001-23</div>
-        <div class="detail-item-request">fringilla.leo@sapienmail.org</div>
-        <div class="detail-item-request">Feminino</div>
-      </div>
-    </div>
-    <div class="request-group-buttons">
-      <button class="green-button">Editar</button>
-      <button class="red-button">Desativar</button>
-    </div>
-  </div>
-
-  <div class="container-request">
-    <div class="top-section">
-      <div class="avatar-request">
-        <img src="{{ url_for('static', filename='assets/img/avatar.png') }}" alt="Preview de avatar" id="avatarPreview" />
-      </div>
-      <div class="details-request">
-        <div class="detail-item-request"><h3>Nulla Vehicula Varius</h3></div>
-        <div class="detail-item-request">556.677.889-44</div>
-        <div class="detail-item-request">nulla.vehicula@varius.co</div>
-        <div class="detail-item-request">Masculino</div>
-      </div>
-    </div>
-    <div class="request-group-buttons">
-      <button class="green-button">Editar</button>
-      <button class="red-button">Desativar</button>
-    </div>
-  </div>
-
+  {% endif %}
 </main>
 {% endblock content %}
