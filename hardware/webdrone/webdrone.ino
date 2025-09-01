@@ -143,10 +143,10 @@ long dutyValue;
 #define mot1in2 22
 #define mot1in3 21
 #define mot1in4 19
-#define mot2in1 23
-#define mot2in2 22
-#define mot2in3 21
-#define mot2in4 19
+#define mot2in1 13
+#define mot2in2 13
+#define mot2in3 13
+#define mot2in4 13
 
 const int pwmChannelA = 0;
 const int pwmChannelB = 1;
@@ -241,13 +241,13 @@ void setup(){
   ledcSetup(pwmChannelD, freq, resolution);
   ledcAttachPin(mot1in1, pwmChannelA);
   ledcAttachPin(mot1in3, pwmChannelB);
-  ledcAttachPin(mot2in1, pwmChannelC);
-  ledcAttachPin(mot2in3, pwmChannelD);
+  ledcAttachPin(mot1in2, pwmChannelC);
+  ledcAttachPin(mot1in4, pwmChannelD);
 
+  digitalWrite(mot1pin1, LOW);
+  digitalWrite(mot1pin3, LOW);
   digitalWrite(mot1pin2, LOW);
-  digitalWrite(mot1pin4, LOW);
-  digitalWrite(mot2pin2, LOW);
-  digitalWrite(mot2pin2, LOW);
+  digitalWrite(mot2pin4, LOW);
   
   // Connect to Wi-Fi
   WiFi.begin(ssid, password);
