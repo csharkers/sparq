@@ -51,7 +51,9 @@ CREATE TABLE IF NOT EXISTS `leitura` (
 CREATE TABLE IF NOT EXISTS `parque` (
   `id_parque` int(11) NOT NULL AUTO_INCREMENT,
   `nome_parque` varchar(100) NOT NULL,
-  `localizacao` varchar(100) NOT NULL,
+  `longitude` decimal(10,8) DEFAULT NULL,
+  `latitude` decimal(10,8) DEFAULT NULL,
+  `area` geometry DEFAULT NULL,
   PRIMARY KEY (`id_parque`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -79,12 +81,12 @@ CREATE TABLE IF NOT EXISTS `registro` (
 
 -- Copiando estrutura para tabela sparqbd.sensores
 CREATE TABLE IF NOT EXISTS `sensores` (
-  `id_sensor` INT(11) NOT NULL AUTO_INCREMENT,
-  `nome_sensor` VARCHAR(100) NOT NULL,
-  `tipo_sensor` VARCHAR(100) NOT NULL,
-  `latitude` DECIMAL(10,8) NOT NULL,
-  `longitude` DECIMAL(11,8) NOT NULL,
-  `id_parque` INT(11) NOT NULL,
+  `id_sensor` int(11) NOT NULL AUTO_INCREMENT,
+  `nome_sensor` varchar(100) NOT NULL,
+  `tipo_sensor` varchar(100) NOT NULL,
+  `latitude` decimal(10,8) NOT NULL,
+  `longitude` decimal(11,8) NOT NULL,
+  `id_parque` int(11) NOT NULL,
   PRIMARY KEY (`id_sensor`),
   KEY `fk_sensores_parque` (`id_parque`),
   CONSTRAINT `fk_sensores_parque` FOREIGN KEY (`id_parque`) REFERENCES `parque` (`id_parque`)
@@ -112,8 +114,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   UNIQUE KEY `cpf` (`cpf`)
 ) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4;
 
--- Copiando dados para a tabela sparqbd.usuario: ~13 rows (aproximadamente)
--- Copiando dados para a tabela sparqbd.usuario: ~14 rows (aproximadamente)
+-- Copiando dados para a tabela sparqbd.usuario: ~16 rows (aproximadamente)
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
 INSERT INTO `usuario` (`id_usuario`, `nome`, `email`, `cpf`, `sexo`, `parque`, `senha`, `cargo`, `avatar`, `created_at`, `ativo`) VALUES
 	(22, 'João Silva', 'joao.silva@example.com', '123.456.789-00', 'masculino', 1, '123456', 1, 'avatar.png', '2025-08-22 17:04:24', 1),
