@@ -58,3 +58,4 @@ class Usuario(db.Model):
 
     def status_ativo(self):  # NOVO MÉTODO PARA STATUS
         return "Ativo" if self.ativo else "Inativo"
+    

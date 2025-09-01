@@ -19,6 +19,8 @@ def dadosApi():
         print(f"Erro na requisição: {e}")
         return None
 
+
+
 # Função para media de temperatura
 
 
@@ -26,12 +28,12 @@ max_temp = float('-inf')
 min_temp = float('inf')
 
 
+
 def mediaTemp():
 
+    dados = dadosApi()
     global max_temp
     global min_temp
-
-    dados = dadosApi()
 
     list_temp = []
 
@@ -111,17 +113,3 @@ def sensorInfo():
             sensorDados = sensor
             return sensorDados
 
-
-def carbAlert():
-
-    dados = dadosApi()
-
-    if dados:
-        for item in dados:
-
-            if "carb" in item and item["carb"] is not None:
-
-                if item["carb"] > 500:
-                    return {
-                        "name" : item["sens_name"],
-                    }

@@ -3,7 +3,8 @@ from flask import render_template, request, session, current_app, redirect, url_
 from werkzeug.utils import secure_filename
 from werkzeug.security import generate_password_hash
 from models.database import db, Usuario
-from controllers.sensorValues import dadosApi, mediaTemp, sensorInfo, mediaHumi, carbAlert
+from controllers.sensorValues import dadosApi, mediaTemp, sensorInfo, mediaHumi
+from controllers.alerts import carbAlert
 import hashlib
 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
