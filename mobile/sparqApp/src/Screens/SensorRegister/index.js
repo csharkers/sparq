@@ -1,14 +1,34 @@
-import * as React from "react";
 import { View, Text, TouchableOpacity, StyleSheet, TextInput, Alert } from "react-native";
-import * as Location from "expo-location";
+import { Picker } from "@react-native-picker/picker";
 import { getLocation } from "../../services/sensorRegister"
+import { useState } from "react";
 
-export default function TelaSensor() {
+export default function SensorRegister({ navigation }) {
+
+  const [sensorType, setSensorType] = useState('')
+  const [sensorName, setSensorName] = useState('')
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => getLocation()}>
-        <Text>PEGAR localização</Text>
+      <Text style={styles.nameText}>Digite o nome do sensor:</Text>
+      <TextInput
+        style={styles.nameTextInput}
+        placeholder="Nome"
+        onChangeText={(text) => setSensorName(text)}
+        value={sensorName}
+      >
+
+      </TextInput>
+      <Picker
+        sensorType={sensorType}
+        style={styles.Picker}
+        onValueChange={(itemValue) => setSensorType(itemValue)}
+      >
+        <Picker.Item label="Terrestre" value="terrestre" />
+        <Picker.Item label="Aereo" value="aereo" />
+      </Picker>
+      <TouchableOpacity style={styles.registerButton} onPress={() => getLocation(sensorType, sensorName)}>
+        <Text>Cadastrar sensor</Text>
       </TouchableOpacity>
     </View>
   );
@@ -20,5 +40,9 @@ const styles = StyleSheet.create({
     padding: 20,
     alignItems: "center",
     justifyContent: "center"
+  },
+  Picker: {
+    height: 50,
+    width: 200
   },
 });

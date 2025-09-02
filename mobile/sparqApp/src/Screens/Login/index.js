@@ -16,9 +16,6 @@ export default function Login({navigation}) {
       const data = await loginRequest(email, password)
 
       const status = data.status
-      const ativo = data.ativo
-      console.log("Resposta da API:", status);
-      console.log(data.user)
       
       if (status === 'success') { 
         setUser(data.user);
