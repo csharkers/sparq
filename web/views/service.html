@@ -166,4 +166,11 @@
         crossorigin=""></script>
 <script src="{{ url_for('static', filename='script/sensors/sensor.js') }}"></script>
 <script src="{{ url_for('static', filename='script/map/map.js') }}"></script>
+<script>
+    // Função de atualização da página
+    setTimeout(function () {
+        console.log("refresh");
+        location.reload();
+    }, 22000);
+</script>
 {% endblock content %}
