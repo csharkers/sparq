@@ -40,6 +40,14 @@ export default function Home({ navigation }) {
           <FontAwesome name="database" size={15} color="#333" style={styles.iconButton} />
           <Text style={styles.textButton}>informação dos sensores</Text>
         </TouchableOpacity>
+        <TouchableOpacity style={styles.button}
+          onPress={() =>
+            navigation.navigate('SensorRegister')
+          }
+        >
+          <FontAwesome name="database" size={15} color="#333" style={styles.iconButton} />
+          <Text style={styles.textButton}>Cadastrar sensor</Text>
+        </TouchableOpacity>
       </View>
     </View >
   );

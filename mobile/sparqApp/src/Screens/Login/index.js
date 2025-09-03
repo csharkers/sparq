@@ -16,6 +16,7 @@ export default function Login({navigation}) {
       const data = await loginRequest(email, password)
 
       const status = data.status
+      console.log(data)
       
       if (status === 'success') { 
         setUser(data.user);

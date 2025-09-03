@@ -12,7 +12,7 @@ if (!$data) {
     exit;
 }
 
-$stmt = $conn->prepare("SELECT id_usuario, nome, email, parque, cargo, ativo, avatar, senha FROM usuario WHERE email = ?");
+$stmt = $conn->prepare("SELECT id_usuario, nome, email, id_parque, cargo, ativo, avatar, senha FROM usuario WHERE email = ?");
 $stmt->bind_param("s", $email);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -27,7 +27,7 @@ if ($user && $password === $user['senha'] && $ativo === 1) {
             "id" => $user['id_usuario'],
             "nome" => $user['nome'],
             "email" => $user['email'],
-            "parque" => $user['parque'],
+            "id_parque" => $user['id_parque'],
             "cargo" => $user['cargo'],
             "ativo" => $user['ativo'],
             "avatar" => $user['avatar'],

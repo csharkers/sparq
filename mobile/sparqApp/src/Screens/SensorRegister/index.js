@@ -2,9 +2,11 @@ import { View, Text, TouchableOpacity, StyleSheet, TextInput, Alert } from "reac
 import { Picker } from "@react-native-picker/picker";
 import { getLocation } from "../../services/sensorRegister"
 import { useState } from "react";
+import { useAuth } from '../../context/authContext';
 
 export default function SensorRegister({ navigation }) {
 
+  const {user} = useAuth();
   const [sensorType, setSensorType] = useState('')
   const [sensorName, setSensorName] = useState('')
 
@@ -27,7 +29,7 @@ export default function SensorRegister({ navigation }) {
         <Picker.Item label="Terrestre" value="terrestre" />
         <Picker.Item label="Aereo" value="aereo" />
       </Picker>
-      <TouchableOpacity style={styles.registerButton} onPress={() => getLocation(sensorType, sensorName)}>
+      <TouchableOpacity style={styles.registerButton} onPress={() => getLocation(sensorType, sensorName, user)}>
         <Text>Cadastrar sensor</Text>
       </TouchableOpacity>
     </View>

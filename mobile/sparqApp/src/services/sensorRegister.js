@@ -3,8 +3,7 @@ import { useState, useEffect } from 'react';
 import * as Location from "expo-location";
 import { Alert } from "react-native";
 
-
-export const getLocation = async (sensorType, sensorName) => {
+export const getLocation = async (sensorType, sensorName, user) => {
 
     //verifica se o serviço de loc esta ligado
     const service = await Location.hasServicesEnabledAsync();
@@ -25,16 +24,20 @@ export const getLocation = async (sensorType, sensorName) => {
 
     const latitude = pos.coords.latitude
     const longitude = pos.coords.longitude
-    console.log(latitude, longitude, sensorType, sensorName)
+    console.log(latitude, longitude, sensorType, sensorName, user)
 
     try {
-        const res = await api.post('/registerSensor.php', { latitude, longitude, sensorType, sensorName });
-        return Alert.alert("Sensor cadastrado com sucesso"), res.data;
+        const res = await api.post('/registerSensor.php', {
+             latitude, 
+             longitude, 
+             sensorType,
+             sensorName, 
+             parkId: user?.id_parque
+            });
+        return Alert.alert("Sensor cadastrado com sucesso"), console.log(res.data);
     }
     catch (error) {
         throw error;
     }
-
-
 
 };

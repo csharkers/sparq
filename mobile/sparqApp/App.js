@@ -27,7 +27,7 @@ const Stack = createNativeStackNavigator();
 const MyStack = () => {
 
   useEffect(() => {
-    const BASE_URL = 'http://192.168.0.102/sparq-mobile-api';
+    const BASE_URL = 'http://192.168.0.103/sparq-mobile-api';
 
     axios.get(`${BASE_URL}/teste.php`)
       .then(res => {
@@ -43,7 +43,7 @@ const MyStack = () => {
     <AuthProvider>
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName='SensorRegister'
+          initialRouteName='Splash'
           screenOptions={{ headerShown: false }}>
           <Stack.Screen
             name="Home"
