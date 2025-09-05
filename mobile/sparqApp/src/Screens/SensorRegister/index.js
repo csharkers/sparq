@@ -1,17 +1,26 @@
-import { View, Text, TouchableOpacity, StyleSheet, TextInput, Alert } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, TextInput, Alert, Image } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import { getLocation } from "../../services/sensorRegister"
 import { useState } from "react";
 import { useAuth } from '../../context/authContext';
+import { FontAwesome } from '@expo/vector-icons';
 
 export default function SensorRegister({ navigation }) {
 
-  const {user} = useAuth();
+  const { user } = useAuth();
   const [sensorType, setSensorType] = useState('')
   const [sensorName, setSensorName] = useState('')
 
   return (
+    
     <View style={styles.container}>
+      <View style={styles.menuContainer}>
+        <TouchableOpacity
+        onPress={() => navigation.goBack()}
+        >
+          <FontAwesome name="arrow-left" style={styles.iconMenu} size={40} color="#5c5c5cff" />
+        </TouchableOpacity>
+      </View>
       <Text style={styles.nameText}>Digite o nome do sensor:</Text>
       <TextInput
         style={styles.nameTextInput}
@@ -39,12 +48,52 @@ export default function SensorRegister({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    padding: 15,
+    backgroundColor: "#ddddddff"
   },
   Picker: {
+    width: "100%",
     height: 50,
-    width: 200
+    borderWidth: 1,
+    borderColor: "#bbb",
+    borderRadius: 5,
+    backgroundColor: "#fff",
+    paddingHorizontal: 10,
+    marginBottom: 15,
   },
+  nameTextInput: {
+    width: "100%",
+    height: 45,
+    borderWidth: 1,
+    borderColor: "#bbb",
+    borderRadius: 5,
+    backgroundColor: "#fff",
+    paddingHorizontal: 10,
+    marginBottom: 15,
+  },
+  registerButton: {
+    backgroundColor: "#ff9900ff",
+    paddingVertical: 15,
+    paddingHorizontal: 40,
+    borderRadius: 30,
+    alignItems: "center",
+    justifyContent: "center",
+    elevation: 4,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.15,
+    shadowRadius: 3,
+  },
+   menuContainer: {
+    // backgroundColor: "#fff",
+    position: 'absolute',
+    top: 0,
+    paddingTop: 60,
+    zIndex: 1,
+    width: "100%",
+    justifyContent: "center",
+  },
+
 });

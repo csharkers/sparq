@@ -27,7 +27,7 @@ const Stack = createNativeStackNavigator();
 const MyStack = () => {
 
   useEffect(() => {
-    const BASE_URL = 'http://192.168.0.103/sparq-mobile-api';
+    const BASE_URL = 'http://192.168.0.100/sparq-mobile-api';
 
     axios.get(`${BASE_URL}/teste.php`)
       .then(res => {

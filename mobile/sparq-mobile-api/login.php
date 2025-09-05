@@ -7,6 +7,12 @@ $data = json_decode(file_get_contents('php://input'), true);
 $email = $data['email'] ?? '';
 $password = $data['password'] ?? '';
 
+
+if (!$email || !$password) {
+    echo json_encode(["status" => "error", "message" => "Campos vazios"]);
+    exit;
+}
+
 if (!$data) {
     echo json_encode(["status" => "error", "message" => "Nada recebido"]);
     exit;
@@ -21,7 +27,7 @@ $ativo = $user['ativo'];
 
 if ($user && $password === $user['senha'] && $ativo === 1) {
     echo json_encode([
-        "status" => "success", 
+        "status" => "success",
         "message" => "sucessful login",
         "user" => [
             "id" => $user['id_usuario'],
@@ -33,8 +39,8 @@ if ($user && $password === $user['senha'] && $ativo === 1) {
             "avatar" => $user['avatar'],
         ]
     ]);
-}elseif($ativo != 1){
+} elseif ($ativo != 1) {
     echo json_encode(["status" => "error", "message" => "Seu usuario não esta ativo"]);
-}else {
+} else {
     echo json_encode(["status" => "error", "message" => "Usuário ou senha invalido"]);
 }

@@ -14,11 +14,6 @@ export default function Home({ navigation }) {
   return (
     <View style={styles.container}>
       <View style={styles.navbar}>
-        <View style={styles.menuContainer}>
-          <TouchableOpacity>
-            <FontAwesome name="house" size={24} color="white" />
-          </TouchableOpacity>
-        </View>
         <View style={styles.profileContainer}>
           <Image style={styles.imageProfile} source={require('../../../assets/avatar.jpg')}></Image>
           <View>
