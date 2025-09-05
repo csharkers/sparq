@@ -1,9 +1,21 @@
 import os
-from flask import render_template, request, session, current_app, redirect, url_for, flash
+from flask import render_template, request, session, current_app, redirect, url_for, flash, jsonify, Blueprint
 from flask_login import login_user, logout_user, login_required, current_user
 from werkzeug.utils import secure_filename
 from models.database import db, Usuario
 from controllers.sensorValues import dadosApi, mediaTemp, sensorInfo, mediaHumi, carbAlert
+from .db_utils import get_parks # Importe a função get_parks
+
+api_blueprint = Blueprint('api', __name__, url_prefix='/api')
+
+@api_blueprint.route('/areas', methods=['GET'])
+def get_parks_api():
+    areas_data = get_parks() # Chama a nova função
+
+    if areas_data is None:
+        return jsonify({"error": "Erro no servidor"}), 500
+
+    return jsonify(areas_data)
 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 
@@ -24,6 +36,9 @@ def save_uploaded_file(file):
 
 
 def init_app(app):
+    # Registra o Blueprint da API aqui
+    app.register_blueprint(api_blueprint)
+    
     @app.route('/')
     def home():
         return render_template('index.html')
