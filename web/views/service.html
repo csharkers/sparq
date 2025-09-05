@@ -164,13 +164,6 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20n6a49/sP4j9XyO5T6R5m8wJp/wz2yLg1u4s5e5G1c="
         crossorigin=""></script>
-<script src="{{ url_for('static', filename='script/sensors/sensor.js') }}"></script>
 <script src="{{ url_for('static', filename='script/map/map.js') }}"></script>
-<script>
-    // Função de atualização da página
-    setTimeout(function () {
-        console.log("refresh");
-        location.reload();
-    }, 22000);
-</script>
+<script src="{{ url_for('static', filename='script/updateData/updateData.js') }}"></script>
 {% endblock content %}
