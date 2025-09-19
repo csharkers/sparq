@@ -18,7 +18,7 @@ db.init_app(app)
 
 # Inicializa o LoginManager
 login_manager = LoginManager()
-login_manager.login_view = "loginPage"  # rota de login
+login_manager.login_view = "loginPage"
 login_manager.init_app(app)
 
 # Função para carregar o usuário logado
@@ -34,10 +34,10 @@ routes.init_app(app)
 import pymysql
 with app.app_context():
     connection = pymysql.connect(host='localhost',
-                                user='root',
-                                password='',
-                                charset='utf8mb4',
-                                cursorclass=pymysql.cursors.DictCursor)
+                                 user='root',
+                                 password='',
+                                 charset='utf8mb4',
+                                 cursorclass=pymysql.cursors.DictCursor)
     try:
         with connection.cursor() as cursor:
             cursor.execute(f"CREATE DATABASE IF NOT EXISTS {DB_NAME}")
