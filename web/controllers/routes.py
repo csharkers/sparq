@@ -49,6 +49,12 @@ def init_app(app):
     def menu():
         return render_template('menu.html')
 
+    @app.route('/sensorsPage')
+    @login_required
+    def sensorsPage():
+        dados = dadosApi()
+        return render_template('sensors.html', dados=dados)
+
     @app.route("/loginPage", methods=["GET", "POST"])
     def loginPage():
         if request.method == "POST":
