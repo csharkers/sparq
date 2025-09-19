@@ -1,70 +1,78 @@
 {% extends 'asideBase.html' %}
 
 {% with messages = get_flashed_messages(with_categories=true) %}
-    {% if messages %}
-    <div class="flash-messages">
-        {% for category, message in messages %}
-        <div class="flash-{{ category }}">{{ message }}</div>
-        {% endfor %}
-    </div>
-    {% endif %}
+{% if messages %}
+<div class="flash-messages">
+    {% for category, message in messages %}
+    <div class="flash-{{ category }}">{{ message }}</div>
+    {% endfor %}
+</div>
+{% endif %}
 {% endwith %}
 
 {% block content %}
 <main class="background-register">
-    <form id="editForm" class="container-form" action="{{ url_for('updateUser', id=usuario.id_usuario) }}" method="post" enctype="multipart/form-data">
+    <form id="editForm" class="container-form" action="{{ url_for('updateUser', id=usuario.id_usuario) }}" method="post"
+        enctype="multipart/form-data">
         <h1>EDITAR USUÁRIO</h1>
 
         <div class="input-name">
             <label for="name">Nome:</label>
             <input class="form-input" id="name" name="name" type="text" value="{{ usuario.nome }}" required>
         </div>
-        
+
         <div class="input-email">
             <label for="email">E-mail:</label>
             <input class="form-input" id="email" name="email" type="email" value="{{ usuario.email }}" required>
         </div>
-        
+
         <div class="input-cpf">
             <label for="cpf">CPF:</label>
-            <input class="form-input" id="cpf" name="cpf" type="text" value="{{ usuario.cpf }}" minlength="14" maxlength="14" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required>
+            <input class="form-input" id="cpf" name="cpf" type="text" value="{{ usuario.cpf }}" minlength="14"
+                maxlength="14" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required>
         </div>
-        
+
         <div class="input-sexo">
             <label for="sexo">Sexo:</label>
             <select class="form-input" id="sexo" name="sexo" required>
-                <option value="masculino" {% if usuario.sexo == 'masculino' %}selected{% endif %}>Masculino</option>
-                <option value="feminino" {% if usuario.sexo == 'feminino' %}selected{% endif %}>Feminino</option>
-                <option value="outro" {% if usuario.sexo == 'outro' %}selected{% endif %}>Outro</option>
+                <option value="masculino" {% if usuario.sexo=='masculino' %}selected{% endif %}>Masculino</option>
+                <option value="feminino" {% if usuario.sexo=='feminino' %}selected{% endif %}>Feminino</option>
+                <option value="outro" {% if usuario.sexo=='outro' %}selected{% endif %}>Outro</option>
             </select>
         </div>
-        
+
         <div class="input-parque">
             <label for="parque">Parque:</label>
             <select class="form-input" id="parque" name="parque" required>
-                <option value="1" {% if usuario.parque == 1 %}selected{% endif %}>Parque 1</option>
-                <option value="2" {% if usuario.parque == 2 %}selected{% endif %}>Parque 2</option>
+                {% for parque in parques %}
+                <option value="{{ parque.id_parque }}" {% if usuario.id_parque==parque.id_parque %}selected{% endif %}>
+                    {{ parque.nome_parque }}
+                </option>
+                {% endfor %}
             </select>
         </div>
-        
+
+
         <div class="input-cargo">
             <label for="cargo">Cargo:</label>
             <select class="form-input" id="cargo" name="cargo" required>
-                <option value="1" {% if usuario.cargo == 1 %}selected{% endif %}>Administrador</option>
-                <option value="2" {% if usuario.cargo == 2 %}selected{% endif %}>Suporte</option>
-                <option value="3" {% if usuario.cargo == 3 %}selected{% endif %}>Funcionário</option>
+                <option value="1" {% if usuario.cargo==1 %}selected{% endif %}>Administrador</option>
+                <option value="2" {% if usuario.cargo==2 %}selected{% endif %}>Suporte</option>
+                <option value="3" {% if usuario.cargo==3 %}selected{% endif %}>Funcionário</option>
             </select>
         </div>
-        
+
         <div class="input-password">
             <label for="password">Nova Senha (opcional):</label>
-            <input class="form-input" id="password" name="password" type="password" placeholder="Deixe em branco para manter a atual">
+            <input class="form-input" id="password" name="password" type="password"
+                placeholder="Deixe em branco para manter a atual">
         </div>
 
         <div class="input-avatar">
             <label for="input-avatar">Imagem de Perfil:</label>
             <div class="avatar-container">
-                <img src="{{ url_for('static', filename='uploads/' + usuario.avatar) }}" alt="Preview de avatar" id="avatarPreview">
+                <img src="{{ url_for('static', filename='uploads/' + usuario.avatar) }}" alt="Preview de avatar"
+                    id="avatarPreview">
                 <button id="btn-choose-file" class="camera-button" type="button">
                     <i id="icon-camera" class="fa-solid fa-camera"></i>
                 </button>

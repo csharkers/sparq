@@ -171,7 +171,7 @@ def init_app(app):
                 'sexo': usuario.sexo,
                 'avatar': usuario.avatar,
                 'cargo': usuario.cargo_nome(),
-                'parque': usuario.parque_rel.nome_parque,
+                'parque': usuario.parque_rel.nome_parque if usuario.parque_rel else "Desconhecido",
                 'ativo': usuario.status_ativo(),
                 'ativo_bool': usuario.ativo
             })
@@ -215,7 +215,10 @@ def init_app(app):
             flash('Usuário não encontrado', 'danger')
             return redirect(url_for('userPage'))
 
-        return render_template('editUser.html', usuario=usuario)
+        parques = Parque.query.order_by(Parque.nome_parque).all()
+
+        return render_template('editUser.html', usuario=usuario, parques=parques)
+
 
     @app.route('/updateUser/<int:id>', methods=['POST'])
     @login_required
@@ -256,18 +259,19 @@ def init_app(app):
             flash(f'Erro ao atualizar usuário: {str(e)}', 'danger')
             return redirect(url_for('editUser', id=id))
     
-    @app.route('/service')
+    @app.route('/service', methods=['GET', 'POST'])
     @login_required
     def servicePage():
         dados = dadosApi()
         temp = mediaTemp()
-        sensor = sensorInfo()
+        sensor = sensorInfo()  # sem argumentos
         humi = mediaHumi()
         carbRisc = carbAlert()
 
         return render_template('service.html',
-                               dados=dados,
-                               temp=temp,
-                               sensor=sensor,
-                               humi=humi,
-                               carbRisc=carbRisc)
+                            dados=dados,
+                            temp=temp,
+                            sensor=sensor,
+                            humi=humi,
+                            carbRisc=carbRisc)
+
