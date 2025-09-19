@@ -1,36 +1,33 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SPARQ</title>
-    <link rel="stylesheet" href="../static/style.css" />
-    <link
-      rel="shortcut icon"
-      href="../static/assets/img/sparqIconeWe.ico"
-      type="image/x-icon"
-    />
-    <!-- Import icons -->
-    <script
-      src="https://kit.fontawesome.com/6d56094b7a.js"
-      crossorigin="anonymous"
-    ></script>
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-      crossorigin=""
-    />
-    <script
-      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-      crossorigin=""
-    ></script>
-  </head>
 
-  <body class="background-aside-base">
-    <!-- 1) Nav fixa no topo -->
-    <!-- <nav class="nav-base-aside">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SPARQ</title>
+  <link rel="stylesheet" href="../static/style.css" />
+  <link rel="shortcut icon" href="../static/assets/img/sparqIconeWe.ico" type="image/x-icon" />
+  <!-- Import icons -->
+  <script src="https://kit.fontawesome.com/6d56094b7a.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+</head>
+
+<body class="background-aside-base">
+  {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+  <div class="flash-messages">
+    {% for category, message in messages %}
+    <div class="flash-{{ category }}">{{ message }}</div>
+    {% endfor %}
+  </div>
+  {% endif %}
+  {% endwith %}
+
+  <!-- 1) Nav fixa no topo -->
+  <!-- <nav class="nav-base-aside">
       <div class="logo-and-clock-container">
         <a href="/menu">
           <h1 class="tittle-nav">SPARQ</h1>
@@ -47,69 +44,66 @@
       </div>
     </nav> -->
 
-    <!-- 2) Aside fixa no lado direito, começando logo abaixo de nav -->
-    <!-- HTML simplificado, apenas a parte da sidebar -->
-    <aside class="aside-container">
-      <a href="#" class="button-aside">
-        <img
-          class="imgPerfil"
-          src="../static/assets/img/avatarDefault.jpg"
-          alt="foto de perfil"
-        />
-        <span class="aside-label">Perfil</span>
-      </a>
-      <a href="/menu" class="button-aside">
-        <i class="fa-solid fa-bars"></i>
-        <span class="aside-label">Menu</span>
-      </a>
-      <a href="#" class="button-aside">
-        <i class="fa-solid fa-gear"></i>
-        <span class="aside-label">Configurações</span>
-      </a>
-      <a href="/service" class="button-aside">
-        <i class="fa-solid fa-camera"></i>
-        <span class="aside-label">Monitoramento</span>
-      </a>
-      <a href="#" class="button-aside">
-        <i class="fa-solid fa-database"></i>
-        <span class="aside-label">Registros</span>
-      </a>
-      <a href="/sensorsPage" class="button-aside">
-        <i class="fa-solid fa-tower-broadcast"></i>
-        <span class="aside-label">Sensores</span>
-      </a>
-      <a href="/userPage" class="button-aside">
-        <i class="fa-solid fa-users"></i>
-        <span class="aside-label">Usuários</span>
-      </a>
-      <a href="/registerPage" class="button-aside">
-        <i class="fa-solid fa-user-plus"></i>
-        <span class="aside-label">Cadastrar</span>
-      </a>
-    </aside>
+  <!-- 2) Aside fixa no lado direito, começando logo abaixo de nav -->
+  <!-- HTML simplificado, apenas a parte da sidebar -->
+  <aside class="aside-container">
+    <a href="#" class="button-aside">
+      <img class="imgPerfil" src="../static/assets/img/avatarDefault.jpg" alt="foto de perfil" />
+      <span class="aside-label">Perfil</span>
+    </a>
+    <a href="/menu" class="button-aside">
+      <i class="fa-solid fa-bars"></i>
+      <span class="aside-label">Menu</span>
+    </a>
+    <a href="#" class="button-aside">
+      <i class="fa-solid fa-gear"></i>
+      <span class="aside-label">Configurações</span>
+    </a>
+    <a href="/service" class="button-aside">
+      <i class="fa-solid fa-camera"></i>
+      <span class="aside-label">Monitoramento</span>
+    </a>
+    <a href="#" class="button-aside">
+      <i class="fa-solid fa-database"></i>
+      <span class="aside-label">Registros</span>
+    </a>
+    <a href="/sensorsPage" class="button-aside">
+      <i class="fa-solid fa-tower-broadcast"></i>
+      <span class="aside-label">Sensores</span>
+    </a>
+    <a href="/userPage" class="button-aside">
+      <i class="fa-solid fa-users"></i>
+      <span class="aside-label">Usuários</span>
+    </a>
+    <a href="/registerPage" class="button-aside">
+      <i class="fa-solid fa-user-plus"></i>
+      <span class="aside-label">Cadastrar</span>
+    </a>
+  </aside>
 
-    <!-- 3) Conteúdo principal: será a “scrollview” -->
-    <div class="content-container">
-      <nav class="nav-base-aside">
-        <div class="logo-and-clock-container">
-          <a href="/menu">
-            <h1 class="tittle-nav">SPARQ</h1>
-          </a>
-          <div class="container-clock-date">
-            <div class="container-clock">
-              <h2 id="clock-time" class="clock-time">carregando...</h2>
-            </div>
-            <div class="container-date">
-              <p id="date-day" class="date-day">carregando...</p>
-              <p>Horário de Brasília</p>
-            </div>
+  <!-- 3) Conteúdo principal: será a “scrollview” -->
+  <div class="content-container">
+    <nav class="nav-base-aside">
+      <div class="logo-and-clock-container">
+        <a href="/menu">
+          <h1 class="tittle-nav">SPARQ</h1>
+        </a>
+        <div class="container-clock-date">
+          <div class="container-clock">
+            <h2 id="clock-time" class="clock-time">carregando...</h2>
+          </div>
+          <div class="container-date">
+            <p id="date-day" class="date-day">carregando...</p>
+            <p>Horário de Brasília</p>
           </div>
         </div>
-      </nav>
-      {% block content %}
-      <!-- Aqui irá o conteúdo das outras páginas -->
-      {% endblock content %}
-    </div>
-  </body>
-  <script src="../static/script/asideBase/clockNav.js"></script>
+      </div>
+    </nav>
+    {% block content %}
+    <!-- Aqui irá o conteúdo das outras páginas -->
+    {% endblock content %}
+  </div>
+</body>
+<script src="../static/script/asideBase/clockNav.js"></script>
+
 </html>

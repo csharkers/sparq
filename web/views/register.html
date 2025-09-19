@@ -37,11 +37,10 @@ get_flashed_messages(with_categories=true) %} {% if messages %}
       <label for="parque">Parque:</label>
       <select class="form-input" id="parque" name="parque" required>
         {% for parque in parques %}
-        <option value="{{ parque.id_parque }}" {% if usuario.id_parque==parque.id_parque %}selected{% endif %}>
-          {{ parque.nome_parque }}
-        </option>
+        <option value="{{ parque.id_parque }}">{{ parque.nome_parque }}</option>
         {% endfor %}
       </select>
+
     </div>
 
     <div class="input-cargo">

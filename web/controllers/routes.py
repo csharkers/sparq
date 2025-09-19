@@ -6,7 +6,8 @@ from models.database import db, Usuario, Parque
 from controllers.sensorValues import dadosApi, mediaTemp, sensorInfo, mediaHumi, carbAlert
 from .db_utils import get_parks, get_sensors
 
-api_blueprint = Blueprint('api', __name__, url_prefix='/api')
+# Blueprint com nome único para evitar conflito
+api_blueprint = Blueprint('api_v1', __name__, url_prefix='/api')
 
 @api_blueprint.route('/areas', methods=['GET'])
 def get_parks_api():
@@ -76,7 +77,13 @@ def init_app(app):
         return render_template("login.html")
 
     @app.route("/registerPage", methods=["GET", "POST"])
+    @login_required
     def registerPage():
+        # Permitir acesso somente para cargos 1 e 2
+        if current_user.cargo not in [1, 2]:
+            flash('Acesso negado. Apenas administradores e suporte podem acessar esta página.', 'danger')
+            return redirect(url_for('menu'))
+
         if request.method == "POST":
             nome = request.form["nome"]
             email = request.form["email"]
@@ -117,7 +124,9 @@ def init_app(app):
             flash('Usuário registrado com sucesso! Faça login.', 'success')
             return redirect(url_for('loginPage'))
 
-        return render_template("register.html")
+        parques = Parque.query.order_by(Parque.nome_parque).all()
+        return render_template("register.html", parques=parques)
+
 
     @app.route('/logout')
     @login_required
@@ -200,9 +209,7 @@ def init_app(app):
             return redirect(url_for('userPage'))
 
         parques = Parque.query.order_by(Parque.nome_parque).all()
-
         return render_template('editUser.html', usuario=usuario, parques=parques)
-
 
     @app.route('/updateUser/<int:id>', methods=['POST'])
     @login_required
@@ -248,14 +255,13 @@ def init_app(app):
     def servicePage():
         dados = dadosApi()
         temp = mediaTemp()
-        sensor = sensorInfo()  # sem argumentos
+        sensor = sensorInfo()
         humi = mediaHumi()
         carbRisc = carbAlert()
 
         return render_template('service.html',
-                            dados=dados,
-                            temp=temp,
-                            sensor=sensor,
-                            humi=humi,
-                            carbRisc=carbRisc)
-
+                               dados=dados,
+                               temp=temp,
+                               sensor=sensor,
+                               humi=humi,
+                               carbRisc=carbRisc)
