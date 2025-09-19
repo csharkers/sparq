@@ -1,16 +1,31 @@
 import os
-from flask import render_template, request, session, current_app, redirect, url_for, flash
+from flask import render_template, request, session, current_app, redirect, url_for, flash, jsonify, Blueprint
 from flask_login import login_user, logout_user, login_required, current_user
 from werkzeug.utils import secure_filename
-from models.database import db, Usuario
+from models.database import db, Usuario, Parque
 from controllers.sensorValues import dadosApi, mediaTemp, sensorInfo, mediaHumi, carbAlert
+from .db_utils import get_parks, get_sensors
+
+api_blueprint = Blueprint('api', __name__, url_prefix='/api')
+
+@api_blueprint.route('/areas', methods=['GET'])
+def get_parks_api():
+    areas_data = get_parks()
+    if areas_data is None:
+        return jsonify({"error": "Erro no servidor"}), 500
+    return jsonify(areas_data)
+
+@api_blueprint.route('/sensores', methods=['GET'])
+def get_sensors_api():
+    sensores_data = get_sensors()
+    if sensores_data is None:
+        return jsonify({"error": "Erro no servidor"}), 500
+    return jsonify(sensores_data)
 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 
-
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
-
 
 def save_uploaded_file(file):
     if file and allowed_file(file.filename):
@@ -22,8 +37,9 @@ def save_uploaded_file(file):
         return filename
     return None
 
-
 def init_app(app):
+    app.register_blueprint(api_blueprint)
+    
     @app.route('/')
     def home():
         return render_template('index.html')
@@ -32,6 +48,12 @@ def init_app(app):
     @login_required
     def menu():
         return render_template('menu.html')
+
+    @app.route('/sensorsPage')
+    @login_required
+    def sensorsPage():
+        dados = dadosApi()
+        return render_template('sensors.html', dados=dados)
 
     @app.route("/loginPage", methods=["GET", "POST"])
     def loginPage():
@@ -71,7 +93,6 @@ def init_app(app):
                 if saved_filename:
                     avatar = saved_filename
 
-            # Verificar se email ou CPF já existem
             if Usuario.query.filter_by(email=email).first():
                 flash('Email já cadastrado', 'danger')
                 return redirect(url_for('registerPage'))
@@ -84,7 +105,7 @@ def init_app(app):
                 email=email,
                 cpf=cpf,
                 sexo=sexo,
-                parque=parque,
+                id_parque=parque,
                 senha=senha,
                 cargo=cargo,
                 avatar=avatar,
@@ -118,7 +139,7 @@ def init_app(app):
             return redirect(url_for('menu'))
 
         per_page = 5
-        usuarios_paginados = Usuario.query.order_by(Usuario.nome.asc()).paginate(
+        usuarios_paginados = Usuario.query.options(db.joinedload(Usuario.parque_rel)).order_by(Usuario.nome.asc()).paginate(
             page=page,
             per_page=per_page,
             error_out=False
@@ -134,7 +155,7 @@ def init_app(app):
                 'sexo': usuario.sexo,
                 'avatar': usuario.avatar,
                 'cargo': usuario.cargo_nome(),
-                'parque': usuario.parque_nome(),
+                'parque': usuario.parque_rel.nome_parque if usuario.parque_rel else "Desconhecido",
                 'ativo': usuario.status_ativo(),
                 'ativo_bool': usuario.ativo
             })
@@ -178,7 +199,10 @@ def init_app(app):
             flash('Usuário não encontrado', 'danger')
             return redirect(url_for('userPage'))
 
-        return render_template('editUser.html', usuario=usuario)
+        parques = Parque.query.order_by(Parque.nome_parque).all()
+
+        return render_template('editUser.html', usuario=usuario, parques=parques)
+
 
     @app.route('/updateUser/<int:id>', methods=['POST'])
     @login_required
@@ -197,7 +221,7 @@ def init_app(app):
             usuario.email = request.form.get('email')
             usuario.cpf = request.form.get('cpf')
             usuario.sexo = request.form.get('sexo')
-            usuario.parque = int(request.form.get('parque'))
+            usuario.id_parque = int(request.form.get('parque'))
             usuario.cargo = int(request.form.get('cargo'))
 
             avatar_file = request.files.get('avatar')
@@ -208,7 +232,7 @@ def init_app(app):
 
             nova_senha = request.form.get('password')
             if nova_senha:
-                usuario.senha = nova_senha  # texto puro
+                usuario.senha = nova_senha
 
             db.session.commit()
             flash('Usuário atualizado com sucesso!', 'success')
@@ -218,25 +242,20 @@ def init_app(app):
             db.session.rollback()
             flash(f'Erro ao atualizar usuário: {str(e)}', 'danger')
             return redirect(url_for('editUser', id=id))
-
-    @app.route('/sensorsPage')
-    @login_required
-    def sensorsPage():
-        dados = dadosApi()
-        return render_template('sensors.html', dados=dados)
-
-    @app.route('/service')
+    
+    @app.route('/service', methods=['GET', 'POST'])
     @login_required
     def servicePage():
         dados = dadosApi()
         temp = mediaTemp()
-        sensor = sensorInfo()
+        sensor = sensorInfo()  # sem argumentos
         humi = mediaHumi()
         carbRisc = carbAlert()
 
         return render_template('service.html',
-                               dados=dados,
-                               temp=temp,
-                               sensor=sensor,
-                               humi=humi,
-                               carbRisc=carbRisc)
+                            dados=dados,
+                            temp=temp,
+                            sensor=sensor,
+                            humi=humi,
+                            carbRisc=carbRisc)
+

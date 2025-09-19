@@ -5,7 +5,6 @@
     <div class="container-map">
         <div class="map-info">
             <div class="sensor-info">
-                <!-- Legenda -->
                 <h2>Legenda</h2>
                 <div class="sensor-caption">
                     <div class="caption-item">
@@ -22,7 +21,6 @@
                     </div>
                 </div>
 
-                <!-- Sensores Ativos -->
                 <h2>Sensores Ativos</h2>
                 <div class="sensor-items">
                     <div class="sensor-item">
@@ -134,20 +132,19 @@
                         </div>
                         <div class="humidity-wrapper">
                             <div class="humidity-info">
-                                {% if humi > 0 and humi < 50 %} <i style="color: #4545fc;" class="fa-solid fa-droplet">
-                                    </i>
-                                    <i class="fa-solid fa-droplet"></i>
-                                    <i class="fa-solid fa-droplet"></i>
-                                    {% elif humi > 50 and humi < 60 %} <i style="color: #4545fc;"
-                                        class="fa-solid fa-droplet"></i>
-                                        <i style="color: #4545fc;" class="fa-solid fa-droplet"></i>
-                                        <i class="fa-solid fa-droplet"></i>
-                                        {% elif humi > 60 %}
-                                        <i style="color: #4545fc;" class="fa-solid fa-droplet"></i>
-                                        <i style="color: #4545fc;" class="fa-solid fa-droplet"></i>
-                                        <i style="color: #4545fc;" class="fa-solid fa-droplet"></i>
-                                        {% endif %}
-                                        <h2>{{ humi }}%</h2>
+                                {% if humi > 0 and humi < 50 %} <i style="color: #4545fc;" class="fa-solid fa-droplet"></i>
+                                <i class="fa-solid fa-droplet"></i>
+                                <i class="fa-solid fa-droplet"></i>
+                                {% elif humi > 50 and humi < 60 %} <i style="color: #4545fc;"
+                                    class="fa-solid fa-droplet"></i>
+                                <i style="color: #4545fc;" class="fa-solid fa-droplet"></i>
+                                <i class="fa-solid fa-droplet"></i>
+                                {% elif humi > 60 %}
+                                <i style="color: #4545fc;" class="fa-solid fa-droplet"></i>
+                                <i style="color: #4545fc;" class="fa-solid fa-droplet"></i>
+                                <i style="color: #4545fc;" class="fa-solid fa-droplet"></i>
+                                {% endif %}
+                                <h2>{{ humi }}%</h2>
                             </div>
                             <p class="humidity-label">Umidade</p>
                         </div>
@@ -155,20 +152,7 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="widget-service">
-            <div class="widget-service-header">
-                <h3>Lista de sensores </h3>
-            </div>
-            <div class="widget-service-content">
-                <div class="content-list-sensor">
-                    <ul>
-                        <li>Sensor </li>
-                    </ul>
-                </div>
-            </div>
-        </div> -->
     </div>
-
     {% else %}
     <div style="text-align: center;" class="error-container">
         <h1>Não foi possivel estabelecer conexão com os sensores!</h1>
@@ -177,12 +161,9 @@
     </div>
     {% endif %}
 </main>
-<script src="../static/script/map/map.js"></script>
-<script src="{{ url_for('static', filename='script/sensors/sensor.js') }}"></script>
-<script>
-    setTimeout(function () {
-        console.log("refresh")
-        location.reload();
-    }, 22000);
-</script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20n6a49/sP4j9XyO5T6R5m8wJp/wz2yLg1u4s5e5G1c="
+        crossorigin=""></script>
+<script src="{{ url_for('static', filename='script/map/map.js') }}"></script>
+<script src="{{ url_for('static', filename='script/updateData/updateData.js') }}"></script>
 {% endblock content %}
