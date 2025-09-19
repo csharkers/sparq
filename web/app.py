@@ -1,11 +1,12 @@
 from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager
 import secrets
 from controllers import routes
-import pymysql
-from models.database import db  # Importação adicionada
+from models.database import db
 
 app = Flask(__name__, template_folder='views')
-app.secret_key = secrets.token_hex(16)  # Chave secreta para sessões
+app.secret_key = secrets.token_hex(16)
 
 # Configurações do banco de dados
 DB_NAME = 'sparqbd'
@@ -15,18 +16,28 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # Inicializa o SQLAlchemy com o app
 db.init_app(app)
 
+# Inicializa o LoginManager
+login_manager = LoginManager()
+login_manager.login_view = "loginPage"  # rota de login
+login_manager.init_app(app)
+
+# Função para carregar o usuário logado
+from models.database import Usuario
+@login_manager.user_loader
+def load_user(user_id):
+    return Usuario.query.get(int(user_id))
+
 # Chamando as rotas
 routes.init_app(app)
 
 # Criação do banco de dados e tabelas
+import pymysql
 with app.app_context():
-    # Verifica e cria o banco se não existir
     connection = pymysql.connect(host='localhost',
                                 user='root',
                                 password='',
                                 charset='utf8mb4',
                                 cursorclass=pymysql.cursors.DictCursor)
-    
     try:
         with connection.cursor() as cursor:
             cursor.execute(f"CREATE DATABASE IF NOT EXISTS {DB_NAME}")
@@ -35,8 +46,7 @@ with app.app_context():
         print(f"Erro ao criar banco de dados: {e}")
     finally:
         connection.close()
-    
-    # Cria todas as tabelas definidas nos modelos
+
     db.create_all()
     print("Tabelas criadas/verificadas!")
 

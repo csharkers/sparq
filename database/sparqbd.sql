@@ -1,22 +1,19 @@
 -- --------------------------------------------------------
 -- Servidor:                     127.0.0.1
--- Versão do servidor:           10.4.32-MariaDB - mariadb.org binary distribution
--- OS do Servidor:               Win64
--- HeidiSQL Versão:              12.11.0.7065
+-- Versão do servidor:           10.1.33-MariaDB - mariadb.org binary distribution
+-- OS do Servidor:               Win32
+-- HeidiSQL Versão:              9.5.0.5196
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET NAMES utf8 */;
 /*!50503 SET NAMES utf8mb4 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
 -- Copiando estrutura do banco de dados para sparqbd
-CREATE DATABASE IF NOT EXISTS `sparqbd` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
+CREATE DATABASE IF NOT EXISTS `sparqbd` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
 USE `sparqbd`;
 
 -- Copiando estrutura para tabela sparqbd.indice
@@ -24,9 +21,11 @@ CREATE TABLE IF NOT EXISTS `indice` (
   `id_indice` int(11) NOT NULL AUTO_INCREMENT,
   `nome_indice` varchar(100) NOT NULL,
   PRIMARY KEY (`id_indice`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Copiando dados para a tabela sparqbd.indice: ~0 rows (aproximadamente)
+/*!40000 ALTER TABLE `indice` DISABLE KEYS */;
+/*!40000 ALTER TABLE `indice` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela sparqbd.leitura
 CREATE TABLE IF NOT EXISTS `leitura` (
@@ -42,9 +41,11 @@ CREATE TABLE IF NOT EXISTS `leitura` (
   KEY `fk_leitura_usuario` (`id_usuario`),
   CONSTRAINT `fk_leitura_sensores` FOREIGN KEY (`id_sensor`) REFERENCES `sensores` (`id_sensor`),
   CONSTRAINT `fk_leitura_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Copiando dados para a tabela sparqbd.leitura: ~0 rows (aproximadamente)
+/*!40000 ALTER TABLE `leitura` DISABLE KEYS */;
+/*!40000 ALTER TABLE `leitura` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela sparqbd.parque
 CREATE TABLE IF NOT EXISTS `parque` (
@@ -54,12 +55,11 @@ CREATE TABLE IF NOT EXISTS `parque` (
   `latitude` decimal(10,8) NOT NULL,
   `area` geometry NOT NULL,
   PRIMARY KEY (`id_parque`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Copiando dados para a tabela sparqbd.parque: ~2 rows (aproximadamente)
-INSERT INTO `parque` (`id_parque`, `nome_parque`, `longitude`, `latitude`, `area`) VALUES
-	(1, 'Parque Exemplo 1', -46.63330800, -23.55052000, _binary 0x00000000010300000001000000860000009db6b5b3f55047c05e338bfa5c8d37c067df0b06f65047c0329ff5f75c8d37c04e693858f65047c0d5534ced5c8d37c08aa608aaf65047c07fe495da5c8d37c03d224afbf65047c094dbddbf5c8d37c093bfca4bf75047c083b3349d5c8d37c0acd8589bf75047c09accaf725c8d37c0395dc3e9f75047c0db5f69405c8d37c0bcf0d936f85047c0cf6e80065c8d37c061086d82f85047c065b018c55b8d37c04b084eccf85047c0ea7a5a7c5b8d37c054604f14f95047c02fab722c5b8d37c027a8445af95047c0d78892d55a8d37c0a4ba029ef95047c0f6a7ef775a8d37c07bd05fdff95047c006c8c3135a8d37c0ef99331efa5047c047b04ca9598d37c0b457575afa5047c0a909cc38598d37c0d5f2a593fa5047c04d3687c2588d37c09113fcc9fa5047c0b526c746588d37c02b3738fdfa5047c0d12cd8c5578d37c090c43a2dfb5047c0e8cc0940578d37c0d71fe659fb5047c08b8caeb5568d37c085bc1e83fb5047c0babf1b27568d37c024861dfd155147c09e26d428f58c37c0647b880a165147c08402abf6f48c37c04fbff52e165147c081f7f662f48c37c0fc1ab84f165147c0f754ddcbf38c37c0555abb6c165147c0e44abb31f38c37c0c498ed85165147c016e8ef94f28c37c0404c3f9b165147c094dfdbf5f18c37c0e24ea3ac165147c0f54ce154f18c37c0fde60eba165147c0dd7763b2f08c37c0bfcd79c3165147c0c996c60ef08c37c04934dec8165147c03b916f6aef8c37c048c738ca165147c084c1c3c5ee8c37c0fdb088c7165147c03db62821ee8c37c0c599cfc0165147c0aaf3037ded8c37c012a711b6165147c01ab5bad9ec8c37c0db7855a7165147c07daeb137ec8c37c08625a494165147c044ce4c97eb8c37c05034097e165147c0c2ffeef8ea8c37c030969263165147c02ceef95cea8c37c03b9d5045165147c05bc8cdc3e98c37c097f25523165147c07805c92de98c37c0f58ab7fd155147c0c02a489be88c37c0aa998cd4155147c06e92a50ce88c37c05a82eea7155147c006343982e78c37c053c9f877155147c0146e58fce68c37c09502c944155147c085d1557be68c37c092bf7e0e155147c0baee80ffe58c37c0b57b3bd5145147c07b242689e58c37c0c1872299145147c0d6708e18e58c37c005f4585a145147c02444ffade48c37c080790519145147c02e56ba49e48c37c0026250d5135147c0a87dfdebe38c37c0516f638f135147c0118a0295e38c37c06bc16947135147c00520ff44e38c37c0e9bb8ffd125147c02f9824fce28c37c0a5ea02b2125147c0d5e09fbae28c37c09be5f164125147c025629980e28c37c034348c16125147c047e5344ee28c37c0f32f02c7115147c04d7e9123e28c37c0a3e68476115147c00a79c900e28c37c017fc4525115147c0d448f2e5e18c37c08d8b77d3105147c0517b1cd3e18c37c0c7084c81105147c03cae53c8e18c37c0eb20f62e105147c03f889ec5e18c37c0489ba8dc0f5147c0d4b4fecae18c37c0fe39968a0f5147c043e370d8e18c37c0b69af1380f5147c0a9c8ecede18c37c06717ede70e5147c01925650be28c37c04ba7ba970e5147c0c2cbc730e28c37c00ac08b480e5147c02daefd5de28c37c03f3791fa0d5147c06eeaea92e28c37c0ae9a441ee35047c0c337fb07028d37c0524ba708e35047c015f72e18028d37c048a57dbce25047c064edcc56028d37c061c2f471e25047c03cfdd09c028d37c04d9a3a29e25047c05ff80fea028d37c05a077ce2e15047c00d3b5a3e038d37c0cfaae49de15047c063c97b99038d37c0fdd19e5be15047c06d6f3cfb038d37c02d5cd31be15047c0cee35f63048d37c06ca1a9dee05047c0f0eca5d1048d37c0415a47a4e05047c09c88ca45058d37c07088d06ce05047c0f11586bf058d37c0c4606738e05047c08b818d3e068d37c0f2352c07e05047c0d57392c2068d37c0b0643dd9df5047c05681434b078d37c0f740b7aedf5047c0ea5c4cd8078d37c08b04b487df5047c0c00b5669088d37c0d2be4b64df5047c0fc1a07fe088d37c0f8459444df5047c0e4d60396098d37c07d29a128df5047c06c83ee300a8d37c01da68310df5047c0079667ce0a8d37c0399b4afcde5047c093f00d6e0b8d37c0a18102ecde5047c03a1d7f0f0c8d37c0ea63b5dfde5047c0338b57b20c8d37c039d86ad7de5047c022cc32560d8d37c094fb27d3de5047c00bd2abfa0d8d37c0bf6eefd2de5047c0a82d5d9f0e8d37c09b54c1d6de5047c0f34ce1430f8d37c00e529bdede5047c0cbb9d2e70f8d37c07d8f78eade5047c08858cc8a108d37c0c1bb51fade5047c058a6692c118d37c0b0101d0edf5047c039f746cc118d37c02259ce25df5047c070b3016a128d37c078f85641df5047c05c943805138d37c09ff3a560df5047c070e08b9d138d37c08bfba783df5047c03fa69d32148d37c07dcef5e5ef5047c006f2d4bb558d37c0e1d0fff3ef5047c09ebcb8f2558d37c0beb8f31bf05047c0b06cbb82568d37c0eac96347f05047c056fca50e578d37c05b3a3576f05047c050212296578d37c0532a4ba8f05047c0fe4cdc18588d37c033b686ddf05047c0e6df8396588d37c08109c715f15047c0715bcb0e598d37c03073e950f15047c0b2916881598d37c0fb7ac98ef15047c02bd314ee598d37c0edf740cff15047c05e1a8d545a8d37c0e2272812f25047c0273592b45a8d37c010c85557f25047c0b6ebe80d5b8d37c0792e9f9ef25047c012255a605b8d37c03964d8e7f25047c01309b3ab5b8d37c0a640d432f35047c0c31fc5ef5b8d37c02885647ff35047c0006e662c5c8d37c0bdf959cdf35047c0648f71615c8d37c01d8a841cf45047c053cdc58e5c8d37c05963b36cf45047c0283347b45c8d37c0fe11b5bdf45047c0759fded15c8d37c093a0570ff55047c042d279e75c8d37c067b66861f55047c053780bf55c8d37c09db6b5b3f55047c05e338bfa5c8d37c0),
-	(2, 'Parque Exemplo 2', -46.63400000, -23.55100000, _binary 0x000000000103000000010000008500000081777e62165147c04a99dff95c8d37c05025d7b4165147c0a17f6ef95c8d37c045a81307175147c057c6e8f05c8d37c0bc480159175147c0f3ae53e05c8d37c0b87f6daa175147c08573b9c75c8d37c00c1626fb175147c0564029a75c8d37c05243f94a185147c08e2ab77e5c8d37c09fccb599185147c0cf237c4e5c8d37c0e4222be7185147c0d7ea95165c8d37c0d7802933195147c024f926d75b8d37c07508827d195147c0b26d56905b8d37c0e0df06c6195147c0dbf44f425b8d37c0aa4d8b0c1a5147c068ad43ed5a8d37c06bd4e3501a5147c0e40a66915a8d37c0904de6921a5147c041b5ef2e5a8d37c05d036ad21a5147c0e8651dc6598d37c007ca470f1b5147c047c22f57598d37c0de175a491b5147c0f1336be2588d37c06e1c7d801b5147c06dbe1768588d37c09fd68eb41b5147c0ced280e8578d37c0a4296fe51b5147c02a21f563578d37c0cff0ff121c5147c01368c6da568d37c02612253d1c5147c02e42494d568d37c0b88fc4631c5147c006f2d4bb558d37c0aa6212c62c5147c03fa69d32148d37c0639f6ee52c5147c02a1601ae138d37c03d1826052d5147c0425a0416138d37c0b83419212d5147c0baad197b128d37c018b836392d5147c01e9ba0dd118d37c0fcc26f4d2d5147c09340fa3d118d37c094dcb75d2d5147c0eb13899c108d37c04bfa046a2d5147c0f3a5b0f90f8d37c0fc854f722d5147c00465d5550f8d37c0a16292762d5147c01a5f5cb10e8d37c076efca762d5147c07d03ab0c0e8d37c09a09f9722d5147c033e426680d8d37c0270c1f6b2d5147c05b7735c40c8d37c0b8ce415f2d5147c09ed83b210c8d37c074a2684f2d5147c0ce8a9e7f0b8d37c0854d9d3b2d5147c0ed39c1df0a8d37c01305ec232d5147c0b67d06420a8d37c0bd6563082d5147c0ca9ccfa6098d37c0966a14e92c5147c0b6507c0e098d37c0aa6212c62c5147c0e78a6a79088d37c018e5729f2c5147c0bf3af6e7078d37c0c1c34d752c5147c0da14795a078d37c096fcbc472c5147c0c35b4ad1068d37c091a9dc162c5147c01faabe4c068d37c060efcae22b5147c080be27cd058d37c0d0eaa7ab2b5147c0fc48d452058d37c0f99c95712b5147c0a6ba0fde048d37c04fd6b7342b5147c00517226f048d37c0822034f52a5147c0acc74f06048d37c05da731b32a5147c00972d9a3038d37c09c20d96e2a5147c085cffb47038d37c0d2b254282a5147c01288eff2028d37c067dbcfdf295147c03b0fe9a4028d37c0c9537795295147c0c983185e028d37c0d6f57849295147c01692a91e028d37c0919f03fc285147c01e59c3e6018d37c0441647ad285147c05f5288b6018d37c0fee8735d285147c0973c168e018d37c0aa52bb0c285147c06809866d018d37c0ae1b4fbb275147c0facdeb54018d37c0377b6169275147c096b65644018d37c042f82417275147c04cfdd03b018d37c0734accc4265147c0a3e35f3b018d37c0ce3a8a72265147c05aaf0343018d37c062849120265147c042aab752018d37c003b514cf255147c01f25726a018d37c01b0e467e255147c0a77d248a018d37c0ab65572e255147c08527bbb1018d37c08f077adf245147c069b81de1018d37c01997de91245147c015f72e18028d37c00ff1b445245147c064edcc56028d37c0280e2cfb235147c03cfdd09c028d37c045689036035147c020a36c61238d37c0c3d3fd0d035147c07a25638b238d37c098bc57c6025147c06e7a90dc238d37c0fb95c580025147c017c9ac34248d37c0e947723d025147c063ba8193248d37c0db5787fc015147c017d2d4f8248d37c026cf2cbe015147c0e0926764258d37c04e228982015147c0dea4f7d5258d37c05019c149015147c08cfe3e4d268d37c0ebb8f713015147c0f60ff4c9268d37c0112d4ee1005147c013f0c94b278d37c06bb4e3b1005147c0378c70d2278d37c0178dd585005147c071d9945d288d37c09de23e5d005147c0c707e1ec288d37c030bd3838005147c01eb7fc7f298d37c03df2d916005147c0bc2d8d162a8d37c0551637f9ff5047c03f9035b02a8d37c07c7062dfff5047c0dd1a974c2b8d37c0e3ee6bc9ff5047c0d75b51eb2b8d37c0171d61b7ff5047c0f66e028c2c8d37c0a51b4da9ff5047c0e739472e2d8d37c03b99389fff5047c05ca9bbd12d8d37c052cd2999ff5047c0c5eefa752e8d37c054742497ff5047c077be9f1a2f8d37c052cd2999ff5047c0298e44bf2f8d37c03b99389fff5047c091d38363308d37c0a41b4da9ff5047c00743f806318d37c0171d61b7ff5047c0f80d3da9318d37c0e3ee6bc9ff5047c01721ee49328d37c07c7062dfff5047c01162a8e8328d37c0551637f9ff5047c0aeec0985338d37c03df2d916005147c0314fb21e348d37c030bd3838005147c0d0c542b5348d37c09de23e5d005147c027755e48358d37c0178dd585005147c07da3aad7358d37c06bb4e3b1005147c0b7f0ce62368d37c0112d4ee1005147c0db8c75e9368d37c0ebb8f713015147c0f86c4b6b378d37c05019c149015147c0627e00e8378d37c04e228982015147c010d8475f388d37c03ff5d6e4115147c0f37de323598d37c0411a9305125147c0fd8f9963598d37c002d5bc42125147c01f99dfd1598d37c0d24a8882125147c0800d033a5a8d37c0a423cec4125147c08ab3c39b5a8d37c02f806509135147c0e041e5f65a8d37c022132450135147c08e842f4b5b8d37c0363bde98135147c0b17f6e985b8d37c01d1e67e3135147c0898f72de5b8d37c027c4902f145147c0d885101d5c8d37c09d342c7d145147c084c421545c8d37c0b99209cc145147c0685584835c8d37c0293bf81b155147c046ff1aab5c8d37c011e2c66c155147c0ce57cdca5c8d37c070b143be155147c0abd287e25c8d37c0dc673c10165147c093cd3bf25c8d37c081777e62165147c04a99dff95c8d37c0);
+-- Copiando dados para a tabela sparqbd.parque: ~0 rows (aproximadamente)
+/*!40000 ALTER TABLE `parque` DISABLE KEYS */;
+/*!40000 ALTER TABLE `parque` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela sparqbd.registro
 CREATE TABLE IF NOT EXISTS `registro` (
@@ -73,9 +73,11 @@ CREATE TABLE IF NOT EXISTS `registro` (
   KEY `fk_registro_indice` (`id_indice`),
   CONSTRAINT `fk_registro_indice` FOREIGN KEY (`id_indice`) REFERENCES `indice` (`id_indice`),
   CONSTRAINT `fk_registro_leitura` FOREIGN KEY (`id_leitura`) REFERENCES `leitura` (`id_leitura`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Copiando dados para a tabela sparqbd.registro: ~0 rows (aproximadamente)
+/*!40000 ALTER TABLE `registro` DISABLE KEYS */;
+/*!40000 ALTER TABLE `registro` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela sparqbd.sensores
 CREATE TABLE IF NOT EXISTS `sensores` (
@@ -88,13 +90,11 @@ CREATE TABLE IF NOT EXISTS `sensores` (
   PRIMARY KEY (`id_sensor`),
   KEY `fk_sensores_parque` (`id_parque`),
   CONSTRAINT `fk_sensores_parque` FOREIGN KEY (`id_parque`) REFERENCES `parque` (`id_parque`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Copiando dados para a tabela sparqbd.sensores: ~3 rows (aproximadamente)
-INSERT INTO `sensores` (`id_sensor`, `nome_sensor`, `tipo_sensor`, `latitude`, `longitude`, `id_parque`) VALUES
-	(1, 'Sensor de Qualidade do Ar', 'Ar', -23.55052000, -46.63330800, 1),
-	(2, 'Sensor de Umidade do Solo', 'Solo', -23.55040000, -46.63350000, 1),
-	(3, 'Estação Meteorológica', 'Clima', -23.55120000, -46.63420000, 2);
+-- Copiando dados para a tabela sparqbd.sensores: ~0 rows (aproximadamente)
+/*!40000 ALTER TABLE `sensores` DISABLE KEYS */;
+/*!40000 ALTER TABLE `sensores` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela sparqbd.usuario
 CREATE TABLE IF NOT EXISTS `usuario` (
@@ -107,34 +107,35 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `senha` varchar(255) NOT NULL,
   `cargo` int(11) NOT NULL,
   `avatar` varchar(200) NOT NULL DEFAULT 'avatar.png',
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `ativo` tinyint(1) NOT NULL DEFAULT 1,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ativo` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id_usuario`),
   UNIQUE KEY `email` (`email`),
-  UNIQUE KEY `cpf` (`cpf`),
-  KEY `fk_usuario_parque` (`id_parque`),
-  CONSTRAINT `fk_usuario_parque` FOREIGN KEY (`id_parque`) REFERENCES `parque` (`id_parque`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  UNIQUE KEY `cpf` (`cpf`)
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4;
 
+-- Copiando dados para a tabela sparqbd.usuario: ~13 rows (aproximadamente)
 -- Copiando dados para a tabela sparqbd.usuario: ~14 rows (aproximadamente)
-INSERT INTO `usuario` (`id_usuario`, `nome`, `email`, `cpf`, `sexo`, `id_parque`, `senha`, `cargo`, `avatar`, `created_at`, `ativo`) VALUES
-	(1, 'Exemplo', 'exemplo@email.com', '11111111111111', 'masculino', 1, '123456', 1, 'avatar.png', '2025-09-03 21:42:59', 1),
-	(2, 'Jane Doe', 'jane.doe@email.com', '22222222222222', 'feminino', 2, 'senha456', 0, 'avatar.png', '2025-09-03 22:31:33', 1),
-	(3, 'John Smith', 'john.smith@email.com', '33333333333333', 'masculino', 1, 'admin123', 1, 'avatar.png', '2025-09-03 22:31:33', 1),
-	(4, 'Maria Silva', 'maria.silva@email.com', '44444444444444', 'feminino', 3, 'senha789', 0, 'maria_avatar.png', '2025-09-03 22:31:33', 1),
-	(30, 'Pedro Martins', 'pedro.martins@email.com', '55555555555555', 'masculino', 1, 'senha123', 0, 'avatar.png', '2025-09-03 22:31:33', 1),
-	(31, 'Ana Clara', 'ana.clara@email.com', '66666666666666', 'feminino', 2, 'senha456', 0, 'avatar.png', '2025-09-03 22:31:33', 1),
-	(32, 'Carlos Rocha', 'carlos.rocha@email.com', '77777777777777', 'masculino', 3, 'senha789', 0, 'avatar.png', '2025-09-03 22:31:33', 1),
-	(33, 'Isabela Fernandes', 'isabela.f@email.com', '88888888888888', 'feminino', 1, 'senhaabc', 0, 'avatar.png', '2025-09-03 22:31:33', 1),
-	(34, 'Ricardo Gomes', 'ricardo.g@email.com', '99999999999999', 'masculino', 2, 'senhadef', 0, 'avatar.png', '2025-09-03 22:31:33', 1),
-	(35, 'Fernanda Lima', 'fernanda.lima@email.com', '01010101010101', 'feminino', 3, 'senhaghi', 0, 'avatar.png', '2025-09-03 22:31:33', 1),
-	(36, 'Lucas Castro', 'lucas.c@email.com', '12121212121212', 'masculino', 1, 'senhajkl', 0, 'avatar.png', '2025-09-03 22:31:33', 1),
-	(37, 'Patrícia Sousa', 'patricia.s@email.com', '13131313131313', 'feminino', 2, 'senhamno', 0, 'avatar.png', '2025-09-03 22:31:33', 1),
-	(38, 'Gustavo Oliveira', 'gustavo.o@email.com', '14141414141414', 'masculino', 3, 'senhapqr', 0, 'avatar.png', '2025-09-03 22:31:33', 1),
-	(39, 'Sofia Mendes', 'sofia.m@email.com', '15151515151515', 'feminino', 1, 'senhastu', 0, 'avatar.png', '2025-09-03 22:31:33', 1);
+/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+INSERT INTO `usuario` (`id_usuario`, `nome`, `email`, `cpf`, `sexo`, `parque`, `senha`, `cargo`, `avatar`, `created_at`, `ativo`) VALUES
+	(22, 'João Silva', 'joao.silva@example.com', '123.456.789-00', 'masculino', 1, '123456', 1, 'avatar.png', '2025-08-22 17:04:24', 1),
+	(23, 'Maria Oliveira', 'maria.oliveira@example.com', '987.654.321-00', 'feminino', 1, '123456', 2, 'avatar.png', '2025-08-22 17:04:24', 1),
+	(24, 'Carlos Souza', 'carlos.souza@example.com', '111.222.333-44', 'outro', 1, '123456', 3, 'avatar.png', '2025-08-22 17:04:24', 0),
+	(25, 'Alice Santos', 'alice.santos@email.com', '123.456.789-01', 'feminino', 1, '123456', 2, 'avatar.png', '2025-08-22 17:23:34', 1),
+	(26, 'Bruno Lima', 'bruno.lima@email.com', '123.456.789-02', 'masculino', 1, 'senha123', 3, 'avatar.png', '2025-08-22 17:23:34', 0),
+	(27, 'Carla Souza', 'carla.souza@email.com', '123.456.789-03', 'feminino', 2, 'senha123', 2, 'avatar.png', '2025-08-22 17:23:34', 1),
+	(28, 'Daniel Rocha', 'daniel.rocha@email.com', '123.456.789-04', 'masculino', 2, 'senha123', 3, 'avatar.png', '2025-08-22 17:23:34', 1),
+	(29, 'Eduarda Melo', 'eduarda.melo@email.com', '123.456.789-05', 'feminino', 1, 'senha123', 2, 'avatar.png', '2025-08-22 17:23:34', 0),
+	(30, 'Felipe Costa', 'felipe.costa@email.com', '123.456.789-06', 'masculino', 2, 'senha123', 3, 'avatar.png', '2025-08-22 17:23:34', 1),
+	(31, 'Gabriela Pinto', 'gabriela.pinto@email.com', '123.456.789-07', 'feminino', 1, 'senha123', 2, 'avatar.png', '2025-08-22 17:23:34', 1),
+	(32, 'Hugo Martins', 'hugo.martins@email.com', '123.456.789-08', 'masculino', 2, 'senha123', 3, 'avatar.png', '2025-08-22 17:23:34', 0),
+	(33, 'Isabela Dias', 'isabela.dias@email.com', '123.456.789-09', 'feminino', 1, 'senha123', 2, 'avatar.png', '2025-08-22 17:23:34', 1),
+	(34, 'João Fernandes', 'joao.fernandes@email.com', '123.456.789-10', 'masculino', 2, 'senha123', 3, 'avatar.png', '2025-08-22 17:23:34', 0),
+	(35, 'Karina Alves', 'karina.alves@email.com', '123.456.789-11', 'feminino', 1, 'senha123', 2, 'avatar.png', '2025-08-22 17:23:34', 1),
+	(36, 'Lucas Nascimento', 'lucas.nascimento@email.com', '123.456.789-12', 'masculino', 2, 'senha123', 3, 'avatar.png', '2025-08-22 17:23:34', 1),
+	(37, 'Alex Martins', 'alex.martins@exemplo.com', '124.153.647-64', 'masculino', 1, '123456', 2, 'avatar.png', '2025-08-22 17:32:10', 1);
+/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 
-/*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;

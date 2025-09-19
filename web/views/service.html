@@ -2,7 +2,52 @@
 {% block content %}
 <main>
     {% if dados %}
+    <div class="container-map">
+        <div class="map-info">
+            <div class="sensor-info">
+                <!-- Legenda -->
+                <h2>Legenda</h2>
+                <div class="sensor-caption">
+                    <div class="caption-item">
+                        <span class="status-icon green"></span>
+                        <span>Seguro</span>
+                    </div>
+                    <div class="caption-item">
+                        <span class="status-icon yellow"></span>
+                        <span>Alerta</span>
+                    </div>
+                    <div class="caption-item">
+                        <span class="status-icon red"></span>
+                        <span>Perigo</span>
+                    </div>
+                </div>
 
+                <!-- Sensores Ativos -->
+                <h2>Sensores Ativos</h2>
+                <div class="sensor-items">
+                    <div class="sensor-item">
+                        <span class="status-icon green"></span>
+                        <p>Central - Sensor 1</p>
+                        <p>-</p>
+                        <h4>CO2 339 ppm</h4>
+                    </div>
+                    <div class="sensor-item">
+                        <span class="status-icon yellow"></span>
+                        <p>Oeste - Sensor 2</p>
+                        <p>-</p>
+                        <h4>CO2 400 ppm</h4>
+                    </div>
+                    <div class="sensor-item">
+                        <span class="status-icon red"></span>
+                        <p>Sul - Sensor 3</p>
+                        <p>-</p>
+                        <h4>CO2 631 ppm</h4>
+                    </div>
+                </div>
+            </div>
+            <div id="map"></div>
+        </div>
+    </div>
     <div class="container-widgets-service">
         <div class="widget-service">
             <div class="widget-service-header">
@@ -22,12 +67,11 @@
                 {% endif %}
             </div>
         </div>
-        <div class="widget-service">
+        <div class="widget-service" id="sensor-widget">
             <div class="widget-service-header">
                 <form action="/service" method="post">
-                    
                     <select class="select-sensor-info" name="park" id="park" onchange="this.form.submit()">
-                        <option>Nenhum Selecionado  </option>
+                        <option>Nenhum Selecionado </option>
                         <option value="1">Sensor 1</option>
                         <option value="2">Sensor 2</option>
                     </select>
@@ -77,25 +121,35 @@
                     </div>
                     <div>
                         <div class="content-temp-sensor sub-info-temp">
-                            <i style="color: #d35151;" class="fa-solid fa-arrow-up"></i>
-                            <h2>{{ temp.maxTemp }}°</h2>
-                            <i style="color: #4545fc;" class="fa-solid fa-arrow-down"></i>
-                            <h2>{{ temp.minTemp }}°</h2>
+                            <div class="temp-max">
+                                <i style="color: #d35151;" class="fa-solid fa-arrow-up"></i>
+                                <h2>{{ temp.maxTemp }}°</h2>
+                                <p>Máxima</p>
+                            </div>
+                            <div class="temp-min">
+                                <i style="color: #4545fc;" class="fa-solid fa-arrow-down"></i>
+                                <h2>{{ temp.minTemp }}°</h2>
+                                <p>Mínima</p>
+                            </div>
                         </div>
-                        <div class="content-temp-sensor sub-info-temp">
-                            {% if humi > 0 and humi < 50 %} <i style="color: #4545fc;" class="fa-solid fa-droplet"></i>
-                                <i class="fa-solid fa-droplet"></i>
-                                <i class="fa-solid fa-droplet"></i>
-                                {% elif humi > 50 and humi < 60 %} <i style="color: #4545fc;"
-                                    class="fa-solid fa-droplet"></i>
-                                    <i style="color: #4545fc;" class="fa-solid fa-droplet"></i>
+                        <div class="humidity-wrapper">
+                            <div class="humidity-info">
+                                {% if humi > 0 and humi < 50 %} <i style="color: #4545fc;" class="fa-solid fa-droplet">
+                                    </i>
                                     <i class="fa-solid fa-droplet"></i>
-                                    {% elif humi > 60 %}
-                                    <i style="color: #4545fc;" class="fa-solid fa-droplet"></i>
-                                    <i style="color: #4545fc;" class="fa-solid fa-droplet"></i>
-                                    <i style="color: #4545fc;" class="fa-solid fa-droplet"></i>
-                                    {% endif %}
-                                    <h2>{{ humi }}%</h2>
+                                    <i class="fa-solid fa-droplet"></i>
+                                    {% elif humi > 50 and humi < 60 %} <i style="color: #4545fc;"
+                                        class="fa-solid fa-droplet"></i>
+                                        <i style="color: #4545fc;" class="fa-solid fa-droplet"></i>
+                                        <i class="fa-solid fa-droplet"></i>
+                                        {% elif humi > 60 %}
+                                        <i style="color: #4545fc;" class="fa-solid fa-droplet"></i>
+                                        <i style="color: #4545fc;" class="fa-solid fa-droplet"></i>
+                                        <i style="color: #4545fc;" class="fa-solid fa-droplet"></i>
+                                        {% endif %}
+                                        <h2>{{ humi }}%</h2>
+                            </div>
+                            <p class="humidity-label">Umidade</p>
                         </div>
                     </div>
                 </div>
@@ -123,6 +177,7 @@
     </div>
     {% endif %}
 </main>
+<script src="../static/script/map/map.js"></script>
 <script src="{{ url_for('static', filename='script/sensors/sensor.js') }}"></script>
 <script>
     setTimeout(function () {

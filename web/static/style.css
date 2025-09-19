@@ -2,11 +2,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=REM:ital,wght@0,100..900;1,100..900&display=swap");
 
 :root {
-  --gray-background: #14151b;
-  --green-background: #49895c;
+  --gray-background: #eeeeee;
   --blue-widget-background: #1e2530;
-  --black-nav-background: #000;
-  --white-text-hover: #cdd4da;
+  --white-nav-background: #fff;
+  --white-text-hover: #707479;
   --menu-font: "Plus Jakarta Sans", sans-serif;
   --nav-and-login-font: "REM", sans-serif;
   --widgets-font: "Instrument Sans", sans-serif;
@@ -17,7 +16,7 @@
 * {
   margin: 0;
   padding: 0;
-  color: #fff;
+  color: #000;
 }
 
 body {
@@ -27,12 +26,7 @@ body {
 
   /* ← AQUI: fundo com gradient SOMENTE no body */
   /* Background geral para todos os bodys */
-  background-image: linear-gradient(to top right,
-      #1e2c28,
-      #1c2725,
-      #192021,
-      #161a1e,
-      #141518);
+  background-color: #ededed;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
@@ -56,7 +50,7 @@ main {
 
 /* MANTIDAS FIXAS */
 .base-nav-background {
-  background-color: var(--black-nav-background);
+  background-color: var(--white-nav-background);
 }
 
 .tittle-nav {
@@ -136,19 +130,19 @@ main {
   flex-direction: column;
   width: 17vw;
   height: 23vh;
-  background-color: #ffffff21;
+  background-color: #fff;
   text-decoration: none;
   align-items: center;
   justify-content: center;
   text-align: center;
-  border: 0.5px solid #ffffff7c;
+  border: 0.1px solid #00000083;
   border-radius: 1vw;
   margin: 0.2vw;
   transition: 250ms;
 }
 
 .button-menu:hover {
-  background-color: #ffffff4b;
+  background-color: #a0a0a04b;
   transform: scale(0.98);
 }
 
@@ -258,11 +252,10 @@ main {
   width: 100%;
   padding: 0.6vw 0.8vw;
   margin-bottom: 2vh;
-  border: 1px solid #fff;
-  border-left: 10px solid #fff;
+  border: 1px solid #000000;
+  border-left: 10px solid #000000;
   border-radius: 8px;
-  background-color: #333;
-  color: #999;
+  color: #5c5c5c;
   font-size: clamp(14px, 1.6vw, 18px);
   box-sizing: border-box;
 }
@@ -280,8 +273,7 @@ main {
   min-width: 20rem;
   /* ~320px se 1rem = 16px */
   max-width: 550px;
-  background-color: var(--gray-background);
-  border: 1px solid #ffffff;
+  border: 1px solid #000000;
   border-radius: 20px;
   padding: 2.5vw;
   box-sizing: border-box;
@@ -340,12 +332,7 @@ main {
 /* STYLE BASE ASIDE*/
 .background-aside-base {
   display: flex;
-  background-image: linear-gradient(to top right,
-      #1e2c28,
-      #1c2725,
-      #192021,
-      #161a1e,
-      #141518);
+  background-color: #ededed;
   overflow: auto;
 }
 
@@ -461,13 +448,13 @@ main {
 }
 
 .button-aside:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(209, 209, 209, 0.1);
 }
 
 .aside-container:hover {
   width: 15vw;
   /* ajustável conforme necessidade */
-  background-color: var(--gray-background);
+  background-color: var(--white-nav-background);
 }
 
 .aside-container:not(:hover) {
@@ -637,7 +624,7 @@ main {
 .container-request {
   display: flex;
   flex-direction: column;
-  background-color: var(--blue-widget-background);
+  background-color: #fff;
   border-radius: 10px;
   padding: 1vw;
   margin-top: 3vh;
@@ -665,7 +652,6 @@ main {
   border-radius: 50%;
   overflow: hidden;
   /* Garante que a imagem não ultrapasse os limites */
-  border: 2px solid #fff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -684,7 +670,6 @@ main {
   flex: 1;
   text-align: center;
   font-size: clamp(14px, 1.2vw, 16px);
-  color: #fff;
   font-weight: 400;
   font-family: var(--nav-and-login-font);
   position: relative;
@@ -739,7 +724,7 @@ main {
 
 /* Cada painel */
 .sensor-panel {
-  background-color: var(--blue-widget-background);
+  background-color: #fff;
   border-radius: 8px;
   overflow: hidden;
   transition: box-shadow 200ms;
@@ -804,9 +789,9 @@ main {
   gap: 2rem;
   margin: 5vw;
   padding: 2vw;
-  background-color: var(--blue-widget-background);
+  background-color: #fff;
   border-radius: 8px;
-  
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 /* Remove as barras entre as detail-item apenas dentro de sensor-content */
@@ -848,16 +833,16 @@ main {
 
 .map-btn {
   padding: 0.6rem 3rem;
-  border: 1px solid #fff;
+  border: 1px solid #000000;
   border-radius: 5px;
   background: transparent;
-  color: #fff;
+  color: #000000;
   cursor: pointer;
   transition: 200ms;
 }
 
 .map-btn:hover {
-  background-color: rgb(247, 233, 233);
+  background-color: rgb(202, 202, 202);
   color: #050404;
 }
 
@@ -934,19 +919,19 @@ main {
 
 .pagination a.page-link {
   color: var(--white-text-hover);
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(97, 97, 97, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .pagination a.page-link:hover {
   background-color: rgba(255, 255, 255, 0.2);
-  color: #fff;
+  color: #000000;
   transform: translateY(-2px);
 }
 
 .pagination strong.current-page {
   background-color: var(--green-background);
-  color: white;
+  color: #4e4e4e;
   border: 1px solid var(--green-background);
   font-weight: 600;
 }
@@ -972,34 +957,43 @@ main {
 
 /* SERVICE PAGE STYLE */
 
-.container-widgets-service{
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-  
+.container-widgets-service {
+  display: flex;
+  column-gap: 2rem;
+  padding-top: 1vh;
 }
-.widget-service{
-  background-color: var(--blue-widget-background);
-  margin: 0.5vw;
+
+.widget-service {
+  background-color: #fff;
   min-height: 10px;
   border-radius: 1vw;
   font-family: var(--widgets-font);
   font-weight: 200;
-  font-style: normal  ;
+  font-style: normal;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
-.widget-service-header{
+
+#sensor-widget {
+  height: fit-content;
+}
+
+.widget-service-header {
   display: flex;
   align-items: center;
   padding: 1.5vh;
   flex-direction: row;
 }
-.widget-service-content{
-  padding: 1vw;
+
+.widget-service-content {
+  padding: 1.5vh;
 }
-.content-none-notify-widget{
+
+.content-none-notify-widget {
   opacity: 0.5;
-  text-align: center ;
+  text-align: center;
 }
-.content-notify-widget{
+
+.content-notify-widget {
   display: flex;
   align-items: center;
   padding-left: 1vw;
@@ -1007,45 +1001,217 @@ main {
   border-radius: 0.5vw;
   background-color: #ff7c31;
 }
-.text-alert{
+
+.text-alert {
   padding-left: 1vw;
 }
-.select-sensor{
-  color: #000;
+
+.select-sensor {
+  color: var(--gray-background);
 }
-.content-info-sensor{
+
+.content-info-sensor {
   display: flex;
 }
-.content-temp-sensor{
+
+.content-temp-sensor {
   display: flex;
   align-items: center;
-
 }
-.max-and-min-content{
+
+.max-and-min-content {
   display: flex;
 }
-.content-info-cell{
+
+.content-info-cell {
   text-align: center;
   padding: 2vw;
 }
-.prince-temp{
+
+.prince-temp {
   font-size: 2vw;
   font-weight: 200;
   font-family: var(--widgets-font);
   margin-right: 1vw;
 }
-.sub-info-temp{
+
+.sub-info-temp {
   padding: 0.2vw;
 }
+
 .sub-info-temp * {
   margin-right: 0.4vw;
 }
-.select-sensor-info{
+
+.select-sensor-info {
   all: unset;
-  background-color: #3E3F43;
+  background-color: var(--gray-background);
   padding: 0.3vw;
   margin-right: 0.4vw;
   align-items: center;
   cursor: pointer;
   border-radius: 0.3vw;
+}
+
+.container-map {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  /* ocupa toda a largura disponível */
+  box-sizing: border-box;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+.container-map,
+.container-widgets-service {
+  max-width: 90vw;
+  /* ou o valor que deseja */
+  margin: 0 auto;
+  /* centraliza */
+}
+
+.map-info {
+  background-color: #fff;
+  display: flex;
+  width: 100%;
+  /* ocupa 100% da largura do container */
+  max-width: 100%;
+  /* impede que passe do limite */
+  height: 50vh;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+#map {
+  width: 70vw;
+  height: 100%;
+}
+
+.sensor-info {
+  width: 20vw;
+  min-width: 200px;
+  background-color: #f9f9f9;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  border-right: 1px solid #e0e0e0;
+}
+
+/* Legend styles */
+.sensor-caption {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+
+.caption-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+
+/* Sensor items styles */
+.sensor-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sensor-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background-color 0.2s ease;
+}
+
+.sensor-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background-color 0.2s ease;
+}
+
+.sensor-item:hover {
+  background-color: #f0f0f0;
+}
+
+.sensor-item p,
+h4 {
+  margin: 0;
+  font-family: var(--widgets-font);
+  font-size: 0.9rem;
+  color: #444;
+}
+
+/* Status icon styles */
+.status-icon {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.green {
+  background-color: #4CAF50;
+}
+
+.yellow {
+  background-color: #FFC107;
+}
+
+.red {
+  background-color: #F44336;
+}
+
+/* Titles */
+.sensor-info h2 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #333;
+  font-family: var(--widgets-font);
+  text-align: center;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.humidity-wrapper {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.humidity-info {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  /* Espaço entre ícones e valor */
+}
+
+.humidity-label {
+  margin-top: 5px;
+  /* Espaço entre o valor e o texto "Umidade" */
+
+}
+
+.alert-message {
+    padding: 12px;
+    margin: 15px 0;
+    border-radius: 5px;
+    background-color: #ffebee;
+    color: #c62828;
+    text-align: center;
+    border: 1px solid #ef5350;
+    font-weight: bold;
 }
